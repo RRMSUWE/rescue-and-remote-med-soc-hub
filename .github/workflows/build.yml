@@ -1,0 +1,30 @@
+name: Refresh Feed Site
+
+on:
+  schedule:
+    # Runs every 6 hours (at minute 0 of hours 0, 6, 12, 18)
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Allows you to trigger the update manually with a button
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run OsmosFeed Generator
+        uses: osmoscraft/osmosfeed@v1
+        with:
+          opml-source: 'feeds.opml'
+          config-source: 'osmosfeed.yaml'
+          output-target: 'public'
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
