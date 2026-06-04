@@ -2,9 +2,8 @@ name: Refresh Feed Site
 
 on:
   schedule:
-    # Runs every 6 hours (at minute 0 of hours 0, 6, 12, 18)
     - cron: '0 */6 * * *'
-  workflow_dispatch: # Allows you to trigger the update manually with a button
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,12 +15,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Run OsmosFeed Generator
-        uses: osmoscraft/osmosfeed@master
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          opml-source: 'feeds.opml'
-          config-source: 'osmosfeed.yaml'
-          output-target: 'public'
+          node-node-version: '16'
+
+      - name: Generate OsmosFeed Site
+        run: |
+          npx osmosfeed feeds.opml osmosfeed.yaml public
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
