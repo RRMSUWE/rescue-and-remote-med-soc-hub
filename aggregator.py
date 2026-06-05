@@ -48,33 +48,29 @@ def robust_parse_date(date_str):
         pass
     return datetime.now().timestamp(), "Recent"
 
-# Helper function to dig out a thumbnail from various messy RSS structures
 def extract_thumbnail(item_element):
-    # 1. Check standard Media RSS namespaces (common for YouTube and large blogs)
-    for media_tag in ['.//{http://search.yahoo.com/mrss/}content', './/{http://search.yahoo.com/mrss/}thumbnail']:
-        found = item_element.find(media_tag)
-        if found is not None and found.get('url'):
-            return found.get('url')
-            
-    # 2. Check standard podcast cover art tags
-    itunes_image = item_element.find('.//{http://www.itunes.com/dtds/podcast-1.0.dtd}image')
-    if itunes_image is not None and itunes_image.get('href'):
-        return itunes_image.get('href')
+    try:
+        for media_tag in ['.//{http://search.yahoo.com/mrss/}content', './/{http://search.yahoo.com/mrss/}thumbnail']:
+            found = item_element.find(media_tag)
+            if found is not None and found.get('url'):
+                return str(found.get('url'))
+                
+        itunes_image = item_element.find('.//{http://www.itunes.com/dtds/podcast-1.0.dtd}image')
+        if itunes_image is not None and itunes_image.get('href'):
+            return str(itunes_image.get('href'))
 
-    # 3. Check enclosures (frequently holds images or mp3 album files)
-    enclosure = item_element.find('enclosure')
-    if enclosure is not None and enclosure.get('type', '').startswith('image/'):
-        return enclosure.get('url')
+        enclosure = item_element.find('enclosure')
+        if enclosure is not None and enclosure.get('type', '').startswith('image/'):
+            return str(enclosure.get('url'))
 
-    # 4. Deep string search in descriptions for raw <img> tags as an absolute fallback
-    desc = item_element.findtext('description') or item_element.findtext('{http://www.w3.org/2005/Atom}content') or ""
-    if desc:
-        img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', desc)
-        if img_match:
-            return img_match.group(1)
-
-    return "" # Returns empty if no image exists (handled by CSS placeholders)
-
+        desc = item_element.findtext('description') or item_element.findtext('{http://www.w3.org/2005/Atom}content') or ""
+        if desc:
+            img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', desc)
+            if img_match:
+                return str(img_match.group(1))
+    except Exception:
+        pass
+    return ""
 
 for url in feed_urls[:40]:
     try:
@@ -98,7 +94,6 @@ for url in feed_urls[:40]:
                 pub_date_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or ""
                 timestamp, date_display_str = robust_parse_date(pub_date_raw)
                 
-                # Extract the dynamic cover image url!
                 image_url = extract_thumbnail(item)
 
                 lower_link = link.lower()
@@ -112,10 +107,10 @@ for url in feed_urls[:40]:
                     item_type = "blog"
                     
                 existing_archive.append({
-                    "title": title, 
-                    "link": link, 
-                    "date_str": date_display_str, 
-                    "timestamp": timestamp,
+                    "title": str(title), 
+                    "link": str(link), 
+                    "date_str": str(date_display_str), 
+                    "timestamp": float(timestamp),
                     "type": item_type,
                     "image": image_url
                 })
@@ -144,31 +139,24 @@ html_content = f"""
         .container {{ max-width: 950px; margin: 0 auto; }}
         header {{ text-align: center; margin-bottom: 30px; background: #1e293b; color: white; padding: 30px; border-radius: 12px; }}
         h1 {{ margin: 0; font-size: 26px; }}
-        
-        /* Fruit Machine Upgrade styles */
         .fruit-machine-box {{ background: #fff; border: 3px dashed #ef4444; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }}
         .machine-header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 15px; }}
         .machine-title {{ font-weight: bold; font-size: 20px; color: #1e293b; }}
         .spin-btn {{ background: #ef4444; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; }}
-        .spin-btn:hover {{ background: #td2626; }}
+        .spin-btn:hover {{ background: #dc2626; }}
         .slots-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }}
         @media(max-width: 768px) {{ .slots-grid {{ grid-template-columns: 1fr; }} }}
         .slot-column {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }}
         .column-header {{ font-weight: bold; text-transform: uppercase; font-size: 12px; margin-bottom: 10px; color: #64748b; border-bottom: 2px solid #cbd5e1; padding-bottom: 5px; }}
-        
         .slot-item {{ background: #fff; padding: 10px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 10px; text-decoration: none; color: #334155; font-weight: 500; }}
         .slot-item:hover {{ border-color: #ef4444; color: #ef4444; }}
         .slot-thumb {{ width: 45px; height: 45px; border-radius: 4px; object-fit: cover; flex-shrink: 0; background: #e2e8f0; }}
-
         .search-bar {{ width: 100%; padding: 14px 20px; font-size: 16px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; outline: none; margin-bottom: 25px; }}
         .search-bar:focus {{ border-color: #ef4444; }}
-        
-        /* Layout Timeline Modern Row Cards */
         .card {{ background: white; padding: 15px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); display: flex; gap: 15px; align-items: center; text-decoration: none; color: inherit; border-left: 5px solid #64748b; }}
         .card.video {{ border-left-color: #ef4444; }}
         .card.podcast {{ border-left-color: #3b82f6; }}
         .card.blog {{ border-left-color: #10b981; }}
-        
         .card-thumb {{ width: 80px; height: 80px; border-radius: 6px; object-fit: cover; background: #e2e8f0; flex-shrink: 0; }}
         .card-body {{ flex-grow: 1; }}
         .card h3 {{ margin: 0 0 5px 0; font-size: 17px; color: #1e293b; }}
@@ -212,7 +200,6 @@ html_content = f"""
         <main id="archiveTimeline">
 """
 
-# Base64 fallbacks if the feed completely lacks graphics to prevent broken image icons
 fallbacks = {
     "video": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=150&auto=format&fit=crop&q=60",
     "podcast": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=150&auto=format&fit=crop&q=60",
@@ -268,7 +255,7 @@ html_content += f"""
                 return `<a class="slot-item" href="${{p.link}}" target="_blank"><img class="slot-thumb" src="${{src}}"><span>${{p.title}}</span></a>`;
             }}).join('');
 
-            blogs.innerHTML = blogs.map(b => {{
+            bSlots.innerHTML = blogs.map(b => {{
                 let src = b.image ? b.image : fallbacks.blog;
                 return `<a class="slot-item" href="${{b.link}}" target="_blank"><img class="slot-thumb" src="${{src}}"><span>${{b.title}}</span></a>`;
             }}).join('');
@@ -292,4 +279,4 @@ html_content += f"""
 with open('public/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Media rich compilation operational!")
+print("Media rich compilation complete!")
