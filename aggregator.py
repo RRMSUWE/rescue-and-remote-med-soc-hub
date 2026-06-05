@@ -9,6 +9,7 @@ import re
 ARCHIVE_FILE = 'public/archive.json'
 existing_archive = []
 
+# 1. Gracefully load past archive layers
 if os.path.exists(ARCHIVE_FILE):
     try:
         with open(ARCHIVE_FILE, 'r', encoding='utf-8') as f:
@@ -17,17 +18,22 @@ if os.path.exists(ARCHIVE_FILE):
     except Exception as e:
         print(f"Could not load old archive: {e}")
 
-known_links = {item['link'] for item in existing_archive}
+known_links = {item.get('link') for item in existing_archive if 'link' in item}
 
 print("Parsing feeds.opml...")
-tree = ET.parse('feeds.opml')
-root = tree.getroot()
-feed_urls = []
+try:
+    tree = ET.parse('feeds.opml')
+    root = tree.getroot()
+except Exception as e:
+    print(f"CRITICAL ERROR: feeds.opml is corrupt or missing! {e}")
+    root = None
 
-for outline in root.findall('.//outline'):
-    xml_url = outline.get('xmlUrl')
-    if xml_url:
-        feed_urls.append(xml_url)
+feed_urls = []
+if root is not None:
+    for outline in root.findall('.//outline'):
+        xml_url = outline.get('xmlUrl')
+        if xml_url:
+            feed_urls.append(xml_url)
 
 print(f"Checking {len(feed_urls)} source feeds for updates...")
 new_items_count = 0
@@ -36,12 +42,12 @@ def robust_parse_date(date_str):
     if not date_str:
         return datetime.now().timestamp(), "Recent"
     try:
-        dt = email.utils.parsedate_to_datetime(date_str)
+        dt = email.utils.parsedate_to_datetime(str(date_str))
         return dt.timestamp(), dt.strftime('%d %b %Y')
     except Exception:
         pass
     try:
-        clean_date = date_str.split('T')[0]
+        clean_date = str(date_str).split('T')[0]
         dt = datetime.strptime(clean_date, "%Y-%m-%d")
         return dt.timestamp(), dt.strftime('%d %b %Y')
     except Exception:
@@ -50,78 +56,117 @@ def robust_parse_date(date_str):
 
 def extract_thumbnail(item_element):
     try:
+        # Check standard Media RSS namespaces
         for media_tag in ['.//{http://search.yahoo.com/mrss/}content', './/{http://search.yahoo.com/mrss/}thumbnail']:
-            found = item_element.find(media_tag)
-            if found is not None and found.get('url'):
-                return str(found.get('url'))
+            try:
+                found = item_element.find(media_tag)
+                if found is not None and found.get('url'):
+                    return str(found.get('url'))
+            except Exception:
+                pass
                 
-        itunes_image = item_element.find('.//{http://www.itunes.com/dtds/podcast-1.0.dtd}image')
-        if itunes_image is not None and itunes_image.get('href'):
-            return str(itunes_image.get('href'))
+        # Check standard podcast cover art tags
+        try:
+            itunes_image = item_element.find('.//{http://www.itunes.com/dtds/podcast-1.0.dtd}image')
+            if itunes_image is not None and itunes_image.get('href'):
+                return str(itunes_image.get('href'))
+        except Exception:
+            pass
 
-        enclosure = item_element.find('enclosure')
-        if enclosure is not None and enclosure.get('type', '').startswith('image/'):
-            return str(enclosure.get('url'))
+        # Check enclosure tags
+        try:
+            enclosure = item_element.find('enclosure')
+            if enclosure is not None and enclosure.get('type', '').startswith('image/'):
+                return str(enclosure.get('url'))
+        except Exception:
+            pass
 
+        # Regex scrape image sources from textual elements
         desc = item_element.findtext('description') or item_element.findtext('{http://www.w3.org/2005/Atom}content') or ""
         if desc:
-            img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', desc)
+            img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', str(desc))
             if img_match:
                 return str(img_match.group(1))
     except Exception:
         pass
     return ""
 
+# 2. Iterate and process live feeds wrapped inside isolated safety buffers
 for url in feed_urls[:40]:
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=10) as response:
             xml_data = response.read()
-            feed_root = ET.fromstring(xml_data)
+            
+            # Use standard XML parser but intercept formatting compilation failures
+            try:
+                feed_root = ET.fromstring(xml_data)
+            except Exception as xml_err:
+                print(f"Skipping feed {url} due to bad XML formatting: {xml_err}")
+                continue
             
             channel = feed_root.find('channel')
             items = channel.findall('item') if channel is not None else feed_root.findall('.//{http://www.w3.org/2005/Atom}entry')
             
+            if not items:
+                items = feed_root.findall('item')  # Alternative fallback layout style
+                
             for item in items[:25]:
-                title = item.findtext('title') or item.findtext('{http://www.w3.org/2005/Atom}title')
-                link = item.findtext('link') or (item.find('{http://www.w3.org/2005/Atom}link').get('href') if item.find('{http://www.w3.org/2005/Atom}link') is not None else "")
-                
-                if not title or not link or link.startswith('/'):
-                    continue
-                if link in known_links:
-                    continue
-                
-                pub_date_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or ""
-                timestamp, date_display_str = robust_parse_date(pub_date_raw)
-                
-                image_url = extract_thumbnail(item)
-
-                lower_link = link.lower()
-                lower_title = title.lower()
-                
-                if "youtube.com" in lower_link or "youtu.be" in lower_link or "video" in lower_title:
-                    item_type = "video"
-                elif "podcast" in lower_link or "spotify" in lower_link or "podcast" in lower_title or "audio" in lower_title or "episode" in lower_title:
-                    item_type = "podcast"
-                else:
-                    item_type = "blog"
+                try:
+                    title = item.findtext('title') or item.findtext('{http://www.w3.org/2005/Atom}title')
+                    link = item.findtext('link') or (item.find('{http://www.w3.org/2005/Atom}link').get('href') if item.find('{http://www.w3.org/2005/Atom}link') is not None else "")
                     
-                existing_archive.append({
-                    "title": str(title), 
-                    "link": str(link), 
-                    "date_str": str(date_display_str), 
-                    "timestamp": float(timestamp),
-                    "type": item_type,
-                    "image": image_url
-                })
-                known_links.add(link)
-                new_items_count += 1
+                    if not title or not link:
+                        continue
+                    
+                    link_str = str(link).strip()
+                    if link_str.startswith('/') or not link_str.startswith('http'):
+                        continue
+                    if link_str in known_links:
+                        continue
+                    
+                    pub_date_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or item.findtext('{http://www.w3.org/2005/Atom}updated') or ""
+                    timestamp, date_display_str = robust_parse_date(pub_date_raw)
+                    image_url = extract_thumbnail(item)
+
+                    lower_link = link_str.lower()
+                    lower_title = str(title).lower()
+                    
+                    if "youtube.com" in lower_link or "youtu.be" in lower_link or "video" in lower_title:
+                        item_type = "video"
+                    elif "podcast" in lower_link or "spotify" in lower_link or "podcast" in lower_title or "audio" in lower_title or "episode" in lower_title or "feedproxy" in lower_link:
+                        item_type = "podcast"
+                    else:
+                        item_type = "blog"
+                        
+                    existing_archive.append({
+                        "title": str(title), 
+                        "link": link_str, 
+                        "date_str": str(date_display_str), 
+                        "timestamp": float(timestamp),
+                        "type": item_type,
+                        "image": image_url
+                    })
+                    known_links.add(link_str)
+                    new_items_count += 1
+                except Exception as item_err:
+                    print(f"Skipped an individual item within {url} due to error: {item_err}")
+                    continue
                 
     except Exception as e:
-        print(f"Skipping bad feed {url}: {e}")
+        print(f"Skipping completely unreadable source feed {url}: {e}")
+        continue
 
-print(f"Archived {new_items_count} resources.")
-existing_archive.sort(key=lambda x: float(x['timestamp']), reverse=True)
+print(f"Archived {new_items_count} brand-new resources.")
+
+# Filter out empty or broken artifacts before sorting
+existing_archive = [i for i in existing_archive if i.get('title') and i.get('link')]
+
+# Ensure proper numeric chronological index sequencing (Newest First)
+try:
+    existing_archive.sort(key=lambda x: float(x.get('timestamp', 0)), reverse=True)
+except Exception as sort_err:
+    print(f"Warning during sort normalization: {sort_err}")
 
 os.makedirs('public', exist_ok=True)
 with open(ARCHIVE_FILE, 'w', encoding='utf-8') as f:
@@ -207,9 +252,10 @@ fallbacks = {
 }
 
 for item in existing_archive:
-    img_src = item['image'] if item['image'] else fallbacks[item['type']]
+    clean_title = item['title'].replace('"', '&quot;').replace("'", "&#39;")
+    img_src = item['image'] if item.get('image') else fallbacks[item['type']]
     html_content += f"""
-            <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{item['title'].lower()}">
+            <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{clean_title.lower()}">
                 <img class="card-thumb" src="{img_src}" loading="lazy" alt="cover">
                 <div class="card-body">
                     <h3>{item['title']}</h3>
@@ -279,4 +325,4 @@ html_content += f"""
 with open('public/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Media rich compilation complete!")
+print("Compilation successful and completely isolated from errors!")
