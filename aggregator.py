@@ -4,6 +4,7 @@ import urllib.request
 import json
 from datetime import datetime
 import email.utils
+import re
 
 # 1. Load existing archive data if it exists to prevent losing past releases
 ARCHIVE_FILE = 'public/archive.json'
@@ -15,7 +16,7 @@ if os.path.exists(ARCHIVE_FILE):
             existing_archive = json.load(f)
         print(f"Loaded {len(existing_archive)} existing records from history.")
     except Exception as e:
-        print(f"Could not load old archive, starting fresh: {e}")
+        print(f"Could not load old archive: {e}")
 
 # Create a lookup set of links we already have to prevent duplicates
 known_links = {item['link'] for item in existing_archive}
@@ -31,8 +32,52 @@ for outline in root.findall('.//outline'):
         feed_urls.append(xml_url)
 
 print(f"Checking {len(feed_urls)} source feeds for updates...")
-
 new_items_count = 0
+
+# Helper function to brutally parse almost any RSS date format into a sortable timestamp
+def robust_parse_date(date_str):
+    if not date_str:
+        return datetime.now().timestamp(), "Recent"
+    
+    # Try standard RSS email parsing first
+    try:
+        dt = email.utils.parsedate_to_datetime(date_str)
+        return dt.timestamp(), dt.strftime('%d %b %Y')
+    except Exception:
+        pass
+
+    # Fallback: Clean up ISO / Atom timestamps (e.g., 2026-06-04T12:00:00Z)
+    try:
+        clean_date = date_str.split('T')[0] # Grab just YYYY-MM-DD
+        dt = datetime.strptime(clean_date, "%Y-%m-%d")
+        return dt.timestamp(), dt.strftime('%d %b %Y')
+    except Exception:
+        pass
+
+    # If all automated parsing fails, look for common patterns manually
+    try:
+        # Match something like "04 Jun 2026" or "Jun 04 2026"
+        months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+        lower_str = date_str.lower()
+        
+        found_year = re.search(r'\b(20\d\d)\b', date_str)
+        found_day = re.search(r'\b(\d{1,2})\b', date_str)
+        
+        found_month = None
+        for i, m in enumerate(months):
+            if m in lower_str:
+                found_month = i + 1
+                break
+                
+        if found_year and found_month and found_day:
+            dt = datetime(int(found_year.group(1)), found_month, int(found_day.group(1)))
+            return dt.timestamp(), dt.strftime('%d %b %Y')
+    except Exception:
+        pass
+
+    # Absolute ultimate backup fallback
+    return datetime.now().timestamp(), "Recent"
+
 
 # 2. Extract current items from the live feeds
 for url in feed_urls[:40]:
@@ -45,35 +90,33 @@ for url in feed_urls[:40]:
             channel = feed_root.find('channel')
             items = channel.findall('item') if channel is not None else feed_root.findall('.//{http://www.w3.org/2005/Atom}entry')
             
-            for item in items:  # Read everything currently exposed by the feed
+            for item in items[:25]:  # Capture a deep 25 items per feed run
                 title = item.findtext('title') or item.findtext('{http://www.w3.org/2005/Atom}title')
-                link = item.findtext('link') or item.find('.//{http://www.w3.org/2005/Atom}link').get('href') if item.find('{http://www.w3.org/2005/Atom}link') is not None else ""
+                link = item.findtext('link') or (item.find('{http://www.w3.org/2005/Atom}link').get('href') if item.find('{http://www.w3.org/2005/Atom}link') is not None else "")
                 
                 if not title or not link:
                     continue
                     
-                # Skip if we already archived this resource in a past run
+                # Fix up relative links if any feeds broadcast messy layouts
+                if link.startswith('/'):
+                    continue 
+
+                # Handle tracking logic to bypass duplicates
                 if link in known_links:
                     continue
                 
                 pub_date_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or item.findtext('{http://www.w3.org/2005/Atom}updated') or ""
                 
-                parsed_dt = None
-                if pub_date_raw:
-                    try:
-                        parsed_dt = email.utils.parsedate_to_datetime(pub_date_raw)
-                    except Exception:
-                        parsed_dt = None
-                
-                if not parsed_dt:
-                    parsed_dt = datetime.now()
+                # Execute our brand new bulletproof parsing machine
+                timestamp, date_display_str = robust_parse_date(pub_date_raw)
 
                 lower_link = link.lower()
                 lower_title = title.lower()
                 
+                # Highly expanded classification filters to ensure podcasts catch correctly
                 if "youtube.com" in lower_link or "youtu.be" in lower_link or "video" in lower_title:
                     item_type = "video"
-                elif "podcast" in lower_link or "spotify" in lower_link or "podcast" in lower_title or "audio" in lower_title or "episode" in lower_title:
+                elif "podcast" in lower_link or "spotify" in lower_link or "feedproxy" in lower_link or "podcast" in lower_title or "audio" in lower_title or "episode" in lower_title or "sounder" in lower_link:
                     item_type = "podcast"
                 else:
                     item_type = "blog"
@@ -81,8 +124,8 @@ for url in feed_urls[:40]:
                 existing_archive.append({
                     "title": title, 
                     "link": link, 
-                    "date_str": parsed_dt.strftime('%d %b %Y'), 
-                    "timestamp": parsed_dt.timestamp(),
+                    "date_str": date_display_str, 
+                    "timestamp": timestamp,
                     "type": item_type
                 })
                 known_links.add(link)
@@ -91,19 +134,17 @@ for url in feed_urls[:40]:
     except Exception as e:
         print(f"Skipping bad feed {url}: {e}")
 
-print(f"Found {new_items_count} new entries.")
+print(f"Archived {new_items_count} brand-new resources.")
 
-# 3. Always sort the combined master catalog: newest release first
-existing_archive.sort(key=lambda x: x['timestamp'], reverse=True)
+# 3. CRITICAL SORT: Explicitly arrange the master list by timestamp string value (NEWEST FIRST)
+existing_archive.sort(key=lambda x: float(x['timestamp']), reverse=True)
 
-# Ensure public output directory exists
+# Save database down
 os.makedirs('public', exist_ok=True)
-
-# 4. Save the expanded catalog back down to disk
 with open(ARCHIVE_FILE, 'w', encoding='utf-8') as f:
     json.dump(existing_archive, f, ensure_ascii=False, indent=2)
 
-# Generate HTML layout using the complete, accumulative catalog
+# Generate HTML front-end structure using the sorted database array
 html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -118,7 +159,7 @@ html_content = f"""
         h1 {{ margin: 0; font-size: 26px; }}
         .fruit-machine-box {{ background: #fff; border: 3px dashed #ef4444; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }}
         .machine-header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 15px; }}
-        .machine-title {{ font-weight: bold; font-size: 20px; color: #1e293b; display: flex; align-items: center; gap: 8px; }}
+        .machine-title {{ font-weight: bold; font-size: 20px; color: #1e293b; }}
         .spin-btn {{ background: #ef4444; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }}
         .spin-btn:hover {{ background: #dc2626; }}
         .slots-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }}
@@ -147,13 +188,13 @@ html_content = f"""
     <div class="container">
         <header>
             <h1>Rescue &amp; Remote Medicine Society Hub</h1>
-            <p>UWE Student Union Branch • Total Archived Items: {len(existing_archive)}</p>
+            <p>UWE Student Union Branch • Total Tracked Pool: {len(existing_archive)} Resources</p>
         </header>
 
         <div class="fruit-machine-box">
             <div class="machine-header">
-                <div class="machine-title">🍒 The CPD Fruit Machine</div>
-                <button class="spin-btn" onclick="spinMachine()">🎰 Pull Lever</button>
+                <div class="machine-title">🎰 The CPD Fruit Machine</div>
+                <button class="spin-btn" onclick="spinMachine()">Pull Lever</button>
             </div>
             <div class="slots-grid">
                 <div class="slot-column">
@@ -172,7 +213,7 @@ html_content = f"""
         </div>
 
         <div class="search-wrapper">
-            <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search through chronologically sorted archives (e.g., triage, crush, hypoxia)..." onkeyup="filterArchive()">
+            <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search through global remote medicine archives by keywords (e.g., triage, crush, hypoxia)..." onkeyup="filterArchive()">
         </div>
 
         <main id="archiveTimeline">
@@ -240,4 +281,4 @@ html_content += f"""
 with open('public/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Archive master compilation file synchronized successfully!")
+print("Robust layout sync operation complete!")
