@@ -9,7 +9,6 @@ import re
 ARCHIVE_FILE = 'public/archive.json'
 existing_archive = []
 
-# 1. Gracefully load past archive layers
 if os.path.exists(ARCHIVE_FILE):
     try:
         with open(ARCHIVE_FILE, 'r', encoding='utf-8') as f:
@@ -54,51 +53,12 @@ def robust_parse_date(date_str):
         pass
     return datetime.now().timestamp(), "Recent"
 
-def extract_thumbnail(item_element):
-    try:
-        # Check standard Media RSS namespaces
-        for media_tag in ['.//{http://search.yahoo.com/mrss/}content', './/{http://search.yahoo.com/mrss/}thumbnail']:
-            try:
-                found = item_element.find(media_tag)
-                if found is not None and found.get('url'):
-                    return str(found.get('url'))
-            except Exception:
-                pass
-                
-        # Check standard podcast cover art tags
-        try:
-            itunes_image = item_element.find('.//{http://www.itunes.com/dtds/podcast-1.0.dtd}image')
-            if itunes_image is not None and itunes_image.get('href'):
-                return str(itunes_image.get('href'))
-        except Exception:
-            pass
-
-        # Check enclosure tags
-        try:
-            enclosure = item_element.find('enclosure')
-            if enclosure is not None and enclosure.get('type', '').startswith('image/'):
-                return str(enclosure.get('url'))
-        except Exception:
-            pass
-
-        # Regex scrape image sources from textual elements
-        desc = item_element.findtext('description') or item_element.findtext('{http://www.w3.org/2005/Atom}content') or ""
-        if desc:
-            img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', str(desc))
-            if img_match:
-                return str(img_match.group(1))
-    except Exception:
-        pass
-    return ""
-
-# 2. Iterate and process live feeds wrapped inside isolated safety buffers
 for url in feed_urls[:40]:
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=10) as response:
             xml_data = response.read()
             
-            # Use standard XML parser but intercept formatting compilation failures
             try:
                 feed_root = ET.fromstring(xml_data)
             except Exception as xml_err:
@@ -109,7 +69,7 @@ for url in feed_urls[:40]:
             items = channel.findall('item') if channel is not None else feed_root.findall('.//{http://www.w3.org/2005/Atom}entry')
             
             if not items:
-                items = feed_root.findall('item')  # Alternative fallback layout style
+                items = feed_root.findall('item')
                 
             for item in items[:25]:
                 try:
@@ -125,16 +85,15 @@ for url in feed_urls[:40]:
                     if link_str in known_links:
                         continue
                     
-                    pub_date_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or item.findtext('{http://www.w3.org/2005/Atom}updated') or ""
+                    pub_date_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or ""
                     timestamp, date_display_str = robust_parse_date(pub_date_raw)
-                    image_url = extract_thumbnail(item)
 
                     lower_link = link_str.lower()
                     lower_title = str(title).lower()
                     
                     if "youtube.com" in lower_link or "youtu.be" in lower_link or "video" in lower_title:
                         item_type = "video"
-                    elif "podcast" in lower_link or "spotify" in lower_link or "podcast" in lower_title or "audio" in lower_title or "episode" in lower_title or "feedproxy" in lower_link:
+                    elif "podcast" in lower_link or "spotify" in lower_link or "podcast" in lower_title or "audio" in lower_title or "episode" in lower_title:
                         item_type = "podcast"
                     else:
                         item_type = "blog"
@@ -144,29 +103,24 @@ for url in feed_urls[:40]:
                         "link": link_str, 
                         "date_str": str(date_display_str), 
                         "timestamp": float(timestamp),
-                        "type": item_type,
-                        "image": image_url
+                        "type": item_type
                     })
                     known_links.add(link_str)
                     new_items_count += 1
                 except Exception as item_err:
-                    print(f"Skipped an individual item within {url} due to error: {item_err}")
                     continue
                 
     except Exception as e:
-        print(f"Skipping completely unreadable source feed {url}: {e}")
+        print(f"Skipping feed {url}: {e}")
         continue
 
 print(f"Archived {new_items_count} brand-new resources.")
-
-# Filter out empty or broken artifacts before sorting
 existing_archive = [i for i in existing_archive if i.get('title') and i.get('link')]
 
-# Ensure proper numeric chronological index sequencing (Newest First)
 try:
     existing_archive.sort(key=lambda x: float(x.get('timestamp', 0)), reverse=True)
-except Exception as sort_err:
-    print(f"Warning during sort normalization: {sort_err}")
+except Exception:
+    pass
 
 os.makedirs('public', exist_ok=True)
 with open(ARCHIVE_FILE, 'w', encoding='utf-8') as f:
@@ -184,25 +138,37 @@ html_content = f"""
         .container {{ max-width: 950px; margin: 0 auto; }}
         header {{ text-align: center; margin-bottom: 30px; background: #1e293b; color: white; padding: 30px; border-radius: 12px; }}
         h1 {{ margin: 0; font-size: 26px; }}
+        
+        .subheading {{ font-size: 20px; font-weight: bold; color: #1e293b; margin: 30px 0 15px 0; border-bottom: 2px solid #cbd5e1; padding-bottom: 5px; }}
+        
         .fruit-machine-box {{ background: #fff; border: 3px dashed #ef4444; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }}
         .machine-header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 15px; }}
         .machine-title {{ font-weight: bold; font-size: 20px; color: #1e293b; }}
-        .spin-btn {{ background: #ef4444; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; }}
+        .spin-btn {{ background: #ef4444; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; }}
         .spin-btn:hover {{ background: #dc2626; }}
         .slots-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }}
         @media(max-width: 768px) {{ .slots-grid {{ grid-template-columns: 1fr; }} }}
         .slot-column {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }}
         .column-header {{ font-weight: bold; text-transform: uppercase; font-size: 12px; margin-bottom: 10px; color: #64748b; border-bottom: 2px solid #cbd5e1; padding-bottom: 5px; }}
+        
         .slot-item {{ background: #fff; padding: 10px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 10px; text-decoration: none; color: #334155; font-weight: 500; }}
         .slot-item:hover {{ border-color: #ef4444; color: #ef4444; }}
-        .slot-thumb {{ width: 45px; height: 45px; border-radius: 4px; object-fit: cover; flex-shrink: 0; background: #e2e8f0; }}
-        .search-bar {{ width: 100%; padding: 14px 20px; font-size: 16px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; outline: none; margin-bottom: 25px; }}
-        .search-bar:focus {{ border-color: #ef4444; }}
+        
+        .media-icon-container {{ width: 45px; height: 45px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #f1f5f9; }}
+        .media-icon-container.video {{ background: #fef2f2; color: #ef4444; }}
+        .media-icon-container.podcast {{ background: #eff6ff; color: #3b82f6; }}
+        .media-icon-container.blog {{ background: #ecfdf5; color: #10b981; }}
+        .media-icon-container svg {{ width: 22px; height: 22px; fill: currentColor; }}
+
         .card {{ background: white; padding: 15px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); display: flex; gap: 15px; align-items: center; text-decoration: none; color: inherit; border-left: 5px solid #64748b; }}
         .card.video {{ border-left-color: #ef4444; }}
         .card.podcast {{ border-left-color: #3b82f6; }}
         .card.blog {{ border-left-color: #10b981; }}
-        .card-thumb {{ width: 80px; height: 80px; border-radius: 6px; object-fit: cover; background: #e2e8f0; flex-shrink: 0; }}
+        .card .media-icon-container {{ width: 55px; height: 55px; border-radius: 8px; }}
+        .card .media-icon-container svg {{ width: 26px; height: 26px; }}
+        
+        .search-bar {{ width: 100%; padding: 14px 20px; font-size: 16px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; outline: none; margin-bottom: 10px; }}
+        .search-bar:focus {{ border-color: #ef4444; }}
         .card-body {{ flex-grow: 1; }}
         .card h3 {{ margin: 0 0 5px 0; font-size: 17px; color: #1e293b; }}
         .meta {{ font-size: 12px; color: #64748b; display: flex; gap: 10px; align-items: center; }}
@@ -222,7 +188,7 @@ html_content = f"""
         <div class="fruit-machine-box">
             <div class="machine-header">
                 <div class="machine-title">🎰 The CPD Fruit Machine</div>
-                <button class="spin-btn" onclick="spinMachine()">Pull Lever</button>
+                <button class="spin-btn" onclick="spinMachine()">Pull Lever to Randomise</button>
             </div>
             <div class="slots-grid">
                 <div class="slot-column">
@@ -240,23 +206,26 @@ html_content = f"""
             </div>
         </div>
 
+        <div class="subheading">Search the Archive</div>
         <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search resource library..." onkeyup="filterArchive()">
 
+        <div class="subheading">Archive</div>
         <main id="archiveTimeline">
 """
 
-fallbacks = {
-    "video": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=150&auto=format&fit=crop&q=60",
-    "podcast": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=150&auto=format&fit=crop&q=60",
-    "blog": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=150&auto=format&fit=crop&q=60"
+icons = {
+    "video": '<svg viewBox="0 0 24 24"><path d="M21 6h-7.59l3.29-3.29L16 1.41 11.59 5.82 11.41 6H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 14H3V8h18v12zM9 10v8l7-4z"/></svg>',
+    "podcast": '<svg viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>',
+    "blog": '<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4-4H7v-2h7v2zm3-4H7V9h10v2z"/></svg>'
 }
 
 for item in existing_archive:
     clean_title = item['title'].replace('"', '&quot;').replace("'", "&#39;")
-    img_src = item['image'] if item.get('image') else fallbacks[item['type']]
     html_content += f"""
             <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{clean_title.lower()}">
-                <img class="card-thumb" src="{img_src}" loading="lazy" alt="cover">
+                <div class="media-icon-container {item['type']}">
+                    {icons[item['type']]}
+                </div>
                 <div class="card-body">
                     <h3>{item['title']}</h3>
                     <div class="meta">
@@ -273,7 +242,7 @@ html_content += f"""
 
     <script>
         const archiveItems = {json.dumps(existing_archive)};
-        const fallbacks = {json.dumps(fallbacks)};
+        const svgIcons = {json.dumps(icons)};
 
         function getRandomItems(arr, type, num) {{
             const filtered = arr.filter(i => i.type === type);
@@ -291,20 +260,26 @@ html_content += f"""
             const podcasts = getRandomItems(archiveItems, 'podcast', 3);
             const blogs = getRandomItems(archiveItems, 'blog', 3);
 
-            vSlots.innerHTML = videos.map(v => {{
-                let src = v.image ? v.image : fallbacks.video;
-                return `<a class="slot-item" href="${{v.link}}" target="_blank"><img class="slot-thumb" src="${{src}}"><span>${{v.title}}</span></a>`;
-            }}).join('');
+            vSlots.innerHTML = videos.map(v => `
+                <a class="slot-item" href="${{v.link}}" target="_blank">
+                    <div class="media-icon-container video">${{svgIcons.video}}</div>
+                    <span>${{v.title}}</span>
+                </a>
+            `).join('');
 
-            pSlots.innerHTML = podcasts.map(p => {{
-                let src = p.image ? p.image : fallbacks.podcast;
-                return `<a class="slot-item" href="${{p.link}}" target="_blank"><img class="slot-thumb" src="${{src}}"><span>${{p.title}}</span></a>`;
-            }}).join('');
+            pSlots.innerHTML = podcasts.map(p => `
+                <a class="slot-item" href="${{p.link}}" target="_blank">
+                    <div class="media-icon-container podcast">${{svgIcons.podcast}}</div>
+                    <span>${{p.title}}</span>
+                </a>
+            `).join('');
 
-            bSlots.innerHTML = blogs.map(b => {{
-                let src = b.image ? b.image : fallbacks.blog;
-                return `<a class="slot-item" href="${{b.link}}" target="_blank"><img class="slot-thumb" src="${{src}}"><span>${{b.title}}</span></a>`;
-            }}).join('');
+            bSlots.innerHTML = blogs.map(b => `
+                <a class="slot-item" href="${{b.link}}" target="_blank">
+                    <div class="media-icon-container blog">${{svgIcons.blog}}</div>
+                    <span>${{b.title}}</span>
+                </a>
+            `).join('');
         }}
 
         function filterArchive() {{
@@ -325,4 +300,4 @@ html_content += f"""
 with open('public/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Compilation successful and completely isolated from errors!")
+print("UI Heading layouts polished and finalized!")
