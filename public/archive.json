@@ -1344,6 +1344,14 @@
     "type": "podcast"
   },
   {
+    "title": "Medical Santo: A Pacific Adventure",
+    "link": "https://www.theadventuremedic.com/adventures/medical-santo-a-pacific-adventure/",
+    "date_str": "23 Apr 2026",
+    "timestamp": 1776931962.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "PFC Podcast: Setting Up a Walking Blood Bank: From Talking to Transfusion",
     "link": "https://podcasters.spotify.com/pod/show/dennis3211/episodes/PFC-Podcast-Setting-Up-a-Walking-Blood-Bank-From-Talking-to-Transfusion-e3iafh1",
     "date_str": "23 Apr 2026",
@@ -1855,6 +1863,14 @@
     "type": "podcast"
   },
   {
+    "title": "Ubuntu Network",
+    "link": "https://www.theadventuremedic.com/features/ubuntu-network/",
+    "date_str": "10 Mar 2026",
+    "timestamp": 1773131110.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "Podcast 997: D-Dimer",
     "link": "https://emergencymedicalminute.libsyn.com/podcast-996-d-dimer",
     "date_str": "09 Mar 2026",
@@ -1988,6 +2004,14 @@
     "type": "podcast"
   },
   {
+    "title": "From Bradycardia to Barotrauma: An Expedition Medic’s Guide to the Physiology of Freediving",
+    "link": "https://www.theadventuremedic.com/coreskills/from-bradycardia-to-barotrauma-an-expedition-medics-guide-to-the-physiology-of-freediving/",
+    "date_str": "18 Feb 2026",
+    "timestamp": 1771438639.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "Surf, Science, and Survival: A Doctor’s Life in Remote Medicine",
     "link": "https://podcasters.spotify.com/pod/show/worldextrememedicine/episodes/Surf--Science--and-Survival-A-Doctors-Life-in-Remote-Medicine-e3bjo6b",
     "date_str": "17 Feb 2026",
@@ -2119,6 +2143,14 @@
     "date_str": "26 Jan 2026",
     "timestamp": 1769425248.0,
     "type": "podcast"
+  },
+  {
+    "title": "Risk Management and the Expedition Medic",
+    "link": "https://www.theadventuremedic.com/coreskills/risk-management-and-the-expedition-medic/",
+    "date_str": "24 Jan 2026",
+    "timestamp": 1769292421.0,
+    "type": "blog",
+    "image": ""
   },
   {
     "title": "179-The AOK AirBase with Sam Slishman",
@@ -2310,6 +2342,14 @@
     "type": "podcast"
   },
   {
+    "title": "Paralpinism",
+    "link": "https://www.theadventuremedic.com/adventures/paralpinism/",
+    "date_str": "18 Dec 2025",
+    "timestamp": 1766043323.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "Code Alone",
     "link": "https://ems-20-20.simplecast.com/episodes/code-alone-GVeRw78U",
     "date_str": "17 Dec 2025",
@@ -2378,6 +2418,22 @@
     "date_str": "25 Nov 2025",
     "timestamp": 1764057600.0,
     "type": "podcast"
+  },
+  {
+    "title": "Humanitarian Healthcare in Calais",
+    "link": "https://www.theadventuremedic.com/features/humanitarian-healthcare-in-calais/",
+    "date_str": "25 Nov 2025",
+    "timestamp": 1764032404.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
+    "title": "Urgent Care and Adventures in New Zealand",
+    "link": "https://www.theadventuremedic.com/adventures/urgent-care-and-adventures-in-new-zealand/",
+    "date_str": "12 Nov 2025",
+    "timestamp": 1762970686.0,
+    "type": "blog",
+    "image": ""
   },
   {
     "title": "Lightning rounds 57: Burn critical care with Clint Leonard",
@@ -2464,6 +2520,14 @@
     "type": "blog"
   },
   {
+    "title": "AM Team Recommendations October 2025",
+    "link": "https://www.theadventuremedic.com/features/am-team-recommendations-october-2025/",
+    "date_str": "18 Oct 2025",
+    "timestamp": 1760778793.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "Episode 94: Mastering seizure pharmacology with Tom Bleck",
     "link": "https://icuscenarios.com/episode-94-mastering-seizure-pharmacology-with-tom-bleck/",
     "date_str": "15 Oct 2025",
@@ -2490,6 +2554,14 @@
     "date_str": "06 Oct 2025",
     "timestamp": 1759744823.0,
     "type": "podcast"
+  },
+  {
+    "title": "Life as a Doctor at The World’s Best Ski Resort",
+    "link": "https://www.theadventuremedic.com/adventures/life-as-a-doctor-at-the-worlds-best-ski-resort/",
+    "date_str": "02 Oct 2025",
+    "timestamp": 1759420811.0,
+    "type": "blog",
+    "image": ""
   },
   {
     "title": "Episode 93: Fluid in sepsis and the FloPatch, with Jon-Emile Kenny",
@@ -2616,6 +2688,14 @@
     "date_str": "19 Aug 2025",
     "timestamp": 1755586800.0,
     "type": "podcast"
+  },
+  {
+    "title": "Volunteering with Floating Doctors in Bocas del Toro",
+    "link": "https://www.theadventuremedic.com/adventures/volunteering-with-floating-doctors-in-bocas-del-toro/",
+    "date_str": "18 Aug 2025",
+    "timestamp": 1755523245.0,
+    "type": "blog",
+    "image": ""
   },
   {
     "title": "Episode 184 - Recording Video Laryngoscopy In EMS",
@@ -2856,6 +2936,14 @@
     "type": "podcast"
   },
   {
+    "title": "Evidence Explorer: Updates and news from the academic community, Winter 2024",
+    "link": "https://www.theadventuremedic.com/features/evidence-explorer-updates-and-news-from-the-academic-community-winter-2024/",
+    "date_str": "16 Jul 2025",
+    "timestamp": 1752654656.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "Prolonged Casualty Care Guidelines- July Didactics",
     "link": "https://rss.com/podcasts/wake-forest-wilderness-medicine-fellowship/2115949",
     "date_str": "15 Jul 2025",
@@ -2954,6 +3042,14 @@
     "type": "podcast"
   },
   {
+    "title": "AM Team recommendations June 2025",
+    "link": "https://www.theadventuremedic.com/features/am-team-recommendations-june-2025/",
+    "date_str": "12 Jun 2025",
+    "timestamp": 1749734926.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "Trailer 1 ",
     "link": "https://podcasters.spotify.com/pod/show/josh-barker01/episodes/Trailer-1-e34246r",
     "date_str": "10 Jun 2025",
@@ -2989,6 +3085,14 @@
     "type": "blog"
   },
   {
+    "title": "From Land to Sky – A Retrieval Medicine Elective",
+    "link": "https://www.theadventuremedic.com/student/from-land-to-sky-a-retrieval-medicine-elective/",
+    "date_str": "31 May 2025",
+    "timestamp": 1748661874.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "From Perth to the Pilbara: Inside Remote Aboriginal Medicine & PAMS with Cara Sheppard",
     "link": "https://podcasters.spotify.com/pod/show/worldextrememedicine/episodes/From-Perth-to-the-Pilbara-Inside-Remote-Aboriginal-Medicine--PAMS-with-Cara-Sheppard-e32k0ee",
     "date_str": "20 May 2025",
@@ -3017,6 +3121,14 @@
     "type": "blog"
   },
   {
+    "title": "Where Medicine Meets the Mountain",
+    "link": "https://www.theadventuremedic.com/adventures/where-medicine-meets-the-mountain/",
+    "date_str": "07 May 2025",
+    "timestamp": 1746653258.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "EM Quick Hits 64 Whole Blood Transfusions, Calcium Before Diltiazem in Afib, Thoracotomy Pearls, Uterine Casts, OMI Scale & Proportionality",
     "link": "https://emergencymedicinecases.com/em-quick-hits-april-2025/",
     "date_str": "21 Apr 2025",
@@ -3036,6 +3148,14 @@
     "date_str": "05 Apr 2025",
     "timestamp": 1743849627.0,
     "type": "podcast"
+  },
+  {
+    "title": "Clinical Update: Frostbite Prevention and Management 2025",
+    "link": "https://www.theadventuremedic.com/coreskills/clinical-update-frostbite-prevention-and-management-2025/",
+    "date_str": "02 Apr 2025",
+    "timestamp": 1743632294.0,
+    "type": "blog",
+    "image": ""
   },
   {
     "title": "Ep 203 Intermediate Risk Pulmonary Embolism Risk Stratification, Management and Algorithm",
@@ -3059,6 +3179,14 @@
     "type": "podcast"
   },
   {
+    "title": "Psychological First Aid: a Valuable Skill for Everyone",
+    "link": "https://www.theadventuremedic.com/coreskills/psychological-first-aid-a-valuable-skill-for-everyone/",
+    "date_str": "10 Mar 2025",
+    "timestamp": 1741603619.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "Shall we stop?",
     "link": "https://podcasters.spotify.com/pod/show/josh-barker01/episodes/Shall-we-stop-e307bui",
     "date_str": "10 Mar 2025",
@@ -3073,6 +3201,14 @@
     "type": "blog"
   },
   {
+    "title": "AM Team recommendations February 2025",
+    "link": "https://www.theadventuremedic.com/features/am-team-recommendations-february-2025/",
+    "date_str": "21 Feb 2025",
+    "timestamp": 1740132449.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "Court Judgement. Australian criminal prosecution. Death on expedition. Diabetes management. Pre screening. Pre training. Monitoring. Ops room communications. Telemed.Risk Assessment. Risk mitigation.",
     "link": "https://www.r2rinternational.com/single-post/court-judgement-australian-criminal-prosecution-death-on-expedition-diabetes-management-pre-scre",
     "date_str": "19 Feb 2025",
@@ -3085,6 +3221,14 @@
     "date_str": "18 Feb 2025",
     "timestamp": 1739836800.0,
     "type": "podcast"
+  },
+  {
+    "title": "World Extreme Medicine Conference 2024: Pushing Boundaries",
+    "link": "https://www.theadventuremedic.com/features/world-extreme-medicine-conference-2024-pushing-boundaries/",
+    "date_str": "06 Feb 2025",
+    "timestamp": 1738847048.0,
+    "type": "blog",
+    "image": ""
   },
   {
     "title": "Documentation",
@@ -3143,11 +3287,43 @@
     "type": "podcast"
   },
   {
+    "title": "Endeavour Medical Fellowship Review",
+    "link": "https://www.theadventuremedic.com/courses/endeavour-medical-fellowship-review/",
+    "date_str": "04 Dec 2024",
+    "timestamp": 1733322263.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
     "title": "TMT - Cauda Equina Syndrome (CES)",
     "link": "https://podcasters.spotify.com/pod/show/josh-barker01/episodes/TMT---Cauda-Equina-Syndrome-CES-e307btf",
     "date_str": "25 Nov 2024",
     "timestamp": 1732492800.0,
     "type": "podcast"
+  },
+  {
+    "title": "Pay in the Expedition Medicine Community",
+    "link": "https://www.theadventuremedic.com/features/pay-in-the-expedition-medicine-community/",
+    "date_str": "10 Nov 2024",
+    "timestamp": 1731272901.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
+    "title": "Evidence Explorer: Updates and news from the academic community, Summer 2024",
+    "link": "https://www.theadventuremedic.com/features/evidence-explorer-updates-and-news-from-the-academic-community-summer-2024/",
+    "date_str": "03 Nov 2024",
+    "timestamp": 1730592903.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
+    "title": "The Adventures of a Global Health Fellow in Tshemba",
+    "link": "https://www.theadventuremedic.com/adventures/the-adventures-of-a-global-health-fellow-in-tshemba/",
+    "date_str": "02 Nov 2024",
+    "timestamp": 1730572131.0,
+    "type": "blog",
+    "image": ""
   },
   {
     "title": "Episode 174 - Push Dose Norepinephrine",
@@ -3169,6 +3345,22 @@
     "date_str": "29 Oct 2024",
     "timestamp": 1730160000.0,
     "type": "podcast"
+  },
+  {
+    "title": "AM Team recommendations October 2024",
+    "link": "https://www.theadventuremedic.com/features/am-team-recommendations-october-2024/",
+    "date_str": "27 Oct 2024",
+    "timestamp": 1730027136.0,
+    "type": "blog",
+    "image": ""
+  },
+  {
+    "title": "AM Guide to Marine Envenomation – an update",
+    "link": "https://www.theadventuremedic.com/features/am-guide-to-marine-envenomation-an-update/",
+    "date_str": "24 Oct 2024",
+    "timestamp": 1729756831.0,
+    "type": "blog",
+    "image": ""
   },
   {
     "title": "TMT - Autonomic Dysreflexia",
@@ -3197,6 +3389,14 @@
     "date_str": "27 Sep 2024",
     "timestamp": 1727395200.0,
     "type": "podcast"
+  },
+  {
+    "title": "A New Foundation Doctor Role in Diving and Hyperbaric Medicine",
+    "link": "https://www.theadventuremedic.com/features/a-new-foundation-doctor-role-in-diving-and-hyperbaric-medicine/",
+    "date_str": "25 Sep 2024",
+    "timestamp": 1727243419.0,
+    "type": "blog",
+    "image": ""
   },
   {
     "title": "#35: Walking Cold Patients",
