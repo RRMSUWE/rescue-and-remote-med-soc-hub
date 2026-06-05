@@ -4,6 +4,14 @@
     <title>Feeds of rescueandremotemedsoc from Inoreader [https://www.inoreader.com]</title>
   </head>
   <body>
+    <outline text="Humanitarian" title="Humanitarian">
+      <outline text="David Nott Foundation" title="David Nott Foundation" type="rss" xmlUrl="https://davidnottfoundation.com/feed/" htmlUrl="https://davidnottfoundation.com/"/>
+      <outline text="International Rescue and Relief" title="International Rescue and Relief" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCcMcaVAwWfdr2WDnSmsHWNg" htmlUrl="https://www.youtube.com/channel/UCcMcaVAwWfdr2WDnSmsHWNg"/>
+      <outline text="British Red Cross" title="British Red Cross" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCZ57VW_m_r8mE977nI9g8Iw" htmlUrl="http://www.youtube.com/channel/UCZ57VW_m_r8mE977nI9g8Iw"/>
+      <outline text="World Health Organization" title="World Health Organization" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC07-dOwgza1IguKA86jqxNA" htmlUrl="http://www.youtube.com/channel/UC07-dOwgza1IguKA86jqxNA"/>
+      <outline text="Médecins Sans Frontières/Doctors Without Borders (MSF)" title="Médecins Sans Frontières/Doctors Without Borders (MSF)" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCId9tO5LYlJKgNQKEzgjYOg" htmlUrl="http://www.youtube.com/channel/UCId9tO5LYlJKgNQKEzgjYOg"/>
+      <outline text="https://www.who.int/news" title="https://www.who.int/news" type="rss" xmlUrl="https://www.who.int/news" htmlUrl="https://www.who.int/news"/>
+    </outline>
     <outline text="Tactical Medicine" title="Tactical Medicine">
       <outline text="Special Operations Medical Association" title="Special Operations Medical Association" type="rss" xmlUrl="https://rss.libsyn.com/shows/53382/destinations/193742.xml" htmlUrl="http://www.pfcare.org/"/>
       <outline text="PJ Medcast" title="PJ Medcast" type="rss" xmlUrl="https://rss.libsyn.com/shows/69023/destinations/285846.xml" htmlUrl="https://www.pjmed.com/"/>
@@ -29,11 +37,13 @@
       <outline text="The Resus Room" title="The Resus Room" type="rss" xmlUrl="https://rss.libsyn.com/shows/78799/destinations/367790.xml" htmlUrl="http://www.theresusroom.co.uk/"/>
     </outline>
     <outline text="Mountain Rescue" title="Mountain Rescue">
+      <outline text="Plas y Brenin" title="Plas y Brenin" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC-2x8VCRbDP4zUjDsoHgVew" htmlUrl="https://www.youtube.com/channel/UC-2x8VCRbDP4zUjDsoHgVew"/>
       <outline text="Scottish Mountain Rescue" title="Scottish Mountain Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCEwIkCuKS7qnIwVFjGD8b7w" htmlUrl="https://www.youtube.com/channel/UCEwIkCuKS7qnIwVFjGD8b7w"/>
       <outline text="News Archive - Mountain Rescue England and Wales" title="News Archive - Mountain Rescue England and Wales" type="rss" xmlUrl="https://www.mountain.rescue.org.uk/news/feed/" htmlUrl="https://www.mountain.rescue.org.uk/news/"/>
       <outline text="Mountain Rescue England &amp; Wales" title="Mountain Rescue England &amp; Wales" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCp3cgqdzWnmQ8ZPp6PkbMrw" htmlUrl="https://www.youtube.com/channel/UCp3cgqdzWnmQ8ZPp6PkbMrw"/>
     </outline>
     <outline text="Remote Medicine" title="Remote Medicine">
+      <outline text="MedWild - Wilderness Medicine, Survival, Rescue" title="MedWild - Wilderness Medicine, Survival, Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCTPDKMelGC1JTfrmUTQLi7g" htmlUrl="https://www.youtube.com/channel/UCTPDKMelGC1JTfrmUTQLi7g"/>
       <outline text="RED MED (Rescue Expedition &amp; Disaster Medicine)" title="RED MED (Rescue Expedition &amp; Disaster Medicine)" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCUdKmtq0S1GSrWAAEWZoGdg" htmlUrl="https://www.youtube.com/channel/UCUdKmtq0S1GSrWAAEWZoGdg"/>
       <outline text="RED MED Podcast" title="RED MED Podcast" type="rss" xmlUrl="https://www.spreaker.com/show/2947342/episodes/feed" htmlUrl="https://www.spreaker.com/podcast/red-med-podcast--2947342"/>
       <outline text="Remote Risk International Limited trading as Remote Area Risk International." title="Remote Risk International Limited trading as Remote Area Risk International." type="rss" xmlUrl="https://www.r2rinternational.com/blog-feed.xml" htmlUrl="https://www.r2rinternational.com/blog"/>
