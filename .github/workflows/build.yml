@@ -2,30 +2,38 @@ name: Refresh Feed Site
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 0 * * 0' # Weekly trigger
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-size: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Track entire history layer
 
-      - name: Setup Python environment
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Build Aggregator Webpage
-        run: |
-          python aggregator.py
+      - name: Execute Aggregator Engine
+        run: python aggregator.py
 
-      - name: Deploy static assets to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Persist Archive File Upgrades
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/archive.json
+          git commit -m "Automated Sync: Incremental Database Append" || echo "No new release items found."
+          git push
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
