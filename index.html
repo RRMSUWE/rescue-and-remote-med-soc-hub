@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rescue & Remote Medicine Society Hub</title>
+    <title>Rescue &amp; Remote Medicine Society Hub</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f6f8; color: #333; margin: 0; padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; }
         header { text-align: center; margin-bottom: 30px; background: #1e293b; color: white; padding: 30px; border-radius: 12px; }
         h1 { margin: 0; font-size: 26px; }
-        
-        /* Fruit Machine Layout Styles */
         .fruit-machine-box { background: #fff; border: 3px dashed #ef4444; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .machine-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 15px; }
         .machine-title { font-weight: bold; font-size: 20px; color: #1e293b; display: flex; align-items: center; gap: 8px; }
@@ -20,23 +18,19 @@
         .slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
         @media(max-width: 768px) { .slots-grid { grid-template-columns: 1fr; } }
         .slot-column { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }
-        .column-header { font-weight: bold; text-transform: uppercase; font-size: 12px; tracking: 1px; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 2px solid #cbd5e1; color: #64748b; }
-        .slot-item { background: #fff; padding: 10px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.02); font-size: 14px; display: block; text-decoration: none; color: #334155; font-weight: 500; }
+        .column-header { font-weight: bold; text-transform: uppercase; font-size: 12px; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 2px solid #cbd5e1; color: #64748b; }
+        .slot-item { background: #fff; padding: 10px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.02); font-size: 13px; display: block; text-decoration: none; color: #334155; font-weight: 500; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
         .slot-item:hover { border-color: #ef4444; color: #ef4444; }
-
-        /* Search Controls */
         .search-wrapper { margin-bottom: 25px; }
         .search-bar { width: 100%; padding: 14px 20px; font-size: 16px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; outline: none; }
         .search-bar:focus { border-color: #ef4444; }
-        
-        /* Master Timeline Archive */
         .card { background: white; padding: 20px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); border-left: 5px solid #64748b; display: block; text-decoration: none; color: inherit; }
         .card.video { border-left-color: #ef4444; }
         .card.podcast { border-left-color: #3b82f6; }
         .card.blog { border-left-color: #10b981; }
         .card h3 { margin: 0; font-size: 18px; color: #1e293b; }
         .card h3:hover { color: #ef4444; }
-        .meta { font-size: 12px; color: #64748b; margin-top: 8px; display: flex; gap: 10px; }
+        .meta { font-size: 12px; color: #64748b; margin-top: 8px; display: flex; gap: 10px; align-items: center; }
         .badge { text-transform: uppercase; font-weight: bold; font-size: 10px; padding: 2px 6px; border-radius: 4px; color: white; }
         .badge.video { background: #ef4444; }
         .badge.podcast { background: #3b82f6; }
@@ -46,11 +40,10 @@
 <body>
     <div class="container">
         <header>
-            <h1>Rescue & Remote Medicine Society Hub</h1>
-            <p>UWE Student Union Branch • Updated: 2026-06-05 20:47</p>
+            <h1>Rescue &amp; Remote Medicine Society Hub</h1>
+            <p>UWE Student Union Branch • Total Archived Items: 115</p>
         </header>
 
-        <!-- CPD FRUIT MACHINE MODULE -->
         <div class="fruit-machine-box">
             <div class="machine-header">
                 <div class="machine-title">🍒 The CPD Fruit Machine</div>
@@ -72,531 +65,65 @@
             </div>
         </div>
 
-        <!-- LIVE SEARCH INPUT -->
         <div class="search-wrapper">
-            <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search through global remote medicine archives by keywords (e.g., triage, crush, hypoxia)..." onkeyup="filterArchive()">
+            <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search through chronologically sorted archives (e.g., triage, crush, hypoxia)..." onkeyup="filterArchive()">
         </div>
 
-        <!-- MAIN CHRONOLOGICAL ARCHIVE -->
         <main id="archiveTimeline">
 
-            <div class="card video" data-title="prehospital blood: what role do platelets play in hemorrhage control?">
-                <h3><a href="https://www.youtube.com/watch?v=Isf-RCq_UxU" target="_blank">Prehospital Blood: What Role Do Platelets Play in Hemorrhage Control?</a></h3>
+            <div class="card video" data-title="from the arctic to space: medicine without limits with luke apisa">
+                <h3><a href="https://www.youtube.com/watch?v=Lz-9LCaTULI" target="_blank">From the Arctic to Space: Medicine Without Limits with Luke Apisa</a></h3>
                 <div class="meta">
                     <span class="badge video">video</span>
-                    <span>Published: 2026-06-05T19:54:46+00:00</span>
+                    <span>Published: 05 Jun 2026</span>
                 </div>
             </div>
     
-            <div class="card video" data-title="t3 lightweight assault litter instructions for use #bethedifference #rescuemission #medics">
-                <h3><a href="https://www.youtube.com/watch?v=GyNrbttjmvw" target="_blank">T3 Lightweight Assault Litter Instructions for Use #bethedifference #rescuemission #medics</a></h3>
+            <div class="card video" data-title="high-altitude medicine: beyond ams with hannah lock">
+                <h3><a href="https://www.youtube.com/watch?v=HGhfb4-8M2E" target="_blank">High-Altitude Medicine: Beyond AMS with Hannah Lock</a></h3>
                 <div class="meta">
                     <span class="badge video">video</span>
-                    <span>Published: 2026-05-29T12:30:21+00:00</span>
+                    <span>Published: 05 Jun 2026</span>
                 </div>
             </div>
     
-            <div class="card video" data-title="learn to manage gunshot wounds using smrt™ versatile placement with gsw">
-                <h3><a href="https://www.youtube.com/watch?v=pVUEjlNuS64" target="_blank">Learn to Manage Gunshot Wounds using SMRT™ Versatile Placement with GSW</a></h3>
+            <div class="card video" data-title="the compassionate debrief: redefining post-mission reflection in hems">
+                <h3><a href="https://www.youtube.com/watch?v=XuTOmifNNWg" target="_blank">The Compassionate Debrief: Redefining Post-Mission Reflection in HEMS</a></h3>
                 <div class="meta">
                     <span class="badge video">video</span>
-                    <span>Published: 2026-05-22T12:30:17+00:00</span>
+                    <span>Published: 05 Jun 2026</span>
                 </div>
             </div>
     
-            <div class="card video" data-title="stop life threatening bleeding with the smrt™ packable femoral wound with gunshot/blast">
-                <h3><a href="https://www.youtube.com/watch?v=wdSqAE2rYSk" target="_blank">Stop Life Threatening Bleeding with the SMRT™ Packable Femoral Wound with Gunshot/Blast</a></h3>
+            <div class="card video" data-title="summiting barriers: rachel smith’s journey with type 1 diabetes to antarctica’s highest peak">
+                <h3><a href="https://www.youtube.com/watch?v=Oc3XSygxuFQ" target="_blank">Summiting Barriers: Rachel Smith’s Journey with Type 1 Diabetes to Antarctica’s Highest Peak</a></h3>
                 <div class="meta">
                     <span class="badge video">video</span>
-                    <span>Published: 2026-05-18T12:31:12+00:00</span>
+                    <span>Published: 05 Jun 2026</span>
                 </div>
             </div>
     
-            <div class="card video" data-title="prehospital blood: learn why red blood cells matter in trauma">
-                <h3><a href="https://www.youtube.com/watch?v=O2QaRyRZny0" target="_blank">Prehospital Blood: Learn why Red Blood Cells Matter in Trauma</a></h3>
+            <div class="card video" data-title="humanitarian nursing: voices from the frontline with elsa afonso & marcus wootton">
+                <h3><a href="https://www.youtube.com/watch?v=6w94UR7sml0" target="_blank">Humanitarian Nursing: Voices from the Frontline with Elsa Afonso & Marcus Wootton</a></h3>
                 <div class="meta">
                     <span class="badge video">video</span>
-                    <span>Published: 2026-05-15T14:31:23+00:00</span>
+                    <span>Published: 05 Jun 2026</span>
                 </div>
             </div>
     
-            <div class="card video" data-title="2026 carry the load rally recap">
-                <h3><a href="https://www.youtube.com/watch?v=Yk7RSPStNpw" target="_blank">2026 Carry the Load Rally Recap</a></h3>
+            <div class="card video" data-title="beyond io and iv: trauma lines in pre-hospital haemorrhagic shock with paolo pallavicini">
+                <h3><a href="https://www.youtube.com/watch?v=SKhAgpwKKAE" target="_blank">Beyond IO and IV: Trauma Lines in Pre-Hospital Haemorrhagic Shock with Paolo Pallavicini</a></h3>
                 <div class="meta">
                     <span class="badge video">video</span>
-                    <span>Published: 2026-05-15T13:24:08+00:00</span>
+                    <span>Published: 05 Jun 2026</span>
                 </div>
             </div>
     
-            <div class="card video" data-title="practice advanced wound packing with smrt™ hip with large caliber gunshot wound">
-                <h3><a href="https://www.youtube.com/watch?v=6SGhoYqfHDQ" target="_blank">Practice Advanced Wound Packing with SMRT™ Hip with Large Caliber Gunshot Wound</a></h3>
+            <div class="card video" data-title="beyond the ambulance: paramedics in primary care with simon robinson">
+                <h3><a href="https://www.youtube.com/watch?v=jGL-HPxKYsQ" target="_blank">Beyond the Ambulance: Paramedics in Primary Care with Simon Robinson</a></h3>
                 <div class="meta">
                     <span class="badge video">video</span>
-                    <span>Published: 2026-04-29T12:30:14+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="prehospital blood: learn what is inside blood">
-                <h3><a href="https://www.youtube.com/watch?v=fcy5083IQPo" target="_blank">Prehospital Blood: Learn What is Inside Blood</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-04-27T14:01:07+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="pfc podcast: guerrilla hospitals - how to build medical systems when evacuation & resupply are gone">
-                <h3><a href="https://www.youtube.com/watch?v=AMK63SH_ntI" target="_blank">PFC Podcast: Guerrilla Hospitals - How to Build Medical Systems When Evacuation & Resupply Are Gone</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-06-04T04:00:04+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="pfc podcast 281: crisis standards of care: the hardest conversations medics and teams must have">
-                <h3><a href="https://www.youtube.com/watch?v=xIaVc5uI0CU" target="_blank">PFC Podcast 281: Crisis Standards of Care: The Hardest Conversations Medics and Teams Must Have</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-06-01T04:00:18+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="pfc podcast: building the ideal sof clinic - setting up a world-class austere sof clinic">
-                <h3><a href="https://www.youtube.com/watch?v=kutECA6Vipo" target="_blank">PFC Podcast: Building the Ideal SOF Clinic - Setting Up a World-Class Austere SOF Clinic</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-28T04:00:28+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="pfc podcast 280: hantavirus in the field: cruise ship outbreak, deadly clues & field-ready lessons">
-                <h3><a href="https://www.youtube.com/watch?v=8VYR_vjOekk" target="_blank">PFC Podcast 280: Hantavirus in the Field: Cruise Ship Outbreak, Deadly Clues & Field-Ready Lessons</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-26T04:00:03+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="pfc podcast: traumatic cardiac arrest - real-world acls for austere & combat medicine">
-                <h3><a href="https://www.youtube.com/watch?v=qZbiqAOxnjs" target="_blank">PFC Podcast: Traumatic Cardiac Arrest - Real-World ACLS for Austere & Combat Medicine</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-21T04:00:12+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="pfc podcast 279: mastering abdominal trauma in prolonged field care">
-                <h3><a href="https://www.youtube.com/watch?v=Az0u8u4-E8k" target="_blank">PFC Podcast 279: Mastering Abdominal Trauma in Prolonged Field Care</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-18T04:00:15+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="pfc podcast: the moment prolonged field care actually begins">
-                <h3><a href="https://www.youtube.com/watch?v=jvYmZalqKv8" target="_blank">PFC Podcast: The Moment Prolonged Field Care Actually Begins</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-14T04:00:50+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="pfc podcast 278: pediatric airway nightmares in prolonged field care">
-                <h3><a href="https://www.youtube.com/watch?v=G5nnvxJrKZY" target="_blank">PFC Podcast 278: Pediatric Airway Nightmares in Prolonged Field Care</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-11T04:00:13+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="#thinkwinter with scottish mountain rescue">
-                <h3><a href="https://www.youtube.com/watch?v=aW4MJRRTBc4" target="_blank">#ThinkWINTER with Scottish Mountain Rescue</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2020-12-15T16:56:35+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="help us be there for you">
-                <h3><a href="https://www.youtube.com/watch?v=TUi9OSEFZrE" target="_blank">Help us be there for you</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2020-12-15T12:23:13+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="scottish mountain rescue 2018 review">
-                <h3><a href="https://www.youtube.com/watch?v=do8FR6mWHt8" target="_blank">Scottish Mountain Rescue 2018 Review</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2019-12-12T11:28:17+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="skills and training | scottish mountain rescue">
-                <h3><a href="https://www.youtube.com/watch?v=5_sFG-6jZxY" target="_blank">Skills and Training | Scottish Mountain Rescue</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2019-11-14T14:47:13+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="search & rescue dogs | scottish mountain rescue">
-                <h3><a href="https://www.youtube.com/watch?v=dGZpG_1xtZc" target="_blank">Search & Rescue Dogs | Scottish Mountain Rescue</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2019-11-14T14:35:07+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="volunteering for scottish mountain rescue">
-                <h3><a href="https://www.youtube.com/watch?v=wRkdfDC8VEw" target="_blank">Volunteering for Scottish Mountain Rescue</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2019-10-10T13:42:58+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="volunteers week | scottish mountain rescue">
-                <h3><a href="https://www.youtube.com/watch?v=1aqqDf0Uup8" target="_blank">Volunteers Week | Scottish Mountain Rescue</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2019-06-18T13:02:26+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="take on a challenge | scottish mountain rescue">
-                <h3><a href="https://www.youtube.com/watch?v=_hKa5RzvFYo" target="_blank">Take On A Challenge | Scottish Mountain Rescue</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2019-06-18T12:55:51+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="mountain rescue historic film pre 1947">
-                <h3><a href="https://www.youtube.com/watch?v=FyFE1eIAJLE" target="_blank">Mountain Rescue Historic Film pre 1947</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2020-03-16T18:19:50+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="support mountain rescue england & wales">
-                <h3><a href="https://www.youtube.com/watch?v=TnomkwKoM3k" target="_blank">Support Mountain Rescue England & Wales</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2015-10-29T09:12:15+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="mountain rescue england and wales - text resq41 to 70070 (welsh version)">
-                <h3><a href="https://www.youtube.com/watch?v=utoHlnrBF8E" target="_blank">Mountain Rescue England and Wales - text RESQ41 to 70070 (Welsh Version)</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2015-04-02T10:51:34+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="mountain rescue england and wales - text resq41 to 70070">
-                <h3><a href="https://www.youtube.com/watch?v=srkBVDU5BQo" target="_blank">Mountain Rescue England and Wales - text RESQ41 to 70070</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2015-04-02T10:50:53+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="the filter/purifier bottle removes viruses, bacteria & protozoa & filters chemicals, heavy metals…">
-                <h3><a href="https://www.youtube.com/shorts/z4hOqsMG5ws" target="_blank">The filter/purifier bottle removes viruses, bacteria & protozoa & filters chemicals, heavy metals…</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-03-30T16:19:54+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="chlorine dioxide is useful to treat water in wilderness, expedition and survival situations">
-                <h3><a href="https://www.youtube.com/shorts/CWBCCrNz7jM" target="_blank">Chlorine Dioxide is useful to treat water in wilderness, expedition and survival situations</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-03-30T11:02:12+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="how to use the iv fluid warmer for wilderness, rescue & tactical medicine">
-                <h3><a href="https://www.youtube.com/watch?v=4wa_1W0fdGU" target="_blank">How to Use the IV Fluid Warmer for Wilderness, Rescue & Tactical Medicine</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-03-21T11:44:48+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="#expedition #arctic #polarbear #expeditionmedicine #svalbard #riskmanagement #medicine #wanderlust">
-                <h3><a href="https://www.youtube.com/shorts/mkChLLUg9kc" target="_blank">#expedition #Arctic #polarbear #expeditionmedicine #svalbard #riskmanagement #medicine #wanderlust</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2024-09-13T12:26:31+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="#wilderness #casualty care #wildernessmedicine #rescue #mountains #mountainmedicine">
-                <h3><a href="https://www.youtube.com/shorts/olbHNVIjhUU" target="_blank">#wilderness #casualty care #wildernessmedicine #rescue #mountains #mountainmedicine</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2024-09-09T05:00:27+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="#prolongedfieldcare #wildernessmedicine #austere #medicine #remotemedicine #mountains #guatemala">
-                <h3><a href="https://www.youtube.com/shorts/kz1ySc7uIu8" target="_blank">#Prolongedfieldcare #wildernessmedicine #Austere #medicine #Remotemedicine #mountains #guatemala</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2024-09-08T05:00:24+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="#expeditionmedicine #helicopter search and rescue #sar #wilderness #nepal #expedition #medicine">
-                <h3><a href="https://www.youtube.com/shorts/9Xdr8Q3i6uY" target="_blank">#expeditionmedicine #Helicopter search and rescue #SAR #Wilderness #nepal #expedition #medicine</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2024-09-07T05:00:06+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="#lobuchepeak #nepal #himalayas #mountaineering #mountains #medicine #wilderness #wildernessmedicine">
-                <h3><a href="https://www.youtube.com/shorts/P-LHkNJ1wAM" target="_blank">#lobuchepeak #nepal #himalayas #mountaineering #mountains #medicine #wilderness #wildernessmedicine</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2024-09-06T22:53:08+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="where is the line between front country and backcountry? does it matter?">
-                <h3><a href="https://www.youtube.com/watch?v=jFUr0L6MQ8c" target="_blank">Where is the Line Between Front Country and Backcountry? Does it Matter?</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-03-27T02:00:26+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="healthcare in the khumbu valley">
-                <h3><a href="https://www.youtube.com/watch?v=B4MgHCXteYw" target="_blank">Healthcare in the Khumbu Valley</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-03-27T01:56:46+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="hazardous marine life">
-                <h3><a href="https://www.youtube.com/watch?v=z0XDuNytWS4" target="_blank">Hazardous Marine Life</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2025-08-28T20:18:32+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="planning an expedition in the polar regions">
-                <h3><a href="https://www.youtube.com/watch?v=rPpBPbN6VSk" target="_blank">Planning an Expedition in the Polar Regions</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2025-08-16T18:42:08+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="doctor on everest: a personal account of the 1996 disaster">
-                <h3><a href="https://www.youtube.com/watch?v=C6QcqfKjJhM" target="_blank">Doctor on Everest: A Personal Account of the 1996 Disaster</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2025-03-13T15:30:45+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="envenomations">
-                <h3><a href="https://www.youtube.com/watch?v=17yrFd0CzYg" target="_blank">Envenomations</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2025-02-05T01:34:09+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="understanding the psychological & physiological toll of high-altitude expeditions on patient care">
-                <h3><a href="https://www.youtube.com/watch?v=IRatAV5klRE" target="_blank">Understanding the Psychological & Physiological Toll of High-Altitude Expeditions on Patient Care</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2024-12-05T11:50:12+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="playing in traffic: the evolution of motorsports medicine">
-                <h3><a href="https://www.youtube.com/watch?v=TYeQffzUJhI" target="_blank">Playing in Traffic: The Evolution of Motorsports Medicine</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2024-10-29T12:29:28+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="big wave surf rescue- march 2026">
-                <h3><a href="https://www.youtube.com/watch?v=t37Gcu4wh7w" target="_blank">Big Wave Surf Rescue- March 2026</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-03-11T15:01:36+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="february 2026- wild & well: women's reproductive health in the backcountry">
-                <h3><a href="https://www.youtube.com/watch?v=dCdt5ZYOtxw" target="_blank">February 2026- Wild & Well: Women's Reproductive Health in the Backcountry</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-02-12T17:23:07+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="january 2026- expedition medicine with dr. ayesha tabassom">
-                <h3><a href="https://www.youtube.com/watch?v=E-KyZX6pcZY" target="_blank">January 2026- Expedition Medicine with Dr. Ayesha Tabassom</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-01-27T00:34:08+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="search and rescue operations at yellowstone national park">
-                <h3><a href="https://www.youtube.com/watch?v=k3D5wrSXlWU" target="_blank">Search and Rescue Operations at Yellowstone National Park</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2025-12-10T15:53:08+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="travelers' diarrhea november 2025 with sam coffman, msaom, wemt, rh(ahg), former us sof medic">
-                <h3><a href="https://www.youtube.com/watch?v=YW3UUwvJutA" target="_blank">Travelers' Diarrhea November 2025 with Sam Coffman, MSAOM, WEMT, RH(AHG), former US SOF Medic</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2025-11-12T22:02:58+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="austere dentistry & musa masala dental camps with dr. anumesh dahal">
-                <h3><a href="https://www.youtube.com/watch?v=ohJBKnLl5fg" target="_blank">Austere Dentistry & Musa Masala Dental Camps with Dr. Anumesh Dahal</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2025-10-08T20:55:33+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="198-efast for combat life savers with tacmednorth">
-                <h3><a href="https://www.youtube.com/watch?v=sFTucJkJ6Jo" target="_blank">198-eFAST for Combat Life Savers with TacMedNorth</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-06-05T09:26:57+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="corom conversations - snake bites">
-                <h3><a href="https://www.youtube.com/watch?v=S0584E6Oy9s" target="_blank">CoROM Conversations - Snake Bites</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-06-02T10:49:44+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="197-poland pfc with eagle-med systems">
-                <h3><a href="https://www.youtube.com/watch?v=HreBDr73Ol0" target="_blank">197-Poland PFC with Eagle-Med Systems</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-29T09:27:20+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="196-msiw and guerrilla medicine with antonio from euromedics">
-                <h3><a href="https://www.youtube.com/watch?v=4_jJYtab1co" target="_blank">196-MSIW and Guerrilla Medicine with Antonio from EuroMedics</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-22T09:16:01+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="195-damage control procedures with dr john quinn">
-                <h3><a href="https://www.youtube.com/watch?v=zvIxtBzmE0A" target="_blank">195-Damage Control Procedures with Dr John Quinn</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-15T09:18:10+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="194-mscacc graduate william krupa">
-                <h3><a href="https://www.youtube.com/watch?v=WNKz2v2HsO0" target="_blank">194-MScACC graduate William Krupa</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-08T09:45:10+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="193-severe malaria patient featuring zach andrews">
-                <h3><a href="https://www.youtube.com/watch?v=1aadjhS-MAQ" target="_blank">193-Severe Malaria Patient Featuring Zach Andrews</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-01T09:21:03+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="192-setting up a jungle icu with zach andrews">
-                <h3><a href="https://www.youtube.com/watch?v=LABtNVezY_M" target="_blank">192-Setting up a Jungle ICU with Zach Andrews</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-04-24T09:20:06+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="why space medicine changes everything | mike barratt on human physiology beyond earth">
-                <h3><a href="https://www.youtube.com/watch?v=XgL63sg17Po" target="_blank">Why Space Medicine Changes Everything | Mike Barratt on Human Physiology Beyond Earth</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-05-12T14:24:28+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="wem25 wrapped - here's what you missed!">
-                <h3><a href="https://www.youtube.com/shorts/fiRf7ZEHsJ4" target="_blank">WEM25 Wrapped - Here's What You Missed!</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-04-08T11:17:39+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="nursing without borders: leadership, crisis, and compassion in extreme healthcare">
-                <h3><a href="https://www.youtube.com/watch?v=Vus3RE93kAU" target="_blank">Nursing Without Borders: Leadership, Crisis, and Compassion in Extreme Healthcare</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-03-17T08:00:29+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="infection control in extreme environments: lessons from mers, covid and saudi arabia’s frontline">
-                <h3><a href="https://www.youtube.com/watch?v=0YAfmKNoSm8" target="_blank">Infection Control in Extreme Environments: Lessons from MERS, COVID and Saudi Arabia’s Frontline</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-03-03T08:00:01+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="surf, science, and survival: a doctor’s life in remote medicine">
-                <h3><a href="https://www.youtube.com/watch?v=sWAo_76fR5Y" target="_blank">Surf, Science, and Survival: A Doctor’s Life in Remote Medicine</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-02-17T08:01:07+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="pre-hospital hypothermia: italy’s nationwide hems study with luca carenzo & laura leuci">
-                <h3><a href="https://www.youtube.com/watch?v=0fzH9kyL2uY" target="_blank">Pre-Hospital Hypothermia: Italy’s Nationwide HEMS Study with Luca Carenzo & Laura Leuci</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-02-03T08:00:01+00:00</span>
-                </div>
-            </div>
-    
-            <div class="card video" data-title="from clinics to conservation: vet medicine in extreme environments">
-                <h3><a href="https://www.youtube.com/watch?v=T9ROc58m8kQ" target="_blank">From Clinics to Conservation: Vet Medicine in Extreme Environments</a></h3>
-                <div class="meta">
-                    <span class="badge video">video</span>
-                    <span>Published: 2026-01-20T08:00:36+00:00</span>
+                    <span>Published: 05 Jun 2026</span>
                 </div>
             </div>
     
@@ -604,7 +131,863 @@
                 <h3><a href="https://www.youtube.com/watch?v=0gJJZbtW36U" target="_blank">WEMF: Developments in Frontline Medicine with Mark Hannaford, Luca Alfatti and Roman Kuziv</a></h3>
                 <div class="meta">
                     <span class="badge video">video</span>
-                    <span>Published: 2026-01-08T10:47:20+00:00</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="from clinics to conservation: vet medicine in extreme environments">
+                <h3><a href="https://www.youtube.com/watch?v=T9ROc58m8kQ" target="_blank">From Clinics to Conservation: Vet Medicine in Extreme Environments</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pre-hospital hypothermia: italy’s nationwide hems study with luca carenzo & laura leuci">
+                <h3><a href="https://www.youtube.com/watch?v=0fzH9kyL2uY" target="_blank">Pre-Hospital Hypothermia: Italy’s Nationwide HEMS Study with Luca Carenzo & Laura Leuci</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="surf, science, and survival: a doctor’s life in remote medicine">
+                <h3><a href="https://www.youtube.com/watch?v=sWAo_76fR5Y" target="_blank">Surf, Science, and Survival: A Doctor’s Life in Remote Medicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="infection control in extreme environments: lessons from mers, covid and saudi arabia’s frontline">
+                <h3><a href="https://www.youtube.com/watch?v=0YAfmKNoSm8" target="_blank">Infection Control in Extreme Environments: Lessons from MERS, COVID and Saudi Arabia’s Frontline</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="nursing without borders: leadership, crisis, and compassion in extreme healthcare">
+                <h3><a href="https://www.youtube.com/watch?v=Vus3RE93kAU" target="_blank">Nursing Without Borders: Leadership, Crisis, and Compassion in Extreme Healthcare</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="wem25 wrapped - here's what you missed!">
+                <h3><a href="https://www.youtube.com/shorts/fiRf7ZEHsJ4" target="_blank">WEM25 Wrapped - Here's What You Missed!</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="why space medicine changes everything | mike barratt on human physiology beyond earth">
+                <h3><a href="https://www.youtube.com/watch?v=XgL63sg17Po" target="_blank">Why Space Medicine Changes Everything | Mike Barratt on Human Physiology Beyond Earth</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="187-austere primary care">
+                <h3><a href="https://www.youtube.com/watch?v=icJUFsk6k3Q" target="_blank">187-Austere Primary Care</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="corom conversations: how to set up an icu in the jungle">
+                <h3><a href="https://www.youtube.com/watch?v=Cq279lh_kaU" target="_blank">CoROM Conversations: How to set up an ICU in the jungle</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="188-how to set up an icu in the jungle">
+                <h3><a href="https://www.youtube.com/watch?v=dgYsOLmyzoc" target="_blank">188-How to set up an ICU in the jungle</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="189-faculty of offshore and maritime medicine">
+                <h3><a href="https://www.youtube.com/watch?v=z-Ead-73kSA" target="_blank">189-Faculty of Offshore and Maritime Medicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="icare scenario webinar apr26">
+                <h3><a href="https://www.youtube.com/watch?v=0-zhYK-4deY" target="_blank">iCARE Scenario Webinar Apr26</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="190-dhs graduate dr michael klopper">
+                <h3><a href="https://www.youtube.com/watch?v=meyz9WXqVrc" target="_blank">190-DHS Graduate Dr Michael Klopper</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="191-amls and phtls in pretty bay, malta">
+                <h3><a href="https://www.youtube.com/watch?v=CY1x91U2iOU" target="_blank">191-AMLS and PHTLS in Pretty Bay, Malta</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="192-setting up a jungle icu with zach andrews">
+                <h3><a href="https://www.youtube.com/watch?v=LABtNVezY_M" target="_blank">192-Setting up a Jungle ICU with Zach Andrews</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="193-severe malaria patient featuring zach andrews">
+                <h3><a href="https://www.youtube.com/watch?v=1aadjhS-MAQ" target="_blank">193-Severe Malaria Patient Featuring Zach Andrews</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="194-mscacc graduate william krupa">
+                <h3><a href="https://www.youtube.com/watch?v=WNKz2v2HsO0" target="_blank">194-MScACC graduate William Krupa</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="195-damage control procedures with dr john quinn">
+                <h3><a href="https://www.youtube.com/watch?v=zvIxtBzmE0A" target="_blank">195-Damage Control Procedures with Dr John Quinn</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="196-msiw and guerrilla medicine with antonio from euromedics">
+                <h3><a href="https://www.youtube.com/watch?v=4_jJYtab1co" target="_blank">196-MSIW and Guerrilla Medicine with Antonio from EuroMedics</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="197-poland pfc with eagle-med systems">
+                <h3><a href="https://www.youtube.com/watch?v=HreBDr73Ol0" target="_blank">197-Poland PFC with Eagle-Med Systems</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="corom conversations - snake bites">
+                <h3><a href="https://www.youtube.com/watch?v=S0584E6Oy9s" target="_blank">CoROM Conversations - Snake Bites</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="198-efast for combat life savers with tacmednorth">
+                <h3><a href="https://www.youtube.com/watch?v=sFTucJkJ6Jo" target="_blank">198-eFAST for Combat Life Savers with TacMedNorth</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="austere dentistry & musa masala dental camps with dr. anumesh dahal">
+                <h3><a href="https://www.youtube.com/watch?v=ohJBKnLl5fg" target="_blank">Austere Dentistry & Musa Masala Dental Camps with Dr. Anumesh Dahal</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="travelers' diarrhea november 2025 with sam coffman, msaom, wemt, rh(ahg), former us sof medic">
+                <h3><a href="https://www.youtube.com/watch?v=YW3UUwvJutA" target="_blank">Travelers' Diarrhea November 2025 with Sam Coffman, MSAOM, WEMT, RH(AHG), former US SOF Medic</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="search and rescue operations at yellowstone national park">
+                <h3><a href="https://www.youtube.com/watch?v=k3D5wrSXlWU" target="_blank">Search and Rescue Operations at Yellowstone National Park</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="january 2026- expedition medicine with dr. ayesha tabassom">
+                <h3><a href="https://www.youtube.com/watch?v=E-KyZX6pcZY" target="_blank">January 2026- Expedition Medicine with Dr. Ayesha Tabassom</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="february 2026- wild & well: women's reproductive health in the backcountry">
+                <h3><a href="https://www.youtube.com/watch?v=dCdt5ZYOtxw" target="_blank">February 2026- Wild & Well: Women's Reproductive Health in the Backcountry</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="big wave surf rescue- march 2026">
+                <h3><a href="https://www.youtube.com/watch?v=t37Gcu4wh7w" target="_blank">Big Wave Surf Rescue- March 2026</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="obstetrics in the wild">
+                <h3><a href="https://www.youtube.com/watch?v=veV9MIcPYXY" target="_blank">Obstetrics in the Wild</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="schistosomiasis">
+                <h3><a href="https://www.youtube.com/watch?v=UFG8aLhfqIk" target="_blank">Schistosomiasis</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="2024 fellowship showcase">
+                <h3><a href="https://www.youtube.com/watch?v=D7LhCdTDbtU" target="_blank">2024 Fellowship Showcase</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="a career in mountain medicine">
+                <h3><a href="https://www.youtube.com/watch?v=x4VPboYaUAw" target="_blank">A Career in Mountain Medicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="the abc’s of toxicology: ants, bees, centipedes and scorpions">
+                <h3><a href="https://www.youtube.com/watch?v=6p4RZKMp5l4" target="_blank">The ABC’S of Toxicology: Ants, Bees, Centipedes and Scorpions</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="medicine in the clouds">
+                <h3><a href="https://www.youtube.com/watch?v=sRulQcQfsfU" target="_blank">Medicine in the Clouds</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="in flight emergencies">
+                <h3><a href="https://www.youtube.com/watch?v=UNVQVqCpnJU" target="_blank">In Flight Emergencies</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="playing in traffic: the evolution of motorsports medicine">
+                <h3><a href="https://www.youtube.com/watch?v=TYeQffzUJhI" target="_blank">Playing in Traffic: The Evolution of Motorsports Medicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="understanding the psychological & physiological toll of high-altitude expeditions on patient care">
+                <h3><a href="https://www.youtube.com/watch?v=IRatAV5klRE" target="_blank">Understanding the Psychological & Physiological Toll of High-Altitude Expeditions on Patient Care</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="envenomations">
+                <h3><a href="https://www.youtube.com/watch?v=17yrFd0CzYg" target="_blank">Envenomations</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="doctor on everest: a personal account of the 1996 disaster">
+                <h3><a href="https://www.youtube.com/watch?v=C6QcqfKjJhM" target="_blank">Doctor on Everest: A Personal Account of the 1996 Disaster</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="planning an expedition in the polar regions">
+                <h3><a href="https://www.youtube.com/watch?v=rPpBPbN6VSk" target="_blank">Planning an Expedition in the Polar Regions</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="hazardous marine life">
+                <h3><a href="https://www.youtube.com/watch?v=z0XDuNytWS4" target="_blank">Hazardous Marine Life</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="healthcare in the khumbu valley">
+                <h3><a href="https://www.youtube.com/watch?v=B4MgHCXteYw" target="_blank">Healthcare in the Khumbu Valley</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="where is the line between front country and backcountry? does it matter?">
+                <h3><a href="https://www.youtube.com/watch?v=jFUr0L6MQ8c" target="_blank">Where is the Line Between Front Country and Backcountry? Does it Matter?</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#expedition #travel #medicine #wanderlust  #southafrica #drakensberg">
+                <h3><a href="https://www.youtube.com/shorts/1dPOfcpsBwE" target="_blank">#expedition #travel #medicine #wanderlust  #southafrica #drakensberg</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#expedition #travel #medicine #australia #wanderlust">
+                <h3><a href="https://www.youtube.com/shorts/Z6dW4LzYIGM" target="_blank">#Expedition #Travel #Medicine #Australia #wanderlust</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="rescue, expedition & disaster medicine (red med) course & expedition,rescue guatemala 2024">
+                <h3><a href="https://www.youtube.com/watch?v=4a06lFszl-g" target="_blank">Rescue, Expedition & Disaster Medicine (RED MED) Course & Expedition,Rescue Guatemala 2024</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#expedition #travel #medicine #arctic #arcticocean #wanderlust">
+                <h3><a href="https://www.youtube.com/shorts/u-tAglU_eNs" target="_blank">#Expedition #Travel #medicine #Arctic #arcticocean #wanderlust</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#expedition #travel #medicine #centralamerica #jungle #guatemala #wanderlust">
+                <h3><a href="https://www.youtube.com/shorts/bodyFriYlew" target="_blank">#Expedition #Travel #Medicine #centralamerica #Jungle #guatemala #wanderlust</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#expedition #medical kits #expeditionmedicine #firstaid #travelmedicine #firstaidkit #overlanding">
+                <h3><a href="https://www.youtube.com/shorts/NP5m-J21cWQ" target="_blank">#Expedition #medical kits #expeditionmedicine #firstaid #travelmedicine #firstaidkit #overlanding</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#searchandrescue #helicopter search and rescue #sar #wilderness #guatemala #expedition #medicine">
+                <h3><a href="https://www.youtube.com/shorts/W2IG4b-FTaw" target="_blank">#searchandrescue #Helicopter search and rescue #SAR #Wilderness #guatemala #expedition #medicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#lobuchepeak #nepal #himalayas #mountaineering #mountains #medicine #wilderness #wildernessmedicine">
+                <h3><a href="https://www.youtube.com/shorts/P-LHkNJ1wAM" target="_blank">#lobuchepeak #nepal #himalayas #mountaineering #mountains #medicine #wilderness #wildernessmedicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#expeditionmedicine #helicopter search and rescue #sar #wilderness #nepal #expedition #medicine">
+                <h3><a href="https://www.youtube.com/shorts/9Xdr8Q3i6uY" target="_blank">#expeditionmedicine #Helicopter search and rescue #SAR #Wilderness #nepal #expedition #medicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#prolongedfieldcare #wildernessmedicine #austere #medicine #remotemedicine #mountains #guatemala">
+                <h3><a href="https://www.youtube.com/shorts/kz1ySc7uIu8" target="_blank">#Prolongedfieldcare #wildernessmedicine #Austere #medicine #Remotemedicine #mountains #guatemala</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#wilderness #casualty care #wildernessmedicine #rescue #mountains #mountainmedicine">
+                <h3><a href="https://www.youtube.com/shorts/olbHNVIjhUU" target="_blank">#wilderness #casualty care #wildernessmedicine #rescue #mountains #mountainmedicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#expedition #arctic #polarbear #expeditionmedicine #svalbard #riskmanagement #medicine #wanderlust">
+                <h3><a href="https://www.youtube.com/shorts/mkChLLUg9kc" target="_blank">#expedition #Arctic #polarbear #expeditionmedicine #svalbard #riskmanagement #medicine #wanderlust</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="how to use the iv fluid warmer for wilderness, rescue & tactical medicine">
+                <h3><a href="https://www.youtube.com/watch?v=4wa_1W0fdGU" target="_blank">How to Use the IV Fluid Warmer for Wilderness, Rescue & Tactical Medicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="chlorine dioxide is useful to treat water in wilderness, expedition and survival situations">
+                <h3><a href="https://www.youtube.com/shorts/CWBCCrNz7jM" target="_blank">Chlorine Dioxide is useful to treat water in wilderness, expedition and survival situations</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="the filter/purifier bottle removes viruses, bacteria & protozoa & filters chemicals, heavy metals…">
+                <h3><a href="https://www.youtube.com/shorts/z4hOqsMG5ws" target="_blank">The filter/purifier bottle removes viruses, bacteria & protozoa & filters chemicals, heavy metals…</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="mountain rescue england and wales - text resq41 to 70070">
+                <h3><a href="https://www.youtube.com/watch?v=srkBVDU5BQo" target="_blank">Mountain Rescue England and Wales - text RESQ41 to 70070</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="mountain rescue england and wales - text resq41 to 70070 (welsh version)">
+                <h3><a href="https://www.youtube.com/watch?v=utoHlnrBF8E" target="_blank">Mountain Rescue England and Wales - text RESQ41 to 70070 (Welsh Version)</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="support mountain rescue england & wales">
+                <h3><a href="https://www.youtube.com/watch?v=TnomkwKoM3k" target="_blank">Support Mountain Rescue England & Wales</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="mountain rescue historic film pre 1947">
+                <h3><a href="https://www.youtube.com/watch?v=FyFE1eIAJLE" target="_blank">Mountain Rescue Historic Film pre 1947</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="mental health awareness week | part 1 | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=yhCtOEBo42w" target="_blank">Mental Health Awareness Week | Part 1 | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="mental health awareness week | part 2 | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=F61_8RKfV3w" target="_blank">Mental Health Awareness Week | Part 2 | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="mental health awareness | part 3 | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=-XRj73lwaEM" target="_blank">Mental Health Awareness | Part 3 | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="mental health awareness | part 4 | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=aDR3xeI2Hu4" target="_blank">Mental Health Awareness | Part 4 | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="mental health awareness | part 5 | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=mwazXUURozg" target="_blank">Mental Health Awareness | Part 5 | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="mental health awareness | part 6 | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=eawxhp3cnyI" target="_blank">Mental Health Awareness | Part 6 | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="join our support team | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=mnmCvqxC7z0" target="_blank">Join Our Support Team | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="take on a challenge | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=_hKa5RzvFYo" target="_blank">Take On A Challenge | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="volunteers week | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=1aqqDf0Uup8" target="_blank">Volunteers Week | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="volunteering for scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=wRkdfDC8VEw" target="_blank">Volunteering for Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="search & rescue dogs | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=dGZpG_1xtZc" target="_blank">Search & Rescue Dogs | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="skills and training | scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=5_sFG-6jZxY" target="_blank">Skills and Training | Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="scottish mountain rescue 2018 review">
+                <h3><a href="https://www.youtube.com/watch?v=do8FR6mWHt8" target="_blank">Scottish Mountain Rescue 2018 Review</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="help us be there for you">
+                <h3><a href="https://www.youtube.com/watch?v=TUi9OSEFZrE" target="_blank">Help us be there for you</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="#thinkwinter with scottish mountain rescue">
+                <h3><a href="https://www.youtube.com/watch?v=aW4MJRRTBc4" target="_blank">#ThinkWINTER with Scottish Mountain Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast: evacuation mastery – secrets for handovers & critical care transport">
+                <h3><a href="https://www.youtube.com/watch?v=lAEyuq3Ci-k" target="_blank">PFC Podcast: EVACUATION MASTERY – Secrets for Handovers & Critical Care Transport</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast 275: mastering pelvic fracture management">
+                <h3><a href="https://www.youtube.com/watch?v=JJicW6bl5bs" target="_blank">PFC Podcast 275: Mastering Pelvic Fracture Management</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast: setting up a walking blood bank: from talking to transfusion">
+                <h3><a href="https://www.youtube.com/watch?v=IiyZtrRcaNA" target="_blank">PFC Podcast: Setting Up a Walking Blood Bank: From Talking to Transfusion</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast 276: critical strategies for subterranean rescue">
+                <h3><a href="https://www.youtube.com/watch?v=SnWDQTkudsU" target="_blank">PFC Podcast 276: Critical Strategies For Subterranean Rescue</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="somsa 2025: former ranger medic's lessons learned">
+                <h3><a href="https://www.youtube.com/watch?v=Fs3eh_dFjbY" target="_blank">SOMSA 2025: Former Ranger Medic's Lessons Learned</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast 277: multimodal analgesia - making your limited narcotics last longer">
+                <h3><a href="https://www.youtube.com/watch?v=UxE420eK5Oc" target="_blank">PFC Podcast 277: Multimodal Analgesia - Making Your Limited Narcotics Last Longer</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast: fentanyl masterclass">
+                <h3><a href="https://www.youtube.com/watch?v=prCBuPHZpl8" target="_blank">PFC Podcast: Fentanyl Masterclass</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast 278: pediatric airway nightmares in prolonged field care">
+                <h3><a href="https://www.youtube.com/watch?v=G5nnvxJrKZY" target="_blank">PFC Podcast 278: Pediatric Airway Nightmares in Prolonged Field Care</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast: the moment prolonged field care actually begins">
+                <h3><a href="https://www.youtube.com/watch?v=jvYmZalqKv8" target="_blank">PFC Podcast: The Moment Prolonged Field Care Actually Begins</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast 279: mastering abdominal trauma in prolonged field care">
+                <h3><a href="https://www.youtube.com/watch?v=Az0u8u4-E8k" target="_blank">PFC Podcast 279: Mastering Abdominal Trauma in Prolonged Field Care</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast: traumatic cardiac arrest - real-world acls for austere & combat medicine">
+                <h3><a href="https://www.youtube.com/watch?v=qZbiqAOxnjs" target="_blank">PFC Podcast: Traumatic Cardiac Arrest - Real-World ACLS for Austere & Combat Medicine</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast 280: hantavirus in the field: cruise ship outbreak, deadly clues & field-ready lessons">
+                <h3><a href="https://www.youtube.com/watch?v=8VYR_vjOekk" target="_blank">PFC Podcast 280: Hantavirus in the Field: Cruise Ship Outbreak, Deadly Clues & Field-Ready Lessons</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast: building the ideal sof clinic - setting up a world-class austere sof clinic">
+                <h3><a href="https://www.youtube.com/watch?v=kutECA6Vipo" target="_blank">PFC Podcast: Building the Ideal SOF Clinic - Setting Up a World-Class Austere SOF Clinic</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast 281: crisis standards of care: the hardest conversations medics and teams must have">
+                <h3><a href="https://www.youtube.com/watch?v=xIaVc5uI0CU" target="_blank">PFC Podcast 281: Crisis Standards of Care: The Hardest Conversations Medics and Teams Must Have</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pfc podcast: guerrilla hospitals - how to build medical systems when evacuation & resupply are gone">
+                <h3><a href="https://www.youtube.com/watch?v=AMK63SH_ntI" target="_blank">PFC Podcast: Guerrilla Hospitals - How to Build Medical Systems When Evacuation & Resupply Are Gone</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="wound closure 101 – learn how to suture a wound #woundcare #firstaid #sutures">
+                <h3><a href="https://www.youtube.com/watch?v=tDPZ-FwOlQ0" target="_blank">Wound Closure 101 – Learn How to Suture a Wound #woundcare #firstaid #sutures</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="c-a-t® gen 7: the world's leading prehospital field tourniquet">
+                <h3><a href="https://www.youtube.com/watch?v=UTGZ1SjG1vQ" target="_blank">C-A-T® Gen 7: The World's Leading Prehospital Field Tourniquet</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="learn how to use the ez tourniquet pouch gen 2">
+                <h3><a href="https://www.youtube.com/watch?v=aYKJ3ViPoBg" target="_blank">Learn How to Use the EZ Tourniquet Pouch Gen 2</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="pressure dressing pitfalls #firstaid #prehospitalcare #pressuredressing">
+                <h3><a href="https://www.youtube.com/watch?v=_JOAX3PhJ3k" target="_blank">Pressure Dressing Pitfalls #firstaid #prehospitalcare #pressuredressing</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="range trauma kit - the loadout breakdown #beprepared #stopthebleed">
+                <h3><a href="https://www.youtube.com/watch?v=LLpCYEVW2fw" target="_blank">Range Trauma Kit - The Loadout Breakdown #beprepared #stopthebleed</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="discover how kericure® field shield® is ready for wherever your mission takes you">
+                <h3><a href="https://www.youtube.com/watch?v=GCtoVEEZHbM" target="_blank">Discover how KeriCure® Field Shield® is ready for wherever your mission takes you</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="train to treat gunshot wounds with smrt™ medium versatile placement with gunshot wound task trainer">
+                <h3><a href="https://www.youtube.com/watch?v=R17spRAiuxw" target="_blank">Train to Treat Gunshot Wounds with SMRT™ Medium Versatile Placement with Gunshot Wound Task Trainer</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="prehospital blood: learn what is inside blood">
+                <h3><a href="https://www.youtube.com/watch?v=fcy5083IQPo" target="_blank">Prehospital Blood: Learn What is Inside Blood</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="practice advanced wound packing with smrt™ hip with large caliber gunshot wound">
+                <h3><a href="https://www.youtube.com/watch?v=6SGhoYqfHDQ" target="_blank">Practice Advanced Wound Packing with SMRT™ Hip with Large Caliber Gunshot Wound</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="2026 carry the load rally recap">
+                <h3><a href="https://www.youtube.com/watch?v=Yk7RSPStNpw" target="_blank">2026 Carry the Load Rally Recap</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="prehospital blood: learn why red blood cells matter in trauma">
+                <h3><a href="https://www.youtube.com/watch?v=O2QaRyRZny0" target="_blank">Prehospital Blood: Learn why Red Blood Cells Matter in Trauma</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="stop life threatening bleeding with the smrt™ packable femoral wound with gunshot/blast">
+                <h3><a href="https://www.youtube.com/watch?v=wdSqAE2rYSk" target="_blank">Stop Life Threatening Bleeding with the SMRT™ Packable Femoral Wound with Gunshot/Blast</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="learn to manage gunshot wounds using smrt™ versatile placement with gsw">
+                <h3><a href="https://www.youtube.com/watch?v=pVUEjlNuS64" target="_blank">Learn to Manage Gunshot Wounds using SMRT™ Versatile Placement with GSW</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="t3 lightweight assault litter instructions for use #bethedifference #rescuemission #medics">
+                <h3><a href="https://www.youtube.com/watch?v=GyNrbttjmvw" target="_blank">T3 Lightweight Assault Litter Instructions for Use #bethedifference #rescuemission #medics</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
+                </div>
+            </div>
+    
+            <div class="card video" data-title="prehospital blood: what role do platelets play in hemorrhage control?">
+                <h3><a href="https://www.youtube.com/watch?v=Isf-RCq_UxU" target="_blank">Prehospital Blood: What Role Do Platelets Play in Hemorrhage Control?</a></h3>
+                <div class="meta">
+                    <span class="badge video">video</span>
+                    <span>Published: 05 Jun 2026</span>
                 </div>
             </div>
     
@@ -612,14 +995,11 @@
     </div>
 
     <script>
-        // Injected repository items array from Python database
-        const archiveItems = [{"title": "Prehospital Blood: What Role Do Platelets Play in Hemorrhage Control?", "link": "https://www.youtube.com/watch?v=Isf-RCq_UxU", "date": "2026-06-05T19:54:46+00:00", "type": "video"}, {"title": "T3 Lightweight Assault Litter Instructions for Use #bethedifference #rescuemission #medics", "link": "https://www.youtube.com/watch?v=GyNrbttjmvw", "date": "2026-05-29T12:30:21+00:00", "type": "video"}, {"title": "Learn to Manage Gunshot Wounds using SMRT\u2122 Versatile Placement with GSW", "link": "https://www.youtube.com/watch?v=pVUEjlNuS64", "date": "2026-05-22T12:30:17+00:00", "type": "video"}, {"title": "Stop Life Threatening Bleeding with the SMRT\u2122 Packable Femoral Wound with Gunshot/Blast", "link": "https://www.youtube.com/watch?v=wdSqAE2rYSk", "date": "2026-05-18T12:31:12+00:00", "type": "video"}, {"title": "Prehospital Blood: Learn why Red Blood Cells Matter in Trauma", "link": "https://www.youtube.com/watch?v=O2QaRyRZny0", "date": "2026-05-15T14:31:23+00:00", "type": "video"}, {"title": "2026 Carry the Load Rally Recap", "link": "https://www.youtube.com/watch?v=Yk7RSPStNpw", "date": "2026-05-15T13:24:08+00:00", "type": "video"}, {"title": "Practice Advanced Wound Packing with SMRT\u2122 Hip with Large Caliber Gunshot Wound", "link": "https://www.youtube.com/watch?v=6SGhoYqfHDQ", "date": "2026-04-29T12:30:14+00:00", "type": "video"}, {"title": "Prehospital Blood: Learn What is Inside Blood", "link": "https://www.youtube.com/watch?v=fcy5083IQPo", "date": "2026-04-27T14:01:07+00:00", "type": "video"}, {"title": "PFC Podcast: Guerrilla Hospitals - How to Build Medical Systems When Evacuation & Resupply Are Gone", "link": "https://www.youtube.com/watch?v=AMK63SH_ntI", "date": "2026-06-04T04:00:04+00:00", "type": "video"}, {"title": "PFC Podcast 281: Crisis Standards of Care: The Hardest Conversations Medics and Teams Must Have", "link": "https://www.youtube.com/watch?v=xIaVc5uI0CU", "date": "2026-06-01T04:00:18+00:00", "type": "video"}, {"title": "PFC Podcast: Building the Ideal SOF Clinic - Setting Up a World-Class Austere SOF Clinic", "link": "https://www.youtube.com/watch?v=kutECA6Vipo", "date": "2026-05-28T04:00:28+00:00", "type": "video"}, {"title": "PFC Podcast 280: Hantavirus in the Field: Cruise Ship Outbreak, Deadly Clues & Field-Ready Lessons", "link": "https://www.youtube.com/watch?v=8VYR_vjOekk", "date": "2026-05-26T04:00:03+00:00", "type": "video"}, {"title": "PFC Podcast: Traumatic Cardiac Arrest - Real-World ACLS for Austere & Combat Medicine", "link": "https://www.youtube.com/watch?v=qZbiqAOxnjs", "date": "2026-05-21T04:00:12+00:00", "type": "video"}, {"title": "PFC Podcast 279: Mastering Abdominal Trauma in Prolonged Field Care", "link": "https://www.youtube.com/watch?v=Az0u8u4-E8k", "date": "2026-05-18T04:00:15+00:00", "type": "video"}, {"title": "PFC Podcast: The Moment Prolonged Field Care Actually Begins", "link": "https://www.youtube.com/watch?v=jvYmZalqKv8", "date": "2026-05-14T04:00:50+00:00", "type": "video"}, {"title": "PFC Podcast 278: Pediatric Airway Nightmares in Prolonged Field Care", "link": "https://www.youtube.com/watch?v=G5nnvxJrKZY", "date": "2026-05-11T04:00:13+00:00", "type": "video"}, {"title": "#ThinkWINTER with Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=aW4MJRRTBc4", "date": "2020-12-15T16:56:35+00:00", "type": "video"}, {"title": "Help us be there for you", "link": "https://www.youtube.com/watch?v=TUi9OSEFZrE", "date": "2020-12-15T12:23:13+00:00", "type": "video"}, {"title": "Scottish Mountain Rescue 2018 Review", "link": "https://www.youtube.com/watch?v=do8FR6mWHt8", "date": "2019-12-12T11:28:17+00:00", "type": "video"}, {"title": "Skills and Training | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=5_sFG-6jZxY", "date": "2019-11-14T14:47:13+00:00", "type": "video"}, {"title": "Search & Rescue Dogs | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=dGZpG_1xtZc", "date": "2019-11-14T14:35:07+00:00", "type": "video"}, {"title": "Volunteering for Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=wRkdfDC8VEw", "date": "2019-10-10T13:42:58+00:00", "type": "video"}, {"title": "Volunteers Week | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=1aqqDf0Uup8", "date": "2019-06-18T13:02:26+00:00", "type": "video"}, {"title": "Take On A Challenge | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=_hKa5RzvFYo", "date": "2019-06-18T12:55:51+00:00", "type": "video"}, {"title": "Mountain Rescue Historic Film pre 1947", "link": "https://www.youtube.com/watch?v=FyFE1eIAJLE", "date": "2020-03-16T18:19:50+00:00", "type": "video"}, {"title": "Support Mountain Rescue England & Wales", "link": "https://www.youtube.com/watch?v=TnomkwKoM3k", "date": "2015-10-29T09:12:15+00:00", "type": "video"}, {"title": "Mountain Rescue England and Wales - text RESQ41 to 70070 (Welsh Version)", "link": "https://www.youtube.com/watch?v=utoHlnrBF8E", "date": "2015-04-02T10:51:34+00:00", "type": "video"}, {"title": "Mountain Rescue England and Wales - text RESQ41 to 70070", "link": "https://www.youtube.com/watch?v=srkBVDU5BQo", "date": "2015-04-02T10:50:53+00:00", "type": "video"}, {"title": "The filter/purifier bottle removes viruses, bacteria & protozoa & filters chemicals, heavy metals\u2026", "link": "https://www.youtube.com/shorts/z4hOqsMG5ws", "date": "2026-03-30T16:19:54+00:00", "type": "video"}, {"title": "Chlorine Dioxide is useful to treat water in wilderness, expedition and survival situations", "link": "https://www.youtube.com/shorts/CWBCCrNz7jM", "date": "2026-03-30T11:02:12+00:00", "type": "video"}, {"title": "How to Use the IV Fluid Warmer for Wilderness, Rescue & Tactical Medicine", "link": "https://www.youtube.com/watch?v=4wa_1W0fdGU", "date": "2026-03-21T11:44:48+00:00", "type": "video"}, {"title": "#expedition #Arctic #polarbear #expeditionmedicine #svalbard #riskmanagement #medicine #wanderlust", "link": "https://www.youtube.com/shorts/mkChLLUg9kc", "date": "2024-09-13T12:26:31+00:00", "type": "video"}, {"title": "#wilderness #casualty care #wildernessmedicine #rescue #mountains #mountainmedicine", "link": "https://www.youtube.com/shorts/olbHNVIjhUU", "date": "2024-09-09T05:00:27+00:00", "type": "video"}, {"title": "#Prolongedfieldcare #wildernessmedicine #Austere #medicine #Remotemedicine #mountains #guatemala", "link": "https://www.youtube.com/shorts/kz1ySc7uIu8", "date": "2024-09-08T05:00:24+00:00", "type": "video"}, {"title": "#expeditionmedicine #Helicopter search and rescue #SAR #Wilderness #nepal #expedition #medicine", "link": "https://www.youtube.com/shorts/9Xdr8Q3i6uY", "date": "2024-09-07T05:00:06+00:00", "type": "video"}, {"title": "#lobuchepeak #nepal #himalayas #mountaineering #mountains #medicine #wilderness #wildernessmedicine", "link": "https://www.youtube.com/shorts/P-LHkNJ1wAM", "date": "2024-09-06T22:53:08+00:00", "type": "video"}, {"title": "Where is the Line Between Front Country and Backcountry? Does it Matter?", "link": "https://www.youtube.com/watch?v=jFUr0L6MQ8c", "date": "2026-03-27T02:00:26+00:00", "type": "video"}, {"title": "Healthcare in the Khumbu Valley", "link": "https://www.youtube.com/watch?v=B4MgHCXteYw", "date": "2026-03-27T01:56:46+00:00", "type": "video"}, {"title": "Hazardous Marine Life", "link": "https://www.youtube.com/watch?v=z0XDuNytWS4", "date": "2025-08-28T20:18:32+00:00", "type": "video"}, {"title": "Planning an Expedition in the Polar Regions", "link": "https://www.youtube.com/watch?v=rPpBPbN6VSk", "date": "2025-08-16T18:42:08+00:00", "type": "video"}, {"title": "Doctor on Everest: A Personal Account of the 1996 Disaster", "link": "https://www.youtube.com/watch?v=C6QcqfKjJhM", "date": "2025-03-13T15:30:45+00:00", "type": "video"}, {"title": "Envenomations", "link": "https://www.youtube.com/watch?v=17yrFd0CzYg", "date": "2025-02-05T01:34:09+00:00", "type": "video"}, {"title": "Understanding the Psychological & Physiological Toll of High-Altitude Expeditions on Patient Care", "link": "https://www.youtube.com/watch?v=IRatAV5klRE", "date": "2024-12-05T11:50:12+00:00", "type": "video"}, {"title": "Playing in Traffic: The Evolution of Motorsports Medicine", "link": "https://www.youtube.com/watch?v=TYeQffzUJhI", "date": "2024-10-29T12:29:28+00:00", "type": "video"}, {"title": "Big Wave Surf Rescue- March 2026", "link": "https://www.youtube.com/watch?v=t37Gcu4wh7w", "date": "2026-03-11T15:01:36+00:00", "type": "video"}, {"title": "February 2026- Wild & Well: Women's Reproductive Health in the Backcountry", "link": "https://www.youtube.com/watch?v=dCdt5ZYOtxw", "date": "2026-02-12T17:23:07+00:00", "type": "video"}, {"title": "January 2026- Expedition Medicine with Dr. Ayesha Tabassom", "link": "https://www.youtube.com/watch?v=E-KyZX6pcZY", "date": "2026-01-27T00:34:08+00:00", "type": "video"}, {"title": "Search and Rescue Operations at Yellowstone National Park", "link": "https://www.youtube.com/watch?v=k3D5wrSXlWU", "date": "2025-12-10T15:53:08+00:00", "type": "video"}, {"title": "Travelers' Diarrhea November 2025 with Sam Coffman, MSAOM, WEMT, RH(AHG), former US SOF Medic", "link": "https://www.youtube.com/watch?v=YW3UUwvJutA", "date": "2025-11-12T22:02:58+00:00", "type": "video"}, {"title": "Austere Dentistry & Musa Masala Dental Camps with Dr. Anumesh Dahal", "link": "https://www.youtube.com/watch?v=ohJBKnLl5fg", "date": "2025-10-08T20:55:33+00:00", "type": "video"}, {"title": "198-eFAST for Combat Life Savers with TacMedNorth", "link": "https://www.youtube.com/watch?v=sFTucJkJ6Jo", "date": "2026-06-05T09:26:57+00:00", "type": "video"}, {"title": "CoROM Conversations - Snake Bites", "link": "https://www.youtube.com/watch?v=S0584E6Oy9s", "date": "2026-06-02T10:49:44+00:00", "type": "video"}, {"title": "197-Poland PFC with Eagle-Med Systems", "link": "https://www.youtube.com/watch?v=HreBDr73Ol0", "date": "2026-05-29T09:27:20+00:00", "type": "video"}, {"title": "196-MSIW and Guerrilla Medicine with Antonio from EuroMedics", "link": "https://www.youtube.com/watch?v=4_jJYtab1co", "date": "2026-05-22T09:16:01+00:00", "type": "video"}, {"title": "195-Damage Control Procedures with Dr John Quinn", "link": "https://www.youtube.com/watch?v=zvIxtBzmE0A", "date": "2026-05-15T09:18:10+00:00", "type": "video"}, {"title": "194-MScACC graduate William Krupa", "link": "https://www.youtube.com/watch?v=WNKz2v2HsO0", "date": "2026-05-08T09:45:10+00:00", "type": "video"}, {"title": "193-Severe Malaria Patient Featuring Zach Andrews", "link": "https://www.youtube.com/watch?v=1aadjhS-MAQ", "date": "2026-05-01T09:21:03+00:00", "type": "video"}, {"title": "192-Setting up a Jungle ICU with Zach Andrews", "link": "https://www.youtube.com/watch?v=LABtNVezY_M", "date": "2026-04-24T09:20:06+00:00", "type": "video"}, {"title": "Why Space Medicine Changes Everything | Mike Barratt on Human Physiology Beyond Earth", "link": "https://www.youtube.com/watch?v=XgL63sg17Po", "date": "2026-05-12T14:24:28+00:00", "type": "video"}, {"title": "WEM25 Wrapped - Here's What You Missed!", "link": "https://www.youtube.com/shorts/fiRf7ZEHsJ4", "date": "2026-04-08T11:17:39+00:00", "type": "video"}, {"title": "Nursing Without Borders: Leadership, Crisis, and Compassion in Extreme Healthcare", "link": "https://www.youtube.com/watch?v=Vus3RE93kAU", "date": "2026-03-17T08:00:29+00:00", "type": "video"}, {"title": "Infection Control in Extreme Environments: Lessons from MERS, COVID and Saudi Arabia\u2019s Frontline", "link": "https://www.youtube.com/watch?v=0YAfmKNoSm8", "date": "2026-03-03T08:00:01+00:00", "type": "video"}, {"title": "Surf, Science, and Survival: A Doctor\u2019s Life in Remote Medicine", "link": "https://www.youtube.com/watch?v=sWAo_76fR5Y", "date": "2026-02-17T08:01:07+00:00", "type": "video"}, {"title": "Pre-Hospital Hypothermia: Italy\u2019s Nationwide HEMS Study with Luca Carenzo & Laura Leuci", "link": "https://www.youtube.com/watch?v=0fzH9kyL2uY", "date": "2026-02-03T08:00:01+00:00", "type": "video"}, {"title": "From Clinics to Conservation: Vet Medicine in Extreme Environments", "link": "https://www.youtube.com/watch?v=T9ROc58m8kQ", "date": "2026-01-20T08:00:36+00:00", "type": "video"}, {"title": "WEMF: Developments in Frontline Medicine with Mark Hannaford, Luca Alfatti and Roman Kuziv", "link": "https://www.youtube.com/watch?v=0gJJZbtW36U", "date": "2026-01-08T10:47:20+00:00", "type": "video"}];
+        const archiveItems = [{"title": "From the Arctic to Space: Medicine Without Limits with Luke Apisa", "link": "https://www.youtube.com/watch?v=Lz-9LCaTULI", "date_str": "05 Jun 2026", "timestamp": 1780693046.728646, "type": "video"}, {"title": "High-Altitude Medicine: Beyond AMS with Hannah Lock", "link": "https://www.youtube.com/watch?v=HGhfb4-8M2E", "date_str": "05 Jun 2026", "timestamp": 1780693046.728638, "type": "video"}, {"title": "The Compassionate Debrief: Redefining Post-Mission Reflection in HEMS", "link": "https://www.youtube.com/watch?v=XuTOmifNNWg", "date_str": "05 Jun 2026", "timestamp": 1780693046.72863, "type": "video"}, {"title": "Summiting Barriers: Rachel Smith\u2019s Journey with Type 1 Diabetes to Antarctica\u2019s Highest Peak", "link": "https://www.youtube.com/watch?v=Oc3XSygxuFQ", "date_str": "05 Jun 2026", "timestamp": 1780693046.728621, "type": "video"}, {"title": "Humanitarian Nursing: Voices from the Frontline with Elsa Afonso & Marcus Wootton", "link": "https://www.youtube.com/watch?v=6w94UR7sml0", "date_str": "05 Jun 2026", "timestamp": 1780693046.728613, "type": "video"}, {"title": "Beyond IO and IV: Trauma Lines in Pre-Hospital Haemorrhagic Shock with Paolo Pallavicini", "link": "https://www.youtube.com/watch?v=SKhAgpwKKAE", "date_str": "05 Jun 2026", "timestamp": 1780693046.728605, "type": "video"}, {"title": "Beyond the Ambulance: Paramedics in Primary Care with Simon Robinson", "link": "https://www.youtube.com/watch?v=jGL-HPxKYsQ", "date_str": "05 Jun 2026", "timestamp": 1780693046.728596, "type": "video"}, {"title": "WEMF: Developments in Frontline Medicine with Mark Hannaford, Luca Alfatti and Roman Kuziv", "link": "https://www.youtube.com/watch?v=0gJJZbtW36U", "date_str": "05 Jun 2026", "timestamp": 1780693046.728587, "type": "video"}, {"title": "From Clinics to Conservation: Vet Medicine in Extreme Environments", "link": "https://www.youtube.com/watch?v=T9ROc58m8kQ", "date_str": "05 Jun 2026", "timestamp": 1780693046.728579, "type": "video"}, {"title": "Pre-Hospital Hypothermia: Italy\u2019s Nationwide HEMS Study with Luca Carenzo & Laura Leuci", "link": "https://www.youtube.com/watch?v=0fzH9kyL2uY", "date_str": "05 Jun 2026", "timestamp": 1780693046.72857, "type": "video"}, {"title": "Surf, Science, and Survival: A Doctor\u2019s Life in Remote Medicine", "link": "https://www.youtube.com/watch?v=sWAo_76fR5Y", "date_str": "05 Jun 2026", "timestamp": 1780693046.728559, "type": "video"}, {"title": "Infection Control in Extreme Environments: Lessons from MERS, COVID and Saudi Arabia\u2019s Frontline", "link": "https://www.youtube.com/watch?v=0YAfmKNoSm8", "date_str": "05 Jun 2026", "timestamp": 1780693046.728548, "type": "video"}, {"title": "Nursing Without Borders: Leadership, Crisis, and Compassion in Extreme Healthcare", "link": "https://www.youtube.com/watch?v=Vus3RE93kAU", "date_str": "05 Jun 2026", "timestamp": 1780693046.728539, "type": "video"}, {"title": "WEM25 Wrapped - Here's What You Missed!", "link": "https://www.youtube.com/shorts/fiRf7ZEHsJ4", "date_str": "05 Jun 2026", "timestamp": 1780693046.728529, "type": "video"}, {"title": "Why Space Medicine Changes Everything | Mike Barratt on Human Physiology Beyond Earth", "link": "https://www.youtube.com/watch?v=XgL63sg17Po", "date_str": "05 Jun 2026", "timestamp": 1780693046.728499, "type": "video"}, {"title": "187-Austere Primary Care", "link": "https://www.youtube.com/watch?v=icJUFsk6k3Q", "date_str": "05 Jun 2026", "timestamp": 1780693046.016479, "type": "video"}, {"title": "CoROM Conversations: How to set up an ICU in the jungle", "link": "https://www.youtube.com/watch?v=Cq279lh_kaU", "date_str": "05 Jun 2026", "timestamp": 1780693046.01647, "type": "video"}, {"title": "188-How to set up an ICU in the jungle", "link": "https://www.youtube.com/watch?v=dgYsOLmyzoc", "date_str": "05 Jun 2026", "timestamp": 1780693046.016462, "type": "video"}, {"title": "189-Faculty of Offshore and Maritime Medicine", "link": "https://www.youtube.com/watch?v=z-Ead-73kSA", "date_str": "05 Jun 2026", "timestamp": 1780693046.016453, "type": "video"}, {"title": "iCARE Scenario Webinar Apr26", "link": "https://www.youtube.com/watch?v=0-zhYK-4deY", "date_str": "05 Jun 2026", "timestamp": 1780693046.016445, "type": "video"}, {"title": "190-DHS Graduate Dr Michael Klopper", "link": "https://www.youtube.com/watch?v=meyz9WXqVrc", "date_str": "05 Jun 2026", "timestamp": 1780693046.016436, "type": "video"}, {"title": "191-AMLS and PHTLS in Pretty Bay, Malta", "link": "https://www.youtube.com/watch?v=CY1x91U2iOU", "date_str": "05 Jun 2026", "timestamp": 1780693046.016428, "type": "video"}, {"title": "192-Setting up a Jungle ICU with Zach Andrews", "link": "https://www.youtube.com/watch?v=LABtNVezY_M", "date_str": "05 Jun 2026", "timestamp": 1780693046.01642, "type": "video"}, {"title": "193-Severe Malaria Patient Featuring Zach Andrews", "link": "https://www.youtube.com/watch?v=1aadjhS-MAQ", "date_str": "05 Jun 2026", "timestamp": 1780693046.016411, "type": "video"}, {"title": "194-MScACC graduate William Krupa", "link": "https://www.youtube.com/watch?v=WNKz2v2HsO0", "date_str": "05 Jun 2026", "timestamp": 1780693046.016403, "type": "video"}, {"title": "195-Damage Control Procedures with Dr John Quinn", "link": "https://www.youtube.com/watch?v=zvIxtBzmE0A", "date_str": "05 Jun 2026", "timestamp": 1780693046.016395, "type": "video"}, {"title": "196-MSIW and Guerrilla Medicine with Antonio from EuroMedics", "link": "https://www.youtube.com/watch?v=4_jJYtab1co", "date_str": "05 Jun 2026", "timestamp": 1780693046.016386, "type": "video"}, {"title": "197-Poland PFC with Eagle-Med Systems", "link": "https://www.youtube.com/watch?v=HreBDr73Ol0", "date_str": "05 Jun 2026", "timestamp": 1780693046.016377, "type": "video"}, {"title": "CoROM Conversations - Snake Bites", "link": "https://www.youtube.com/watch?v=S0584E6Oy9s", "date_str": "05 Jun 2026", "timestamp": 1780693046.016367, "type": "video"}, {"title": "198-eFAST for Combat Life Savers with TacMedNorth", "link": "https://www.youtube.com/watch?v=sFTucJkJ6Jo", "date_str": "05 Jun 2026", "timestamp": 1780693046.016335, "type": "video"}, {"title": "Austere Dentistry & Musa Masala Dental Camps with Dr. Anumesh Dahal", "link": "https://www.youtube.com/watch?v=ohJBKnLl5fg", "date_str": "05 Jun 2026", "timestamp": 1780693045.237912, "type": "video"}, {"title": "Travelers' Diarrhea November 2025 with Sam Coffman, MSAOM, WEMT, RH(AHG), former US SOF Medic", "link": "https://www.youtube.com/watch?v=YW3UUwvJutA", "date_str": "05 Jun 2026", "timestamp": 1780693045.237903, "type": "video"}, {"title": "Search and Rescue Operations at Yellowstone National Park", "link": "https://www.youtube.com/watch?v=k3D5wrSXlWU", "date_str": "05 Jun 2026", "timestamp": 1780693045.237894, "type": "video"}, {"title": "January 2026- Expedition Medicine with Dr. Ayesha Tabassom", "link": "https://www.youtube.com/watch?v=E-KyZX6pcZY", "date_str": "05 Jun 2026", "timestamp": 1780693045.237884, "type": "video"}, {"title": "February 2026- Wild & Well: Women's Reproductive Health in the Backcountry", "link": "https://www.youtube.com/watch?v=dCdt5ZYOtxw", "date_str": "05 Jun 2026", "timestamp": 1780693045.237873, "type": "video"}, {"title": "Big Wave Surf Rescue- March 2026", "link": "https://www.youtube.com/watch?v=t37Gcu4wh7w", "date_str": "05 Jun 2026", "timestamp": 1780693045.237828, "type": "video"}, {"title": "Obstetrics in the Wild", "link": "https://www.youtube.com/watch?v=veV9MIcPYXY", "date_str": "05 Jun 2026", "timestamp": 1780693042.5905, "type": "video"}, {"title": "Schistosomiasis", "link": "https://www.youtube.com/watch?v=UFG8aLhfqIk", "date_str": "05 Jun 2026", "timestamp": 1780693042.590492, "type": "video"}, {"title": "2024 Fellowship Showcase", "link": "https://www.youtube.com/watch?v=D7LhCdTDbtU", "date_str": "05 Jun 2026", "timestamp": 1780693042.590482, "type": "video"}, {"title": "A Career in Mountain Medicine", "link": "https://www.youtube.com/watch?v=x4VPboYaUAw", "date_str": "05 Jun 2026", "timestamp": 1780693042.590473, "type": "video"}, {"title": "The ABC\u2019S of Toxicology: Ants, Bees, Centipedes and Scorpions", "link": "https://www.youtube.com/watch?v=6p4RZKMp5l4", "date_str": "05 Jun 2026", "timestamp": 1780693042.590464, "type": "video"}, {"title": "Medicine in the Clouds", "link": "https://www.youtube.com/watch?v=sRulQcQfsfU", "date_str": "05 Jun 2026", "timestamp": 1780693042.590455, "type": "video"}, {"title": "In Flight Emergencies", "link": "https://www.youtube.com/watch?v=UNVQVqCpnJU", "date_str": "05 Jun 2026", "timestamp": 1780693042.590447, "type": "video"}, {"title": "Playing in Traffic: The Evolution of Motorsports Medicine", "link": "https://www.youtube.com/watch?v=TYeQffzUJhI", "date_str": "05 Jun 2026", "timestamp": 1780693042.590439, "type": "video"}, {"title": "Understanding the Psychological & Physiological Toll of High-Altitude Expeditions on Patient Care", "link": "https://www.youtube.com/watch?v=IRatAV5klRE", "date_str": "05 Jun 2026", "timestamp": 1780693042.59043, "type": "video"}, {"title": "Envenomations", "link": "https://www.youtube.com/watch?v=17yrFd0CzYg", "date_str": "05 Jun 2026", "timestamp": 1780693042.590421, "type": "video"}, {"title": "Doctor on Everest: A Personal Account of the 1996 Disaster", "link": "https://www.youtube.com/watch?v=C6QcqfKjJhM", "date_str": "05 Jun 2026", "timestamp": 1780693042.590412, "type": "video"}, {"title": "Planning an Expedition in the Polar Regions", "link": "https://www.youtube.com/watch?v=rPpBPbN6VSk", "date_str": "05 Jun 2026", "timestamp": 1780693042.590404, "type": "video"}, {"title": "Hazardous Marine Life", "link": "https://www.youtube.com/watch?v=z0XDuNytWS4", "date_str": "05 Jun 2026", "timestamp": 1780693042.590395, "type": "video"}, {"title": "Healthcare in the Khumbu Valley", "link": "https://www.youtube.com/watch?v=B4MgHCXteYw", "date_str": "05 Jun 2026", "timestamp": 1780693042.590384, "type": "video"}, {"title": "Where is the Line Between Front Country and Backcountry? Does it Matter?", "link": "https://www.youtube.com/watch?v=jFUr0L6MQ8c", "date_str": "05 Jun 2026", "timestamp": 1780693042.590352, "type": "video"}, {"title": "#expedition #travel #medicine #wanderlust  #southafrica #drakensberg", "link": "https://www.youtube.com/shorts/1dPOfcpsBwE", "date_str": "05 Jun 2026", "timestamp": 1780693040.365704, "type": "video"}, {"title": "#Expedition #Travel #Medicine #Australia #wanderlust", "link": "https://www.youtube.com/shorts/Z6dW4LzYIGM", "date_str": "05 Jun 2026", "timestamp": 1780693040.365696, "type": "video"}, {"title": "Rescue, Expedition & Disaster Medicine (RED MED) Course & Expedition,Rescue Guatemala 2024", "link": "https://www.youtube.com/watch?v=4a06lFszl-g", "date_str": "05 Jun 2026", "timestamp": 1780693040.365687, "type": "video"}, {"title": "#Expedition #Travel #medicine #Arctic #arcticocean #wanderlust", "link": "https://www.youtube.com/shorts/u-tAglU_eNs", "date_str": "05 Jun 2026", "timestamp": 1780693040.365679, "type": "video"}, {"title": "#Expedition #Travel #Medicine #centralamerica #Jungle #guatemala #wanderlust", "link": "https://www.youtube.com/shorts/bodyFriYlew", "date_str": "05 Jun 2026", "timestamp": 1780693040.365671, "type": "video"}, {"title": "#Expedition #medical kits #expeditionmedicine #firstaid #travelmedicine #firstaidkit #overlanding", "link": "https://www.youtube.com/shorts/NP5m-J21cWQ", "date_str": "05 Jun 2026", "timestamp": 1780693040.365662, "type": "video"}, {"title": "#searchandrescue #Helicopter search and rescue #SAR #Wilderness #guatemala #expedition #medicine", "link": "https://www.youtube.com/shorts/W2IG4b-FTaw", "date_str": "05 Jun 2026", "timestamp": 1780693040.365654, "type": "video"}, {"title": "#lobuchepeak #nepal #himalayas #mountaineering #mountains #medicine #wilderness #wildernessmedicine", "link": "https://www.youtube.com/shorts/P-LHkNJ1wAM", "date_str": "05 Jun 2026", "timestamp": 1780693040.365646, "type": "video"}, {"title": "#expeditionmedicine #Helicopter search and rescue #SAR #Wilderness #nepal #expedition #medicine", "link": "https://www.youtube.com/shorts/9Xdr8Q3i6uY", "date_str": "05 Jun 2026", "timestamp": 1780693040.365638, "type": "video"}, {"title": "#Prolongedfieldcare #wildernessmedicine #Austere #medicine #Remotemedicine #mountains #guatemala", "link": "https://www.youtube.com/shorts/kz1ySc7uIu8", "date_str": "05 Jun 2026", "timestamp": 1780693040.365629, "type": "video"}, {"title": "#wilderness #casualty care #wildernessmedicine #rescue #mountains #mountainmedicine", "link": "https://www.youtube.com/shorts/olbHNVIjhUU", "date_str": "05 Jun 2026", "timestamp": 1780693040.365621, "type": "video"}, {"title": "#expedition #Arctic #polarbear #expeditionmedicine #svalbard #riskmanagement #medicine #wanderlust", "link": "https://www.youtube.com/shorts/mkChLLUg9kc", "date_str": "05 Jun 2026", "timestamp": 1780693040.365612, "type": "video"}, {"title": "How to Use the IV Fluid Warmer for Wilderness, Rescue & Tactical Medicine", "link": "https://www.youtube.com/watch?v=4wa_1W0fdGU", "date_str": "05 Jun 2026", "timestamp": 1780693040.365603, "type": "video"}, {"title": "Chlorine Dioxide is useful to treat water in wilderness, expedition and survival situations", "link": "https://www.youtube.com/shorts/CWBCCrNz7jM", "date_str": "05 Jun 2026", "timestamp": 1780693040.365593, "type": "video"}, {"title": "The filter/purifier bottle removes viruses, bacteria & protozoa & filters chemicals, heavy metals\u2026", "link": "https://www.youtube.com/shorts/z4hOqsMG5ws", "date_str": "05 Jun 2026", "timestamp": 1780693040.365558, "type": "video"}, {"title": "Mountain Rescue England and Wales - text RESQ41 to 70070", "link": "https://www.youtube.com/watch?v=srkBVDU5BQo", "date_str": "05 Jun 2026", "timestamp": 1780693040.089421, "type": "video"}, {"title": "Mountain Rescue England and Wales - text RESQ41 to 70070 (Welsh Version)", "link": "https://www.youtube.com/watch?v=utoHlnrBF8E", "date_str": "05 Jun 2026", "timestamp": 1780693040.089412, "type": "video"}, {"title": "Support Mountain Rescue England & Wales", "link": "https://www.youtube.com/watch?v=TnomkwKoM3k", "date_str": "05 Jun 2026", "timestamp": 1780693040.089401, "type": "video"}, {"title": "Mountain Rescue Historic Film pre 1947", "link": "https://www.youtube.com/watch?v=FyFE1eIAJLE", "date_str": "05 Jun 2026", "timestamp": 1780693040.089368, "type": "video"}, {"title": "Mental Health Awareness Week | Part 1 | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=yhCtOEBo42w", "date_str": "05 Jun 2026", "timestamp": 1780693038.92896, "type": "video"}, {"title": "Mental Health Awareness Week | Part 2 | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=F61_8RKfV3w", "date_str": "05 Jun 2026", "timestamp": 1780693038.928952, "type": "video"}, {"title": "Mental Health Awareness | Part 3 | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=-XRj73lwaEM", "date_str": "05 Jun 2026", "timestamp": 1780693038.928943, "type": "video"}, {"title": "Mental Health Awareness | Part 4 | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=aDR3xeI2Hu4", "date_str": "05 Jun 2026", "timestamp": 1780693038.928933, "type": "video"}, {"title": "Mental Health Awareness | Part 5 | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=mwazXUURozg", "date_str": "05 Jun 2026", "timestamp": 1780693038.92891, "type": "video"}, {"title": "Mental Health Awareness | Part 6 | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=eawxhp3cnyI", "date_str": "05 Jun 2026", "timestamp": 1780693038.928901, "type": "video"}, {"title": "Join Our Support Team | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=mnmCvqxC7z0", "date_str": "05 Jun 2026", "timestamp": 1780693038.928893, "type": "video"}, {"title": "Take On A Challenge | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=_hKa5RzvFYo", "date_str": "05 Jun 2026", "timestamp": 1780693038.928884, "type": "video"}, {"title": "Volunteers Week | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=1aqqDf0Uup8", "date_str": "05 Jun 2026", "timestamp": 1780693038.928875, "type": "video"}, {"title": "Volunteering for Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=wRkdfDC8VEw", "date_str": "05 Jun 2026", "timestamp": 1780693038.928866, "type": "video"}, {"title": "Search & Rescue Dogs | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=dGZpG_1xtZc", "date_str": "05 Jun 2026", "timestamp": 1780693038.928857, "type": "video"}, {"title": "Skills and Training | Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=5_sFG-6jZxY", "date_str": "05 Jun 2026", "timestamp": 1780693038.928847, "type": "video"}, {"title": "Scottish Mountain Rescue 2018 Review", "link": "https://www.youtube.com/watch?v=do8FR6mWHt8", "date_str": "05 Jun 2026", "timestamp": 1780693038.928837, "type": "video"}, {"title": "Help us be there for you", "link": "https://www.youtube.com/watch?v=TUi9OSEFZrE", "date_str": "05 Jun 2026", "timestamp": 1780693038.928827, "type": "video"}, {"title": "#ThinkWINTER with Scottish Mountain Rescue", "link": "https://www.youtube.com/watch?v=aW4MJRRTBc4", "date_str": "05 Jun 2026", "timestamp": 1780693038.928784, "type": "video"}, {"title": "PFC Podcast: EVACUATION MASTERY \u2013 Secrets for Handovers & Critical Care Transport", "link": "https://www.youtube.com/watch?v=lAEyuq3Ci-k", "date_str": "05 Jun 2026", "timestamp": 1780693016.680999, "type": "video"}, {"title": "PFC Podcast 275: Mastering Pelvic Fracture Management", "link": "https://www.youtube.com/watch?v=JJicW6bl5bs", "date_str": "05 Jun 2026", "timestamp": 1780693016.68099, "type": "video"}, {"title": "PFC Podcast: Setting Up a Walking Blood Bank: From Talking to Transfusion", "link": "https://www.youtube.com/watch?v=IiyZtrRcaNA", "date_str": "05 Jun 2026", "timestamp": 1780693016.680982, "type": "video"}, {"title": "PFC Podcast 276: Critical Strategies For Subterranean Rescue", "link": "https://www.youtube.com/watch?v=SnWDQTkudsU", "date_str": "05 Jun 2026", "timestamp": 1780693016.680974, "type": "video"}, {"title": "SOMSA 2025: Former Ranger Medic's Lessons Learned", "link": "https://www.youtube.com/watch?v=Fs3eh_dFjbY", "date_str": "05 Jun 2026", "timestamp": 1780693016.680966, "type": "video"}, {"title": "PFC Podcast 277: Multimodal Analgesia - Making Your Limited Narcotics Last Longer", "link": "https://www.youtube.com/watch?v=UxE420eK5Oc", "date_str": "05 Jun 2026", "timestamp": 1780693016.680957, "type": "video"}, {"title": "PFC Podcast: Fentanyl Masterclass", "link": "https://www.youtube.com/watch?v=prCBuPHZpl8", "date_str": "05 Jun 2026", "timestamp": 1780693016.680949, "type": "video"}, {"title": "PFC Podcast 278: Pediatric Airway Nightmares in Prolonged Field Care", "link": "https://www.youtube.com/watch?v=G5nnvxJrKZY", "date_str": "05 Jun 2026", "timestamp": 1780693016.68094, "type": "video"}, {"title": "PFC Podcast: The Moment Prolonged Field Care Actually Begins", "link": "https://www.youtube.com/watch?v=jvYmZalqKv8", "date_str": "05 Jun 2026", "timestamp": 1780693016.680918, "type": "video"}, {"title": "PFC Podcast 279: Mastering Abdominal Trauma in Prolonged Field Care", "link": "https://www.youtube.com/watch?v=Az0u8u4-E8k", "date_str": "05 Jun 2026", "timestamp": 1780693016.680909, "type": "video"}, {"title": "PFC Podcast: Traumatic Cardiac Arrest - Real-World ACLS for Austere & Combat Medicine", "link": "https://www.youtube.com/watch?v=qZbiqAOxnjs", "date_str": "05 Jun 2026", "timestamp": 1780693016.6809, "type": "video"}, {"title": "PFC Podcast 280: Hantavirus in the Field: Cruise Ship Outbreak, Deadly Clues & Field-Ready Lessons", "link": "https://www.youtube.com/watch?v=8VYR_vjOekk", "date_str": "05 Jun 2026", "timestamp": 1780693016.68089, "type": "video"}, {"title": "PFC Podcast: Building the Ideal SOF Clinic - Setting Up a World-Class Austere SOF Clinic", "link": "https://www.youtube.com/watch?v=kutECA6Vipo", "date_str": "05 Jun 2026", "timestamp": 1780693016.68088, "type": "video"}, {"title": "PFC Podcast 281: Crisis Standards of Care: The Hardest Conversations Medics and Teams Must Have", "link": "https://www.youtube.com/watch?v=xIaVc5uI0CU", "date_str": "05 Jun 2026", "timestamp": 1780693016.68087, "type": "video"}, {"title": "PFC Podcast: Guerrilla Hospitals - How to Build Medical Systems When Evacuation & Resupply Are Gone", "link": "https://www.youtube.com/watch?v=AMK63SH_ntI", "date_str": "05 Jun 2026", "timestamp": 1780693016.680837, "type": "video"}, {"title": "Wound Closure 101 \u2013 Learn How to Suture a Wound #woundcare #firstaid #sutures", "link": "https://www.youtube.com/watch?v=tDPZ-FwOlQ0", "date_str": "05 Jun 2026", "timestamp": 1780693016.310447, "type": "video"}, {"title": "C-A-T\u00ae Gen 7: The World's Leading Prehospital Field Tourniquet", "link": "https://www.youtube.com/watch?v=UTGZ1SjG1vQ", "date_str": "05 Jun 2026", "timestamp": 1780693016.310438, "type": "video"}, {"title": "Learn How to Use the EZ Tourniquet Pouch Gen 2", "link": "https://www.youtube.com/watch?v=aYKJ3ViPoBg", "date_str": "05 Jun 2026", "timestamp": 1780693016.31043, "type": "video"}, {"title": "Pressure Dressing Pitfalls #firstaid #prehospitalcare #pressuredressing", "link": "https://www.youtube.com/watch?v=_JOAX3PhJ3k", "date_str": "05 Jun 2026", "timestamp": 1780693016.310421, "type": "video"}, {"title": "Range Trauma Kit - The Loadout Breakdown #beprepared #stopthebleed", "link": "https://www.youtube.com/watch?v=LLpCYEVW2fw", "date_str": "05 Jun 2026", "timestamp": 1780693016.310413, "type": "video"}, {"title": "Discover how KeriCure\u00ae Field Shield\u00ae is ready for wherever your mission takes you", "link": "https://www.youtube.com/watch?v=GCtoVEEZHbM", "date_str": "05 Jun 2026", "timestamp": 1780693016.310403, "type": "video"}, {"title": "Train to Treat Gunshot Wounds with SMRT\u2122 Medium Versatile Placement with Gunshot Wound Task Trainer", "link": "https://www.youtube.com/watch?v=R17spRAiuxw", "date_str": "05 Jun 2026", "timestamp": 1780693016.310394, "type": "video"}, {"title": "Prehospital Blood: Learn What is Inside Blood", "link": "https://www.youtube.com/watch?v=fcy5083IQPo", "date_str": "05 Jun 2026", "timestamp": 1780693016.310385, "type": "video"}, {"title": "Practice Advanced Wound Packing with SMRT\u2122 Hip with Large Caliber Gunshot Wound", "link": "https://www.youtube.com/watch?v=6SGhoYqfHDQ", "date_str": "05 Jun 2026", "timestamp": 1780693016.310376, "type": "video"}, {"title": "2026 Carry the Load Rally Recap", "link": "https://www.youtube.com/watch?v=Yk7RSPStNpw", "date_str": "05 Jun 2026", "timestamp": 1780693016.310367, "type": "video"}, {"title": "Prehospital Blood: Learn why Red Blood Cells Matter in Trauma", "link": "https://www.youtube.com/watch?v=O2QaRyRZny0", "date_str": "05 Jun 2026", "timestamp": 1780693016.310358, "type": "video"}, {"title": "Stop Life Threatening Bleeding with the SMRT\u2122 Packable Femoral Wound with Gunshot/Blast", "link": "https://www.youtube.com/watch?v=wdSqAE2rYSk", "date_str": "05 Jun 2026", "timestamp": 1780693016.310348, "type": "video"}, {"title": "Learn to Manage Gunshot Wounds using SMRT\u2122 Versatile Placement with GSW", "link": "https://www.youtube.com/watch?v=pVUEjlNuS64", "date_str": "05 Jun 2026", "timestamp": 1780693016.310337, "type": "video"}, {"title": "T3 Lightweight Assault Litter Instructions for Use #bethedifference #rescuemission #medics", "link": "https://www.youtube.com/watch?v=GyNrbttjmvw", "date_str": "05 Jun 2026", "timestamp": 1780693016.310325, "type": "video"}, {"title": "Prehospital Blood: What Role Do Platelets Play in Hemorrhage Control?", "link": "https://www.youtube.com/watch?v=Isf-RCq_UxU", "date_str": "05 Jun 2026", "timestamp": 1780693016.310289, "type": "video"}];
 
         function getRandomItems(arr, type, num) {
             const filtered = arr.filter(i => i.type === type);
-            // Fallback if specific category is sparse
-            if(filtered.length === 0) return arr.slice(0, num);
-            
+            if(filtered.length === 0) return [];
             const shuffled = [...filtered].sort(() => 0.5 - Math.random());
             return shuffled.slice(0, num);
         }
@@ -629,18 +1009,15 @@
             const pSlots = document.getElementById('podcast-slots');
             const bSlots = document.getElementById('blog-slots');
 
-            // Fetch random selections
             const videos = getRandomItems(archiveItems, 'video', 3);
             const podcasts = getRandomItems(archiveItems, 'podcast', 3);
             const blogs = getRandomItems(archiveItems, 'blog', 3);
 
-            // Render into slot UI structures
-            vSlots.innerHTML = videos.map(v => `<a class="slot-item" href="${v.link}" target="_blank">📺 ${v.title}</a>`).join('');
-            pSlots.innerHTML = podcasts.map(p => `<a class="slot-item" href="${p.link}" target="_blank">📻 ${p.title}</a>`).join('');
-            bSlots.innerHTML = blogs.map(b => `<a class="slot-item" href="${b.link}" target="_blank">📄 ${b.title}</a>`).join('');
+            vSlots.innerHTML = videos.map(v => `<a class="slot-item" href="${v.link}" target="_blank" title="${v.title}">📺 ${v.title}</a>`).join('');
+            pSlots.innerHTML = podcasts.map(p => `<a class="slot-item" href="${p.link}" target="_blank" title="${p.title}">📻 ${p.title}</a>`).join('');
+            bSlots.innerHTML = blogs.map(b => `<a class="slot-item" href="${b.link}" target="_blank" title="${b.title}">📄 ${b.title}</a>`).join('');
         }
 
-        // Client side real-time keyword search filtering
         function filterArchive() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.querySelectorAll('#archiveTimeline .card');
@@ -655,7 +1032,6 @@
             });
         }
 
-        // Spin automatically on initial page visit load
         window.onload = spinMachine;
     </script>
 </body>
