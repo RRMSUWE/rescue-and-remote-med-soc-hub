@@ -10,6 +10,7 @@
       <outline text="DCS" title="DCS" type="rss" xmlUrl="https://dcsrescue.com/feed/" htmlUrl="https://dcsrescue.com/"/>
     </outline>
     <outline text="Rope Rescue" title="Rope Rescue">
+      <outline text="Rock Climbing: Problem Solving and Rescues" title="Rock Climbing: Problem Solving and Rescues" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLdwJTRiemgjvd4uITvKT3GSPeKTeWCWqi" htmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLdwJTRiemgjvd4uITvKT3GSPeKTeWCWqi"/>
       <outline text="Arco Professional Safety Services" title="Arco Professional Safety Services" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC8zScNcwcMCLuz4Ty-1MMZQ" htmlUrl="https://www.youtube.com/channel/UC8zScNcwcMCLuz4Ty-1MMZQ"/>
       <outline text="Rigging Lab Academy" title="Rigging Lab Academy" type="rss" xmlUrl="https://rigginglabacademy.com/feed/" htmlUrl="https://rigginglabacademy.com/"/>
       <outline text="CMC" title="CMC" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCQd9ct_6rB5jJ4JVyhuwHdw" htmlUrl="https://www.youtube.com/channel/UCQd9ct_6rB5jJ4JVyhuwHdw"/>
@@ -20,6 +21,10 @@
       <outline text="The Cave Rescue Organisation" title="The Cave Rescue Organisation" type="rss" xmlUrl="https://cro.org.uk/feed/" htmlUrl="cro.org.uk"/>
     </outline>
     <outline text="Fieldcraft" title="Fieldcraft">
+      <outline text="Mountain Training" title="Mountain Training" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCiP8W_LbcZgbEYwQh7I3Ujw" htmlUrl="https://www.youtube.com/channel/UCiP8W_LbcZgbEYwQh7I3Ujw"/>
+      <outline text="Louise Tully" title="Louise Tully" type="rss" xmlUrl="https://www.freedom-outdoors.co.uk/feed/" htmlUrl="https://www.freedom-outdoors.co.uk/"/>
+      <outline text="Blog - Chris Ensoll Mountain Guide" title="Blog - Chris Ensoll Mountain Guide" type="rss" xmlUrl="https://www.chrisensoll.com/chris-ensolls-blog?format=rss" htmlUrl="https://www.chrisensoll.com/chris-ensolls-blog/"/>
+      <outline text="Mountain Leader Stuff" title="Mountain Leader Stuff" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLdwJTRiemgjuqwJ0EmRhFVsQEPT1VDBJR" htmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLdwJTRiemgjuqwJ0EmRhFVsQEPT1VDBJR"/>
       <outline text="Boreal River Rescue - Leadership" title="Boreal River Rescue - Leadership" type="rss" xmlUrl="https://rescue.borealriver.com/blogs/education.atom" htmlUrl="https://rescue.borealriver.com/blogs/education"/>
       <outline text="Boreal River Rescue - Expedition Resources" title="Boreal River Rescue - Expedition Resources" type="rss" xmlUrl="https://rescue.borealriver.com/blogs/expedition-resources.atom" htmlUrl="https://rescue.borealriver.com/blogs/expedition-resources"/>
       <outline text="The Map Reading Company" title="The Map Reading Company" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCF6JMjE4LM3nuWhaiLjLuOQ" htmlUrl="https://www.youtube.com/channel/UCF6JMjE4LM3nuWhaiLjLuOQ"/>
