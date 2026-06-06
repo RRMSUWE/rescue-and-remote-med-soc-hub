@@ -9,7 +9,6 @@ import re
 ARCHIVE_FILE = 'public/archive.json'
 existing_archive = []
 
-# 1. Define the Auto-Tagging Keyword Map matched to your society domains
 tag_map = {
     "Tactical & Fieldcraft": ["raid", "patrol", "fieldcraft", "tactical", "tccc", "tecc", "ballistic", "blast", "austere", "weapon"],
     "Airway & Breathing": ["airway", "intubation", "ventilator", "oxygen", "breathing", "thoracic", "cric", "rsa", "ventilation"],
@@ -23,281 +22,143 @@ if os.path.exists(ARCHIVE_FILE):
     try:
         with open(ARCHIVE_FILE, 'r', encoding='utf-8') as f:
             existing_archive = json.load(f)
-        print(f"Loaded {len(existing_archive)} existing records.")
-    except Exception as e:
-        print(f"Could not load old archive: {e}")
+    except Exception:
+        pass
 
 known_links = {item.get('link') for item in existing_archive if 'link' in item}
 
-print("Parsing feeds.opml...")
 try:
     tree = ET.parse('feeds.opml')
     root = tree.getroot()
-except Exception as e:
-    print(f"CRITICAL ERROR: feeds.opml is corrupt or missing! {e}")
+except Exception:
     root = None
 
-feed_urls = []
-if root is not None:
-    for outline in root.findall('.//outline'):
-        xml_url = outline.get('xmlUrl')
-        if xml_url:
-            feed_urls.append(xml_url)
-
-# INCREASED LIMITS: Scraping up to 150 feeds to recover your massive database pool
-print(f"Checking {len(feed_urls)} source feeds for updates...")
-new_items_count = 0
+feed_urls = [outline.get('xmlUrl') for outline in root.findall('.//outline') if outline.get('xmlUrl')] if root is not None else []
 
 def robust_parse_date(date_str):
-    if not date_str:
-        return datetime.now().timestamp(), "Recent"
     try:
         dt = email.utils.parsedate_to_datetime(str(date_str))
         return dt.timestamp(), dt.strftime('%d %b %Y')
-    except Exception:
-        pass
-    try:
-        clean_date = str(date_str).split('T')[0]
-        dt = datetime.strptime(clean_date, "%Y-%m-%d")
-        return dt.timestamp(), dt.strftime('%d %b %Y')
-    except Exception:
-        pass
-    return datetime.now().timestamp(), "Recent"
+    except:
+        return datetime.now().timestamp(), "Recent"
 
 for url in feed_urls[:150]:
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=10) as response:
             xml_data = response.read()
-            
-            try:
-                feed_root = ET.fromstring(xml_data)
-            except Exception as xml_err:
-                continue
-            
+            feed_root = ET.fromstring(xml_data)
             channel = feed_root.find('channel')
             items = channel.findall('item') if channel is not None else feed_root.findall('.//{http://www.w3.org/2005/Atom}entry')
-            
-            if not items:
-                items = feed_root.findall('item')
+            if not items: items = feed_root.findall('item')
                 
-            # INCREASED LIMITS: Looking up to 60 historical items deep per feed channel
             for item in items[:60]:
-                try:
-                    title = item.findtext('title') or item.findtext('{http://www.w3.org/2005/Atom}title')
-                    link = item.findtext('link') or (item.find('{http://www.w3.org/2005/Atom}link').get('href') if item.find('{http://www.w3.org/2005/Atom}link') is not None else "")
-                    
-                    if not title or not link:
-                        continue
-                    
-                    link_str = str(link).strip()
-                    if link_str.startswith('/') or not link_str.startswith('http'):
-                        continue
-                    if link_str in known_links:
-                        continue
-                    
-                    pub_date_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or ""
-                    timestamp, date_display_str = robust_parse_date(pub_date_raw)
-
-                    # Gather existing feed tags
-                    item_tags = []
-                    for cat in item.findall('category') + item.findall('.//{http://www.w3.org/2005/Atom}category'):
-                        tag_text = cat.text or cat.get('term') or ""
-                        tag_text = tag_text.strip().title()
-                        if tag_text and len(tag_text) < 20 and tag_text not in ["Uncategorized", "Post"]:
-                            item_tags.append(tag_text)
-
-                    # AUTO-TAGGING ENGINE: Match title keywords against mapped definitions
-                    lower_title = str(title).lower()
-                    for category_name, keywords in tag_map.items():
-                        if any(word in lower_title for word in keywords):
-                            item_tags.append(category_name)
-
-                    lower_link = link_str.lower()
-                    
-                    if "youtube.com" in lower_link or "youtu.be" in lower_link or "video" in lower_title:
-                        item_type = "video"
-                    elif "podcast" in lower_link or "spotify" in lower_link or "podcast" in lower_title or "audio" in lower_title or "episode" in lower_title:
-                        item_type = "podcast"
-                    else:
-                        item_type = "blog"
-                        
-                    existing_archive.append({
-                        "title": str(title), 
-                        "link": link_str, 
-                        "date_str": str(date_display_str), 
-                        "timestamp": float(timestamp),
-                        "type": item_type,
-                        "tags": list(set(item_tags))
-                    })
-                    known_links.add(link_str)
-                    new_items_count += 1
-                except Exception:
-                    continue
+                title = item.findtext('title') or item.findtext('{http://www.w3.org/2005/Atom}title')
+                link = item.findtext('link') or (item.find('{http://www.w3.org/2005/Atom}link').get('href') if item.find('{http://www.w3.org/2005/Atom}link') is not None else "")
+                if not title or not link or link in known_links: continue
                 
-    except Exception:
-        continue
+                item_tags = []
+                for cat in item.findall('category') + item.findall('.//{http://www.w3.org/2005/Atom}category'):
+                    t = (cat.text or cat.get('term') or "").strip().title()
+                    if t and len(t) < 20 and t not in ["Uncategorized", "Post"]: item_tags.append(t)
 
-print(f"Archived {new_items_count} resources.")
-existing_archive = [i for i in existing_archive if i.get('title') and i.get('link')]
+                lower_title = str(title).lower()
+                for cat_name, keywords in tag_map.items():
+                    if any(word in lower_title for word in keywords): item_tags.append(cat_name)
 
-try:
-    existing_archive.sort(key=lambda x: float(x.get('timestamp', 0)), reverse=True)
-except Exception:
-    pass
+                pub_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or ""
+                ts, ds = robust_parse_date(pub_raw)
+                
+                item_type = "video" if any(x in link.lower() or x in lower_title for x in ["youtube", "youtu.be", "video"]) else "podcast" if any(x in link.lower() or x in lower_title for x in ["podcast", "spotify", "audio"]) else "blog"
+                        
+                existing_archive.append({"title": str(title), "link": link, "date_str": ds, "timestamp": float(ts), "type": item_type, "tags": list(set(item_tags))})
+                known_links.add(link)
+    except: continue
 
-# Collect every unique category tag across history pool
-master_tags_set = set()
-for item in existing_archive:
-    if "tags" not in item:
-        item["tags"] = []
-    for t in item["tags"]:
-        master_tags_set.add(t)
-
-sorted_master_tags = sorted(list(master_tags_set))
+existing_archive.sort(key=lambda x: float(x.get('timestamp', 0)), reverse=True)
+master_tags = sorted(list(set(t for i in existing_archive for t in i.get("tags", []))))
 
 os.makedirs('public', exist_ok=True)
 with open(ARCHIVE_FILE, 'w', encoding='utf-8') as f:
     json.dump(existing_archive, f, ensure_ascii=False, indent=2)
 
+# --- START HTML GENERATION WITH UPDATED TITLE ---
 html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rescue &amp; Remote Medicine Society Hub</title>
+    <title>RRMS Resource Hub</title>
     <style>
-        :root {{
-            --brand-navy: #0f223d;
-            --brand-crimson: #cf2027;
-            --brand-crimson-hover: #b0181e;
-            --brand-bg: #f5f7fa;
-            --brand-slate: #475569;
-        }}
-
+        :root {{ --brand-navy: #0f223d; --brand-crimson: #cf2027; --brand-crimson-hover: #b0181e; --brand-bg: #f5f7fa; --brand-slate: #475569; }}
         body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--brand-bg); color: #222; margin: 0; padding: 20px; }}
         .container {{ max-width: 950px; margin: 0 auto; }}
-        
-        header {{ 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 25px; 
-            margin-bottom: 30px; 
-            background: var(--brand-navy); 
-            color: white; 
-            padding: 35px 25px; 
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(15, 34, 61, 0.15);
-        }}
+        header {{ display: flex; align-items: center; justify-content: center; gap: 25px; margin-bottom: 30px; background: var(--brand-navy); color: white; padding: 35px 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(15, 34, 61, 0.15); }}
         .header-logo {{ width: 110px; height: 110px; border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,255,255,0.1); flex-shrink: 0; }}
         .header-text {{ text-align: left; }}
         header h1 {{ margin: 0; font-size: 28px; letter-spacing: -0.5px; line-height: 1.2; }}
         header p {{ color: #cbd5e1; margin: 6px 0 0 0; font-size: 15px; font-weight: 500; }}
-        
-        @media(max-width: 600px) {{
-            header {{ flex-direction: column; text-align: center; padding: 30px 15px; }}
-            .header-text {{ text-align: center; }}
-        }}
-
+        @media(max-width: 600px) {{ header {{ flex-direction: column; text-align: center; }} .header-text {{ text-align: center; }} }}
         .subheading {{ font-size: 20px; font-weight: bold; color: var(--brand-navy); margin: 35px 0 15px 0; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }}
-        
-        .tags-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; max-height: 185px; overflow-y: auto; padding: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02); }}
-        .tag-pill {{ background: #f1f5f9; color: #475569; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; border: 1px solid #cbd5e1; transition: all 0.15s; user-select: none; }}
-        .tag-pill:hover {{ background: #e2e8f0; color: var(--brand-navy); }}
-        .tag-pill.active {{ background: var(--brand-navy); color: white; border-color: var(--brand-navy); box-shadow: 0 2px 5px rgba(15,34,61,0.2); }}
-
-        .fruit-machine-box {{ background: #fff; border: 3px dashed var(--brand-crimson); border-radius: 12px; padding: 25px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }}
-        .machine-header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--brand-bg); padding-bottom: 12px; margin-bottom: 20px; }}
-        .machine-title {{ font-weight: 800; font-size: 21px; color: var(--brand-navy); }}
-        .spin-btn {{ background: var(--brand-crimson); color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 13px; letter-spacing: 0.7px; transition: background 0.2s; }}
-        .spin-btn:hover {{ background: var(--brand-crimson-hover); }}
-        
+        .tags-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; max-height: 185px; overflow-y: auto; padding: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; }}
+        .tag-pill {{ background: #f1f5f9; color: #475569; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; border: 1px solid #cbd5e1; transition: all 0.15s; }}
+        .tag-pill.active {{ background: var(--brand-navy); color: white; border-color: var(--brand-navy); }}
+        .fruit-machine-box {{ background: #fff; border: 3px dashed var(--brand-crimson); border-radius: 12px; padding: 25px; margin-bottom: 30px; }}
+        .machine-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }}
+        .spin-btn {{ background: var(--brand-crimson); color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; }}
         .slots-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }}
         @media(max-width: 768px) {{ .slots-grid {{ grid-template-columns: 1fr; }} }}
         .slot-column {{ background: var(--brand-bg); border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }}
-        .column-header {{ font-weight: bold; text-transform: uppercase; font-size: 12px; margin-bottom: 12px; color: var(--brand-slate); border-bottom: 2px solid #cbd5e1; padding-bottom: 5px; letter-spacing: 0.5px; }}
-        
-        .slot-item {{ background: #fff; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #334155; font-weight: 600; line-height: 1.4; transition: border-color 0.15s, color 0.15s; }}
-        .slot-item:hover {{ border-color: var(--brand-crimson); color: var(--brand-crimson); }}
-        
-        .media-icon-container {{ width: 42px; height: 42px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }}
-        .media-icon-container.video {{ background: #fef2f2; color: var(--brand-crimson); }}
-        .media-icon-container.podcast {{ background: #eff6ff; color: #3b82f6; }}
-        .media-icon-container.blog {{ background: #ecfdf5; color: #10b981; }}
-        .media-icon-container svg {{ width: 22px; height: 22px; fill: currentColor; }}
-
-        .card {{ background: white; padding: 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; gap: 18px; align-items: center; text-decoration: none; color: inherit; border-left: 6px solid var(--brand-slate); transition: transform 0.15s, box-shadow 0.15s; }}
+        .slot-item {{ background: #fff; padding: 10px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 10px; text-decoration: none; color: #334155; font-weight: 600; }}
+        .card {{ background: white; padding: 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; gap: 18px; align-items: center; text-decoration: none; color: inherit; border-left: 6px solid var(--brand-slate); }}
         .card.video {{ border-left-color: var(--brand-crimson); }}
         .card.podcast {{ border-left-color: #3b82f6; }}
         .card.blog {{ border-left-color: #10b981; }}
-        .card:hover {{ transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.04); }}
-        
-        .card .media-icon-container {{ width: 52px; height: 52px; border-radius: 8px; }}
-        .card .media-icon-container svg {{ width: 26px; height: 26px; }}
-        
-        .search-bar {{ width: 100%; padding: 15px 20px; font-size: 16px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; outline: none; margin-bottom: 10px; background: white; }}
-        .search-bar:focus {{ border-color: var(--brand-navy); }}
-        .card-body {{ flex-grow: 1; }}
-        .card h3 {{ margin: 0 0 6px 0; font-size: 18px; color: var(--brand-navy); font-weight: 700; line-height: 1.3; }}
-        .meta {{ font-size: 12px; color: var(--brand-slate); display: flex; gap: 12px; align-items: center; font-weight: 500; }}
-        .card-tags {{ display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }}
-        .card-tag-inline {{ font-size: 11px; background: #edf2f7; color: #4a5568; padding: 2px 8px; border-radius: 4px; border: 1px solid #e2e8f0; font-weight: 600; }}
-        
-        .badge {{ text-transform: uppercase; font-weight: bold; font-size: 10px; padding: 3px 7px; border-radius: 4px; color: white; }}
+        .search-bar {{ width: 100%; padding: 15px 20px; font-size: 16px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; margin-bottom: 10px; }}
+        .card-tag-inline {{ font-size: 11px; background: #edf2f7; color: #4a5568; padding: 2px 8px; border-radius: 4px; border: 1px solid #e2e8f0; font-weight: 600; margin-right: 4px; }}
+        .badge {{ text-transform: uppercase; font-weight: bold; font-size: 10px; padding: 3px 7px; border-radius: 4px; color: white; margin-right: 8px; }}
         .badge.video {{ background: var(--brand-crimson); }}
         .badge.podcast {{ background: #3b82f6; }}
         .badge.blog {{ background: #10b981; }}
+        .media-icon-container svg {{ width: 24px; height: 24px; fill: currentColor; }}
     </style>
 </head>
 <body>
     <div class="container">
-        
         <header>
             <img class="header-logo" src="logo.png" alt="RRMS UWE Logo">
             <div class="header-text">
-                <h1>Rescue &amp; Remote Medicine Society Hub</h1>
-                <p>University of the West of England Student Union Branch • Active Pool: {len(existing_archive)} Resources</p>
+                <h1>Rescue &amp; Remote Medicine Society Resource Hub</h1>
+                <p>University of the West of England Student Union Branch • Pool: {len(existing_archive)} Resources</p>
             </div>
         </header>
 
         <div class="fruit-machine-box">
             <div class="machine-header">
-                <div class="machine-title">🎰 The CPD Fruit Machine</div>
-                <button class="spin-btn" onclick="spinMachine()">Pull Lever to Randomise</button>
+                <div style="font-weight:800; font-size:21px; color:var(--brand-navy);">🎰 The CPD Fruit Machine</div>
+                <button class="spin-btn" onclick="spinMachine()">Pull Lever</button>
             </div>
             <div class="slots-grid">
-                <div class="slot-column">
-                    <div class="column-header">🎬 3x Video Resources</div>
-                    <div id="video-slots"></div>
-                </div>
-                <div class="slot-column">
-                    <div class="column-header">🎙️ 3x Podcast Episodes</div>
-                    <div id="podcast-slots"></div>
-                </div>
-                <div class="slot-column">
-                    <div class="column-header">📰 3x Articles &amp; Blogs</div>
-                    <div id="blog-slots"></div>
-                </div>
+                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:10px;">🎬 VIDEOS</div><div id="video-slots"></div></div>
+                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:10px;">🎙️ PODCASTS</div><div id="podcast-slots"></div></div>
+                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:10px;">📰 ARTICLES</div><div id="blog-slots"></div></div>
             </div>
         </div>
 
-        <div class="subheading">Search the Archive</div>
-        <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search resource library by keywords..." onkeyup="masterFilter()">
+        <div class="subheading">Search Archive</div>
+        <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Keywords..." onkeyup="masterFilter()">
 
-        <div class="subheading">Browse by Category</div>
-        <div class="tags-container" id="tagMenuBox">
-            <div class="tag-pill active" onclick="toggleTagFilter(this, 'ALL')">All Categories</div>
+        <div class="subheading">Categories</div>
+        <div class="tags-container">
+            <div class="tag-pill active" onclick="toggleTagFilter(this, 'ALL')">All</div>
 """
 
-for tag in sorted_master_tags:
-    safe_js_tag = tag.replace("'", "\\'")
-    html_content += f"""            <div class="tag-pill" onclick="toggleTagFilter(this, '{safe_js_tag}')">{tag}</div>\n"""
+for tag in master_tags:
+    safe_t = tag.replace("'", "\\'")
+    html_content += f"""            <div class="tag-pill" onclick="toggleTagFilter(this, '{safe_t}')">{tag}</div>\n"""
 
-html_content += f"""        </div>
-
-        <div class="subheading">Archive</div>
+html_content += """        </div>
         <main id="archiveTimeline">
 """
 
@@ -308,99 +169,52 @@ icons = {
 }
 
 for item in existing_archive:
-    clean_title = item['title'].replace('"', '&quot;').replace("'", "&#39;")
-    tags_list_str = json.dumps(item.get('tags', []))
-    inline_tags_html = "".join([f'<span class="card-tag-inline">{t}</span>' for t in item.get('tags', [])])
-    
+    t_json = json.dumps(item.get('tags', []))
+    inline_tags = "".join([f'<span class="card-tag-inline">{t}</span>' for t in item.get('tags', [])])
     html_content += f"""
-            <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{clean_title.lower()}" data-tags='{tags_list_str}'>
-                <div class="media-icon-container {item['type']}">
-                    {icons[item['type']]}
-                </div>
+            <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{item['title'].lower()}" data-tags='{t_json}'>
+                <div class="media-icon-container {item['type']}">{icons[item['type']]}</div>
                 <div class="card-body">
-                    <h3>{item['title']}</h3>
-                    <div class="meta">
-                        <span class="badge {item['type']}">{item['type']}</span>
-                        <span>Published: {item['date_str']}</span>
+                    <h3 style="margin:0 0 5px 0; font-size:17px;">{item['title']}</h3>
+                    <div style="font-size:12px; color:var(--brand-slate);">
+                        <span class="badge {item['type']}">{item['type']}</span> {item['date_str']}
                     </div>
-                    <div class="card-tags">{inline_tags_html}</div>
+                    <div style="margin-top:8px;">{inline_tags}</div>
                 </div>
-            </a>
-    """
+            </a>"""
 
 html_content += f"""
         </main>
     </div>
-
     <script>
         const archiveItems = {json.dumps(existing_archive)};
-        const svgIcons = {json.dumps(icons)};
-        let activeSelectedTag = "ALL";
-
-        function getRandomItems(arr, type, num) {{
-            const filtered = arr.filter(i => i.type === type);
-            if(filtered.length === 0) return [];
-            const shuffled = [...filtered].sort(() => 0.5 - Math.random());
-            return shuffled.slice(0, num);
-        }}
+        const icons = {json.dumps(icons)};
+        let activeTag = "ALL";
 
         function spinMachine() {{
-            const vSlots = document.getElementById('video-slots');
-            const pSlots = document.getElementById('podcast-slots');
-            const bSlots = document.getElementById('blog-slots');
-
-            const videos = getRandomItems(archiveItems, 'video', 3);
-            const podcasts = getRandomItems(archiveItems, 'podcast', 3);
-            const blogs = getRandomItems(archiveItems, 'blog', 3);
-
-            vSlots.innerHTML = videos.map(v => `
-                <a class="slot-item" href="${{v.link}}" target="_blank">
-                    <div class="media-icon-container video">${{svgIcons.video}}</div>
-                    <span>${{v.title}}</span>
-                </a>
-            `).join('');
-
-            pSlots.innerHTML = podcasts.map(p => `
-                <a class="slot-item" href="${{p.link}}" target="_blank">
-                    <div class="media-icon-container podcast">${{svgIcons.podcast}}</div>
-                    <span>${{p.title}}</span>
-                </a>
-            `).join('');
-
-            bSlots.innerHTML = blogs.map(b => `
-                <a class="slot-item" href="${{b.link}}" target="_blank">
-                    <div class="media-icon-container blog">${{svgIcons.blog}}</div>
-                    <span>${{b.title}}</span>
-                </a>
-            `).join('');
+            const get = (t) => archiveItems.filter(i=>i.type===t).sort(()=>0.5-Math.random()).slice(0,3);
+            const render = (items, type) => items.map(i=>`<a class="slot-item" href="${{i.link}}" target="_blank"><div style="color:${{type==='video'?'#cf2027':type==='podcast'?'#3b82f6':'#10b981'}}">${{icons[type]}}</div>${{i.title.substring(0,40)}}...</a>`).join('');
+            document.getElementById('video-slots').innerHTML = render(get('video'), 'video');
+            document.getElementById('podcast-slots').innerHTML = render(get('podcast'), 'podcast');
+            document.getElementById('blog-slots').innerHTML = render(get('blog'), 'blog');
         }}
 
-        function toggleTagFilter(element, tagValue) {{
-            document.querySelectorAll('.tag-pill').forEach(pill => pill.classList.remove('active'));
-            element.classList.add('active');
-            activeSelectedTag = tagValue;
+        function toggleTagFilter(el, tag) {{
+            document.querySelectorAll('.tag-pill').forEach(p=>p.classList.remove('active'));
+            el.classList.add('active');
+            activeTag = tag;
             masterFilter();
         }}
 
         function masterFilter() {{
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('#archiveTimeline .card');
-
-            cards.forEach(card => {{
-                const title = card.getAttribute('data-title');
-                const cardTags = JSON.parse(card.getAttribute('data-tags') || "[]");
-                
-                const matchesKeyword = title.includes(query);
-                const matchesCategory = (activeSelectedTag === "ALL") || cardTags.includes(activeSelectedTag);
-
-                if(matchesKeyword && matchesCategory) {{
-                    card.style.display = 'flex';
-                }} else {{
-                    card.style.display = 'none';
-                }}
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            document.querySelectorAll('.card').forEach(c => {{
+                const title = c.getAttribute('data-title');
+                const tags = JSON.parse(c.getAttribute('data-tags'));
+                const match = title.includes(q) && (activeTag === "ALL" || tags.includes(activeTag));
+                c.style.display = match ? 'flex' : 'none';
             }});
         }}
-
         window.onload = spinMachine;
     </script>
 </body>
@@ -409,5 +223,3 @@ html_content += f"""
 
 with open('public/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
-
-print("Unrestricted Deep Scan and Auto-Tagging script initialized successfully!")
