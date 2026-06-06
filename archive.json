@@ -1,5 +1,12 @@
 [
   {
+    "title": "Saturday Coffee Talk (6/6/26)",
+    "link": "https://the-world-s-okayest-medic-podcast.zencast.website/episodes/saturday-coffee-talk-6626",
+    "date_str": "06 Jun 2026",
+    "timestamp": 1780723517.0,
+    "type": "podcast"
+  },
+  {
     "title": "From the Arctic to Space: Medicine Without Limits with Luke Apisa",
     "link": "https://www.youtube.com/watch?v=Lz-9LCaTULI",
     "date_str": "05 Jun 2026",
@@ -812,6 +819,13 @@
     "type": "blog"
   },
   {
+    "title": "Incident 36/2026, Thursday 4th June 13:24hrs. Birkwith, Selside, North Yorkshire",
+    "link": "https://cro.org.uk/incident-36-2026-thursday-4th-june-1324hrs-birkwith-selside-north-yorkshire/",
+    "date_str": "05 Jun 2026",
+    "timestamp": 1780659319.0,
+    "type": "blog"
+  },
+  {
     "title": "198-eFAST for Combat Life Savers with TacMedNorth",
     "link": "https://podcasters.spotify.com/pod/show/corom-foundation/episodes/198-eFAST-for-Combat-Life-Savers-with-TacMedNorth-e3k7k2q",
     "date_str": "05 Jun 2026",
@@ -847,6 +861,13 @@
     "type": "podcast"
   },
   {
+    "title": "Best Online POCUS Courses",
+    "link": "https://litfl.com/best-pocus-course/",
+    "date_str": "04 Jun 2026",
+    "timestamp": 1780576540.0,
+    "type": "blog"
+  },
+  {
     "title": "Can you make the difference? Non-operational roles in mountain rescue",
     "link": "https://www.mountain.rescue.org.uk/news/can-you-make-the-difference-non-operational-roles-in-mountain-rescue/",
     "date_str": "04 Jun 2026",
@@ -861,6 +882,27 @@
     "type": "podcast"
   },
   {
+    "title": "Rain, shine, thunder or lightning? Our crews are ready 💪",
+    "link": "https://www.youtube.com/shorts/yocziKEl7cc",
+    "date_str": "04 Jun 2026",
+    "timestamp": 1780531200.0,
+    "type": "video"
+  },
+  {
+    "title": "Incident 35/2026, Tuesday 2nd June (same day) 22:39 hrs. Ingleborough, North Yorkshire.",
+    "link": "https://cro.org.uk/incident-35-2026-tuesday-2nd-june-same-day-2239-hrs-ingleborough-north-yorkshire/",
+    "date_str": "03 Jun 2026",
+    "timestamp": 1780492298.0,
+    "type": "blog"
+  },
+  {
+    "title": "Alert Only. Tuesday 2nd June 21:55 hrs. Alert 7 of 2026",
+    "link": "https://cro.org.uk/alert-only-tuesday-2nd-june-2155-hrs-alert-7-of-2026/",
+    "date_str": "03 Jun 2026",
+    "timestamp": 1780491131.0,
+    "type": "blog"
+  },
+  {
     "title": "LIVE: Media briefing on the Ebola outbreak caused by Bundibugyo Virus with Dr Tedros",
     "link": "https://www.youtube.com/watch?v=CdEW7qr3omk",
     "date_str": "03 Jun 2026",
@@ -870,6 +912,13 @@
   {
     "title": "Dr Tedros' remarks on Global Health in a Time of Uncertainty and Global Instability",
     "link": "https://www.youtube.com/watch?v=iO9wCfJkOKo",
+    "date_str": "03 Jun 2026",
+    "timestamp": 1780444800.0,
+    "type": "video"
+  },
+  {
+    "title": "We're getting a little 🤢",
+    "link": "https://www.youtube.com/shorts/si3hT2XWiz0",
     "date_str": "03 Jun 2026",
     "timestamp": 1780444800.0,
     "type": "video"
@@ -896,6 +945,13 @@
     "type": "video"
   },
   {
+    "title": "Torbay RNLI recently rescued seven stranded paddleboarders off Torquay",
+    "link": "https://www.youtube.com/shorts/8-tbyKjz6fI",
+    "date_str": "02 Jun 2026",
+    "timestamp": 1780358400.0,
+    "type": "video"
+  },
+  {
     "title": "Open Day: Meet Bowland Pennine Mountain Rescue team at their Lancashire base",
     "link": "https://www.mountain.rescue.org.uk/news/open-day-meet-bowland-pennine-mountain-rescue-team-at-their-lancashire-base/",
     "date_str": "01 Jun 2026",
@@ -910,6 +966,13 @@
     "type": "blog"
   },
   {
+    "title": "Incident 34/2026, Sunday 31st May (same day) 21:22 hrs. Whernside, Nr Ingleton, North Yorkshire",
+    "link": "https://cro.org.uk/incident-34-2026-sunday-31st-may-same-day-2122-hrs-whernside-nr-ingleton-north-yorkshire/",
+    "date_str": "01 Jun 2026",
+    "timestamp": 1780305805.0,
+    "type": "blog"
+  },
+  {
     "title": "Podcast 1008: Acupuncture for Low Back Pain in Older Adults",
     "link": "https://emergencymedicalminute.libsyn.com/podcast-1008-acupuncture-for-low-back-pain-in-older-adults",
     "date_str": "01 Jun 2026",
@@ -917,11 +980,25 @@
     "type": "podcast"
   },
   {
+    "title": "CT Case 108",
+    "link": "https://litfl.com/ct-case-108/",
+    "date_str": "01 Jun 2026",
+    "timestamp": 1780299610.0,
+    "type": "blog"
+  },
+  {
     "title": "PFC Podcast 281: Crisis Standards of Care: The Hardest Conversations Medics and Teams Must Have",
     "link": "https://podcasters.spotify.com/pod/show/dennis3211/episodes/PFC-Podcast-281-Crisis-Standards-of-Care-The-Hardest-Conversations-Medics-and-Teams-Must-Have-e3k3ro2",
     "date_str": "01 Jun 2026",
     "timestamp": 1780286460.0,
     "type": "podcast"
+  },
+  {
+    "title": "Above the Ears",
+    "link": "https://litfl.com/above-the-ears/",
+    "date_str": "01 Jun 2026",
+    "timestamp": 1780285516.0,
+    "type": "blog"
   },
   {
     "title": "From Black Hawk to HEMS: Decision-Making Where It Matters Most with Kodey Bogart",
@@ -959,8 +1036,22 @@
     "type": "video"
   },
   {
+    "title": "Three cheers for our volunteers! 🥳",
+    "link": "https://www.youtube.com/shorts/JWjm1ZSFJmY",
+    "date_str": "01 Jun 2026",
+    "timestamp": 1780272000.0,
+    "type": "video"
+  },
+  {
     "title": "WHO Director-General visit to eastern Democratic Republic of the Congo",
     "link": "https://www.youtube.com/shorts/7H3j6Vvx5wc",
+    "date_str": "31 May 2026",
+    "timestamp": 1780185600.0,
+    "type": "video"
+  },
+  {
+    "title": "Could You Help? 6 Life-Saving Medications Explained for Bystanders",
+    "link": "https://www.youtube.com/watch?v=o9vmBiUx8D4",
     "date_str": "31 May 2026",
     "timestamp": 1780185600.0,
     "type": "video"
@@ -1022,6 +1113,13 @@
     "type": "video"
   },
   {
+    "title": "How RNLI lifeguards prepare for busy summer beaches",
+    "link": "https://www.youtube.com/watch?v=_1cw-WURte8",
+    "date_str": "29 May 2026",
+    "timestamp": 1780012800.0,
+    "type": "video"
+  },
+  {
     "title": "Our best friend fell 200ft to his death on a mountain but wouldn’t want us to stop hiking",
     "link": "https://www.mountain.rescue.org.uk/news/our-best-friend-fell-200ft-to-his-death-on-a-mountain-but-wouldnt-want-us-to-stop-hiking/",
     "date_str": "28 May 2026",
@@ -1071,6 +1169,13 @@
     "type": "video"
   },
   {
+    "title": "Pwllheli Lifeboat Station's Mayday Yellow Welly Parade 💛",
+    "link": "https://www.youtube.com/shorts/WATCuWH5gF0",
+    "date_str": "27 May 2026",
+    "timestamp": 1779840000.0,
+    "type": "video"
+  },
+  {
     "title": "PFC Podcast 280: Hantavirus in the Field: Cruise Ship Outbreak, Deadly Clues & Field-Ready Lessons Every Medic Must Know",
     "link": "https://podcasters.spotify.com/pod/show/dennis3211/episodes/PFC-Podcast-280-Hantavirus-in-the-Field-Cruise-Ship-Outbreak--Deadly-Clues--Field-Ready-Lessons-Every-Medic-Must-Know-e3js8ni",
     "date_str": "26 May 2026",
@@ -1092,11 +1197,39 @@
     "type": "video"
   },
   {
+    "title": "Andrew Morgan, American Academy of Underwater Sciences (AAUS)",
+    "link": "https://www.youtube.com/watch?v=dhLE96MUh3s",
+    "date_str": "26 May 2026",
+    "timestamp": 1779753600.0,
+    "type": "video"
+  },
+  {
+    "title": "Heatwave safety advice 🥵",
+    "link": "https://www.youtube.com/shorts/5vV_2ckei_g",
+    "date_str": "26 May 2026",
+    "timestamp": 1779753600.0,
+    "type": "video"
+  },
+  {
+    "title": "History of epidural needles and catheters",
+    "link": "https://litfl.com/history-of-epidural-needles-and-catheters/",
+    "date_str": "26 May 2026",
+    "timestamp": 1779753600.0,
+    "type": "blog"
+  },
+  {
     "title": "Podcast 1007: Caffeine Pharmacology",
     "link": "https://emergencymedicalminute.libsyn.com/podcast-1007-caffeine-pharmacology",
     "date_str": "25 May 2026",
     "timestamp": 1779699600.0,
     "type": "podcast"
+  },
+  {
+    "title": "CT Case 107",
+    "link": "https://litfl.com/ct-case-107/",
+    "date_str": "25 May 2026",
+    "timestamp": 1779689413.0,
+    "type": "blog"
   },
   {
     "title": "Neurodivergence in Pre-Hospital Care: ADHD and Autism with David Birch",
@@ -1162,6 +1295,13 @@
     "type": "video"
   },
   {
+    "title": "Even better - here are two points of view from onboard!",
+    "link": "https://www.youtube.com/shorts/cj6QNAHEU5E",
+    "date_str": "22 May 2026",
+    "timestamp": 1779408000.0,
+    "type": "video"
+  },
+  {
     "title": "After the Shock: Life Beyond Cardiac Arrest with Paul Swindell, Zoe Hitchcock and Noah Cohen",
     "link": "https://podcasters.spotify.com/pod/show/phcp/episodes/After-the-Shock-Life-Beyond-Cardiac-Arrest-with-Paul-Swindell--Zoe-Hitchcock-and-Noah-Cohen-e3jn0qt",
     "date_str": "21 May 2026",
@@ -1204,6 +1344,13 @@
     "type": "video"
   },
   {
+    "title": "Saving lives at sea, including our four legged friends 🐾",
+    "link": "https://www.youtube.com/shorts/tIe9LElAhv0",
+    "date_str": "20 May 2026",
+    "timestamp": 1779235200.0,
+    "type": "video"
+  },
+  {
     "title": "Ep 218 Substance Use Disorder in the ED – Stigma, Compassion and System Change",
     "link": "https://emergencymedicinecases.com/substance-use-disorder-stigma-compassion-system-change/",
     "date_str": "19 May 2026",
@@ -1232,10 +1379,24 @@
     "type": "video"
   },
   {
+    "title": "Float to Live with Jordan Wylie MBE",
+    "link": "https://www.youtube.com/shorts/2k96UHlLI7U",
+    "date_str": "19 May 2026",
+    "timestamp": 1779148800.0,
+    "type": "video"
+  },
+  {
     "title": "Style with purpose: how Oliver Bonas is helping to train War Doctors",
     "link": "https://davidnottfoundation.com/style-with-purpose/",
     "date_str": "18 May 2026",
     "timestamp": 1779112226.0,
+    "type": "blog"
+  },
+  {
+    "title": "History of Spinal Needles",
+    "link": "https://litfl.com/history-of-spinal-needles/",
+    "date_str": "18 May 2026",
+    "timestamp": 1779106382.0,
     "type": "blog"
   },
   {
@@ -1281,6 +1442,20 @@
     "type": "video"
   },
   {
+    "title": "From every corner, for every cause.",
+    "link": "https://www.youtube.com/shorts/9KxX5dzRm3Q",
+    "date_str": "18 May 2026",
+    "timestamp": 1779062400.0,
+    "type": "video"
+  },
+  {
+    "title": "Building the Perfect MARCH Belt | Blue Tide Innovations Medical Fanny Pack + Bleeder Pouch Review",
+    "link": "https://www.youtube.com/watch?v=CnSX8zd90Wk",
+    "date_str": "18 May 2026",
+    "timestamp": 1779062400.0,
+    "type": "video"
+  },
+  {
     "title": "LATE Saturday Evening Coffee Talk (5/16/26)",
     "link": "https://the-world-s-okayest-medic-podcast.zencast.website/episodes/late-saturday-evening-coffee-talk-51626",
     "date_str": "17 May 2026",
@@ -1300,6 +1475,20 @@
     "date_str": "15 May 2026",
     "timestamp": 1778835600.0,
     "type": "podcast"
+  },
+  {
+    "title": "DAN Supports Divers' Access to Hyperbaric Chambers",
+    "link": "https://www.youtube.com/shorts/LfQRy0i_0vY",
+    "date_str": "15 May 2026",
+    "timestamp": 1778803200.0,
+    "type": "video"
+  },
+  {
+    "title": "DAN Supports Hyperbaric Chambers for Divers",
+    "link": "https://www.youtube.com/watch?v=tG4XdhmQzwA",
+    "date_str": "15 May 2026",
+    "timestamp": 1778803200.0,
+    "type": "video"
   },
   {
     "title": "Mission to Myanmar panel event",
@@ -1328,6 +1517,20 @@
     "date_str": "14 May 2026",
     "timestamp": 1778728393.0,
     "type": "podcast"
+  },
+  {
+    "title": "Stuck in the mud? Here’s what to do…",
+    "link": "https://www.youtube.com/shorts/2Q0SOkoK-Es",
+    "date_str": "14 May 2026",
+    "timestamp": 1778716800.0,
+    "type": "video"
+  },
+  {
+    "title": "High Sheriff welcomed to Joint Rescue Coordination Centre ",
+    "link": "https://hmcoastguard.uk/news/high-sheriff-welcomed-joint-rescue-coordination-centre",
+    "date_str": "13 May 2026",
+    "timestamp": 1778685868.0,
+    "type": "blog"
   },
   {
     "title": "This Call is Baulder's Dash",
@@ -1379,6 +1582,20 @@
     "type": "video"
   },
   {
+    "title": "DAN Continuing Education for Dive Professionals – Course 3: Barotrauma Legal Drama",
+    "link": "https://www.youtube.com/shorts/s4xC73Yl1WE",
+    "date_str": "12 May 2026",
+    "timestamp": 1778544000.0,
+    "type": "video"
+  },
+  {
+    "title": "Marina Inserra & Brittany Novick-Fischer, Scuba Queen USA",
+    "link": "https://www.youtube.com/watch?v=SD0-ngDpoTk",
+    "date_str": "12 May 2026",
+    "timestamp": 1778544000.0,
+    "type": "video"
+  },
+  {
     "title": "Dr. Mario Rugna & Kirk Smith, RT: Using the Vent on 911 Calls Should be Standard",
     "link": "https://the-world-s-okayest-medic-podcast.zencast.website/episodes/dr-mario-rugna-kirks-smith-rt-using-the-vent-on-911-calls-should-be-standard",
     "date_str": "11 May 2026",
@@ -1414,6 +1631,27 @@
     "type": "video"
   },
   {
+    "title": "The best video on YouTube about a Snake & Waffle",
+    "link": "https://www.youtube.com/watch?v=cVWLAKuYcRI",
+    "date_str": "11 May 2026",
+    "timestamp": 1778457600.0,
+    "type": "video"
+  },
+  {
+    "title": "Around Obstacles - No Maths",
+    "link": "https://www.youtube.com/watch?v=ZsjE30-vCwk",
+    "date_str": "11 May 2026",
+    "timestamp": 1778457600.0,
+    "type": "video"
+  },
+  {
+    "title": "Paddleboarding safety tips 🌊",
+    "link": "https://www.youtube.com/shorts/hSnFH7xAQcQ",
+    "date_str": "11 May 2026",
+    "timestamp": 1778457600.0,
+    "type": "video"
+  },
+  {
     "title": "Winter Climbing - What's on your rack?",
     "link": "https://www.youtube.com/watch?v=tFb4KIJK4xM",
     "date_str": "10 May 2026",
@@ -1442,6 +1680,13 @@
     "type": "video"
   },
   {
+    "title": "We don’t mind a 4am launch with a view like this 😍🌅",
+    "link": "https://www.youtube.com/shorts/NdwdSJuv4Wo",
+    "date_str": "08 May 2026",
+    "timestamp": 1778198400.0,
+    "type": "video"
+  },
+  {
     "title": "Carepoint Journal Club: Occlusion Myocardial Infarction",
     "link": "https://emergencymedicalminute.libsyn.com/carepoint-journal-club-occlusion-myocardial-infarction",
     "date_str": "07 May 2026",
@@ -1456,8 +1701,29 @@
     "type": "podcast"
   },
   {
+    "title": "Free Relaxation Resources",
+    "link": "https://litfl.com/free-relaxation-resources/",
+    "date_str": "07 May 2026",
+    "timestamp": 1778114700.0,
+    "type": "blog"
+  },
+  {
+    "title": "Introducing CLARA",
+    "link": "https://litfl.com/introducing-clara/",
+    "date_str": "07 May 2026",
+    "timestamp": 1778113800.0,
+    "type": "blog"
+  },
+  {
     "title": "The man-made malnutrition crisis in Gaza",
     "link": "https://www.youtube.com/shorts/97R7SUs67tE",
+    "date_str": "07 May 2026",
+    "timestamp": 1778112000.0,
+    "type": "video"
+  },
+  {
+    "title": "*Fingers in ears* 🙉",
+    "link": "https://www.youtube.com/shorts/mg6p1y7DSFs",
     "date_str": "07 May 2026",
     "timestamp": 1778112000.0,
     "type": "video"
@@ -1484,6 +1750,20 @@
     "type": "video"
   },
   {
+    "title": "Andrew Solomon, Dive Program Administrator #scubapodcast  #diversalertnetwork #marinelife #aquarium",
+    "link": "https://www.youtube.com/shorts/RT-RwBD8gRw",
+    "date_str": "06 May 2026",
+    "timestamp": 1778025600.0,
+    "type": "video"
+  },
+  {
+    "title": "HM Coastguard joins RAF for Atlantic search and rescue exercise ",
+    "link": "https://hmcoastguard.uk/news/hm-coastguard-joins-raf-atlantic-search-and-rescue-exercise",
+    "date_str": "05 May 2026",
+    "timestamp": 1777984444.0,
+    "type": "blog"
+  },
+  {
     "title": "Rick Maricle: Leadership at a New Agency",
     "link": "https://the-world-s-okayest-medic-podcast.zencast.website/episodes/rick-maricle-leadership-at-a-new-agency",
     "date_str": "05 May 2026",
@@ -1505,11 +1785,25 @@
     "type": "podcast"
   },
   {
+    "title": "Presence, Purpose, and Recovery",
+    "link": "https://litfl.com/presence-purpose-and-recovery/",
+    "date_str": "04 May 2026",
+    "timestamp": 1777853280.0,
+    "type": "blog"
+  },
+  {
     "title": "Rethinking Resuscitation: The Case for Physiology-Led Care with Mark Faulkner ",
     "link": "https://podcasters.spotify.com/pod/show/phcp/episodes/Rethinking-Resuscitation-The-Case-for-Physiology-Led-Care-with-Mark-Faulkner-e3huh0i",
     "date_str": "04 May 2026",
     "timestamp": 1777852800.0,
     "type": "podcast"
+  },
+  {
+    "title": "TEMS/SAR Medic Sustainment Bag",
+    "link": "https://www.youtube.com/watch?v=Z3TGDwkTd84",
+    "date_str": "04 May 2026",
+    "timestamp": 1777852800.0,
+    "type": "video"
   },
   {
     "title": "Saturday Coffee Talk (5/1/26)",
@@ -1540,11 +1834,25 @@
     "type": "blog"
   },
   {
+    "title": "THIS is how to use a Lensatic Compass - very simple",
+    "link": "https://www.youtube.com/watch?v=JYMLV-MACi4",
+    "date_str": "01 May 2026",
+    "timestamp": 1777593600.0,
+    "type": "video"
+  },
+  {
     "title": "SOMSA 2025: Former Ranger Medic's Lessons Learned",
     "link": "https://podcasters.spotify.com/pod/show/dennis3211/episodes/SOMSA-2025-Former-Ranger-Medics-Lessons-Learned-e3ie7re",
     "date_str": "30 Apr 2026",
     "timestamp": 1777521900.0,
     "type": "podcast"
+  },
+  {
+    "title": "Practical Longevity Supplement Guide",
+    "link": "https://litfl.com/practical-longevity-supplement-guide/",
+    "date_str": "30 Apr 2026",
+    "timestamp": 1777507200.0,
+    "type": "blog"
   },
   {
     "title": "Gravitating Towards Anaphylaxis?",
@@ -1554,11 +1862,25 @@
     "type": "blog"
   },
   {
+    "title": "Rescue bravery recognised at HM Coastguard’s Area 11 Awards",
+    "link": "https://hmcoastguard.uk/news/rescue-bravery-recognised-hm-coastguards-area-11-awards",
+    "date_str": "29 Apr 2026",
+    "timestamp": 1777462778.0,
+    "type": "blog"
+  },
+  {
     "title": "Episode 101: Acalculous cholecystitis with Dennis Kim",
     "link": "https://icuscenarios.com/episode-101-acalculous-cholecystitis-with-dennis-kim/",
     "date_str": "29 Apr 2026",
     "timestamp": 1777449600.0,
     "type": "podcast"
+  },
+  {
+    "title": "CT Case 106",
+    "link": "https://litfl.com/ct-case-106/",
+    "date_str": "29 Apr 2026",
+    "timestamp": 1777432893.0,
+    "type": "blog"
   },
   {
     "title": "Ep 217 Pediatric Agitation: Assessment and Management",
@@ -1572,6 +1894,20 @@
     "link": "https://davidnottfoundation.com/tdnf-committee-dr-daniel-lazenby/",
     "date_str": "28 Apr 2026",
     "timestamp": 1777369917.0,
+    "type": "blog"
+  },
+  {
+    "title": "Andrew Solomon, California Science Center Foundation",
+    "link": "https://www.youtube.com/watch?v=_41zB8nIKtY",
+    "date_str": "28 Apr 2026",
+    "timestamp": 1777334400.0,
+    "type": "video"
+  },
+  {
+    "title": "Meet Your Coastguards: Faye Cox, Coastguard Rescue Officer",
+    "link": "https://hmcoastguard.uk/news/meet-your-coastguards-faye-cox-coastguard-rescue-officer",
+    "date_str": "27 Apr 2026",
+    "timestamp": 1777297828.0,
     "type": "blog"
   },
   {
@@ -1596,6 +1932,13 @@
     "type": "podcast"
   },
   {
+    "title": "Not Just Expensive Urine",
+    "link": "https://litfl.com/not-just-expensive-urine/",
+    "date_str": "27 Apr 2026",
+    "timestamp": 1777258800.0,
+    "type": "blog"
+  },
+  {
     "title": "High Fidelity Simulation in Pre-hospital Care: Training for Reality, Debriefing for Impact with Ben King",
     "link": "https://podcasters.spotify.com/pod/show/phcp/episodes/High-Fidelity-Simulation-in-Pre-hospital-Care-Training-for-Reality--Debriefing-for-Impact-with-Ben-King-e3g3hpm",
     "date_str": "27 Apr 2026",
@@ -1615,6 +1958,13 @@
     "date_str": "24 Apr 2026",
     "timestamp": 1777071964.0,
     "type": "podcast"
+  },
+  {
+    "title": "11 things you never knew about the Shipping Forecast ",
+    "link": "https://hmcoastguard.uk/news/11-things-you-never-knew-about-shipping-forecast",
+    "date_str": "24 Apr 2026",
+    "timestamp": 1777030939.0,
+    "type": "blog"
   },
   {
     "title": "192-Setting up a Jungle ICU with Zach Andrews",
@@ -1660,6 +2010,13 @@
     "type": "video"
   },
   {
+    "title": "Best Job in the World",
+    "link": "https://wearelifeguards.podbean.com/e/best-job-in-the-world/",
+    "date_str": "21 Apr 2026",
+    "timestamp": 1776726000.0,
+    "type": "blog"
+  },
+  {
     "title": "Jeremy Ulrich: 10 Things the EMS Student Needs to Know",
     "link": "https://the-world-s-okayest-medic-podcast.zencast.website/episodes/jeremy-ulrich-10-things-the-ems-student-needs-to-know",
     "date_str": "20 Apr 2026",
@@ -1693,6 +2050,13 @@
     "date_str": "20 Apr 2026",
     "timestamp": 1776646800.0,
     "type": "podcast"
+  },
+  {
+    "title": "James Blackman, @DiversReady | Technical Diving Instructor & Content Creator",
+    "link": "https://www.youtube.com/shorts/ucRWhoQEm5w",
+    "date_str": "20 Apr 2026",
+    "timestamp": 1776643200.0,
+    "type": "video"
   },
   {
     "title": "Saturday Coffee Talk (4/18/26)",
@@ -1751,6 +2115,27 @@
     "type": "video"
   },
   {
+    "title": "How the loss of RMS Titanic changed safety at sea",
+    "link": "https://hmcoastguard.uk/news/how-loss-rms-titanic-changed-safety-sea",
+    "date_str": "14 Apr 2026",
+    "timestamp": 1776160903.0,
+    "type": "blog"
+  },
+  {
+    "title": "James Blackman, Divers Ready",
+    "link": "https://www.youtube.com/watch?v=TfzxzBHV1gE",
+    "date_str": "14 Apr 2026",
+    "timestamp": 1776124800.0,
+    "type": "video"
+  },
+  {
+    "title": "Spread the Word",
+    "link": "https://wearelifeguards.podbean.com/e/spread-the-word/",
+    "date_str": "14 Apr 2026",
+    "timestamp": 1776121200.0,
+    "type": "blog"
+  },
+  {
     "title": "PREVIEW: Stranger Lungs",
     "link": "https://ems-20-20.simplecast.com/episodes/preview-stranger-lungs-c6kLtRFa",
     "date_str": "13 Apr 2026",
@@ -1763,6 +2148,13 @@
     "date_str": "13 Apr 2026",
     "timestamp": 1776090263.0,
     "type": "podcast"
+  },
+  {
+    "title": "Follow the three Rs to say a proper bye-bye to your beacon ",
+    "link": "https://hmcoastguard.uk/news/follow-three-rs-say-proper-bye-bye-your-beacon",
+    "date_str": "13 Apr 2026",
+    "timestamp": 1776084422.0,
+    "type": "blog"
   },
   {
     "title": "Podcast 1001: Acute Intermediate Risk Pulmonary Embolism",
@@ -1786,11 +2178,32 @@
     "type": "podcast"
   },
   {
+    "title": "The Support for Maritime Training (SMarT) initiative",
+    "link": "https://www.youtube.com/shorts/Rmo3YZx5SPQ",
+    "date_str": "13 Apr 2026",
+    "timestamp": 1776038400.0,
+    "type": "video"
+  },
+  {
+    "title": "Blast Injuries: What Happens to the Body in an Explosion",
+    "link": "https://www.youtube.com/watch?v=iu8BGUnRxhA",
+    "date_str": "12 Apr 2026",
+    "timestamp": 1775952000.0,
+    "type": "video"
+  },
+  {
     "title": "Saturday Coffee Talk (4/11/26)",
     "link": "https://the-world-s-okayest-medic-podcast.zencast.website/episodes/saturday-coffee-talk-41126",
     "date_str": "11 Apr 2026",
     "timestamp": 1775928748.0,
     "type": "podcast"
+  },
+  {
+    "title": "New Coastguard Station for Hill Head team",
+    "link": "https://hmcoastguard.uk/news/new-coastguard-station-hill-head-team",
+    "date_str": "10 Apr 2026",
+    "timestamp": 1775817920.0,
+    "type": "blog"
   },
   {
     "title": "190-DHS Graduate Dr Michael Klopper",
@@ -1849,10 +2262,24 @@
     "type": "video"
   },
   {
+    "title": "Are humans alone in the universe?",
+    "link": "https://www.youtube.com/watch?v=Ml1cLYlJcik",
+    "date_str": "08 Apr 2026",
+    "timestamp": 1775606400.0,
+    "type": "video"
+  },
+  {
     "title": "Ep 216 Cardiac Arrest Update: Beyond the 2025 ACLS Guidelines Part 2 – Medications, Airway, Termination and Post-ROSC Care",
     "link": "https://emergencymedicinecases.com/cardiac-arrest-update-part-2/",
     "date_str": "07 Apr 2026",
     "timestamp": 1775591362.0,
+    "type": "blog"
+  },
+  {
+    "title": "Summer boost for HM Coastguard Search and Rescue helicopters",
+    "link": "https://hmcoastguard.uk/news/summer-boost-hm-coastguard-search-and-rescue-helicopters",
+    "date_str": "07 Apr 2026",
+    "timestamp": 1775552400.0,
     "type": "blog"
   },
   {
@@ -1861,6 +2288,13 @@
     "date_str": "07 Apr 2026",
     "timestamp": 1775520000.0,
     "type": "video"
+  },
+  {
+    "title": "Equipped and Ready",
+    "link": "https://wearelifeguards.podbean.com/e/equipped-and-ready/",
+    "date_str": "07 Apr 2026",
+    "timestamp": 1775516400.0,
+    "type": "blog"
   },
   {
     "title": "Conversation with a Newer EMT",
@@ -1954,6 +2388,34 @@
     "type": "blog"
   },
   {
+    "title": "Never BUY a compass on April 1st",
+    "link": "https://www.youtube.com/watch?v=rVH_efBXch4",
+    "date_str": "31 Mar 2026",
+    "timestamp": 1774915200.0,
+    "type": "video"
+  },
+  {
+    "title": "Aviad Cahana: Avelo Labs (@diveavelo)",
+    "link": "https://www.youtube.com/shorts/Vi8ZIDF4inE",
+    "date_str": "31 Mar 2026",
+    "timestamp": 1774915200.0,
+    "type": "video"
+  },
+  {
+    "title": "Aviad Cahana, Avelo Labs",
+    "link": "https://www.youtube.com/watch?v=WIdfBLVn6o0",
+    "date_str": "31 Mar 2026",
+    "timestamp": 1774915200.0,
+    "type": "video"
+  },
+  {
+    "title": "Every Beach Has a Personality",
+    "link": "https://wearelifeguards.podbean.com/e/every-beach-has-a-personality/",
+    "date_str": "31 Mar 2026",
+    "timestamp": 1774911600.0,
+    "type": "blog"
+  },
+  {
     "title": "Lightning rounds 64: The new Surviving Sepsis guidelines with Hallie Prescott",
     "link": "https://icuscenarios.com/lightning-rounds-64-the-new-surviving-sepsis-guidelines-with-hallie-prescott/",
     "date_str": "30 Mar 2026",
@@ -1996,6 +2458,20 @@
     "type": "podcast"
   },
   {
+    "title": "What were you doing today ?",
+    "link": "https://www.youtube.com/watch?v=zWiUulOSe0M",
+    "date_str": "29 Mar 2026",
+    "timestamp": 1774742400.0,
+    "type": "video"
+  },
+  {
+    "title": "What's Next for PrepMedic? (Life Updates)",
+    "link": "https://www.youtube.com/watch?v=FSeSG9mDRUg",
+    "date_str": "29 Mar 2026",
+    "timestamp": 1774742400.0,
+    "type": "video"
+  },
+  {
     "title": "Saturday Coffee Talk (3/28/26)",
     "link": "https://the-world-s-okayest-medic-podcast.zencast.website/episodes/saturday-coffee-talk-32826",
     "date_str": "27 Mar 2026",
@@ -2003,11 +2479,32 @@
     "type": "podcast"
   },
   {
+    "title": "Pendleton Spirit: HM Coastguard exercise tests crisis response ",
+    "link": "https://hmcoastguard.uk/news/pendleton-spirit-hm-coastguard-exercise-tests-crisis-response",
+    "date_str": "27 Mar 2026",
+    "timestamp": 1774627540.0,
+    "type": "blog"
+  },
+  {
     "title": "188-How to set up an ICU in the jungle",
     "link": "https://podcasters.spotify.com/pod/show/corom-foundation/episodes/188-How-to-set-up-an-ICU-in-the-jungle-e3gtf98",
     "date_str": "27 Mar 2026",
     "timestamp": 1774605600.0,
     "type": "podcast"
+  },
+  {
+    "title": "Our AW139 search and rescue helicopter",
+    "link": "https://www.youtube.com/watch?v=5D5GhdTYTLo",
+    "date_str": "27 Mar 2026",
+    "timestamp": 1774569600.0,
+    "type": "video"
+  },
+  {
+    "title": "First climbs: Calum Muskett",
+    "link": "https://www.youtube.com/watch?v=FmBuvLhBzf0",
+    "date_str": "27 Mar 2026",
+    "timestamp": 1774569600.0,
+    "type": "video"
   },
   {
     "title": "Case Study: PE Presenting as Left Breast Pain",
@@ -2066,6 +2563,13 @@
     "type": "blog"
   },
   {
+    "title": "MAYDAY alert from fishing trawler Opportune",
+    "link": "https://www.youtube.com/shorts/Lr_uoqiMYEg",
+    "date_str": "25 Mar 2026",
+    "timestamp": 1774396800.0,
+    "type": "video"
+  },
+  {
     "title": "Meet the TDNF committee: Dr Harriet Morton",
     "link": "https://davidnottfoundation.com/tdnf-harriet-morton/",
     "date_str": "24 Mar 2026",
@@ -2078,6 +2582,20 @@
     "date_str": "24 Mar 2026",
     "timestamp": 1774353605.0,
     "type": "blog"
+  },
+  {
+    "title": "Lifeguards Saved My Life",
+    "link": "https://wearelifeguards.podbean.com/e/lifeguards-saved-my-life/",
+    "date_str": "24 Mar 2026",
+    "timestamp": 1774310400.0,
+    "type": "blog"
+  },
+  {
+    "title": "“In less than two and a half minutes, she was gone”: Fisherman’s dramatic rescue'",
+    "link": "https://www.youtube.com/watch?v=pCWDbpkcALQ",
+    "date_str": "24 Mar 2026",
+    "timestamp": 1774310400.0,
+    "type": "video"
   },
   {
     "title": "Episode 192 - What Can EMS Learn From An Emergency Pharmacist? - Part 1",
@@ -2122,6 +2640,20 @@
     "type": "podcast"
   },
   {
+    "title": "Most interesting video on YouTube - About A Wall",
+    "link": "https://www.youtube.com/watch?v=EPIhUZXXa40",
+    "date_str": "20 Mar 2026",
+    "timestamp": 1773964800.0,
+    "type": "video"
+  },
+  {
+    "title": "First climbs: Pete Robins",
+    "link": "https://www.youtube.com/watch?v=QFi3otxf9r4",
+    "date_str": "20 Mar 2026",
+    "timestamp": 1773964800.0,
+    "type": "video"
+  },
+  {
     "title": "SOMSA '25- Delayed Hemodynamic Collapse Following a Retroperitoneal Gunshot Injury During a Special Operation Training Exercise",
     "link": "https://podcasters.spotify.com/pod/show/dennis3211/episodes/SOMSA-25--Delayed-Hemodynamic-Collapse-Following-a-Retroperitoneal-Gunshot-Injury-During-a-Special-Operation-Training-Exercise-e3geabi",
     "date_str": "19 Mar 2026",
@@ -2143,6 +2675,13 @@
     "type": "video"
   },
   {
+    "title": "Most interesting video on YouTube - About A Valley",
+    "link": "https://www.youtube.com/watch?v=z7l18JO4HRI",
+    "date_str": "19 Mar 2026",
+    "timestamp": 1773878400.0,
+    "type": "video"
+  },
+  {
     "title": "Philip Gets Fried",
     "link": "https://ems-20-20.simplecast.com/episodes/philip-gets-fried-r_U4U5oU",
     "date_str": "18 Mar 2026",
@@ -2159,6 +2698,20 @@
   {
     "title": "An MSF ambulance doctor’s work in Eastern Ukraine",
     "link": "https://www.youtube.com/shorts/L_95Ayc-eME",
+    "date_str": "17 Mar 2026",
+    "timestamp": 1773705600.0,
+    "type": "video"
+  },
+  {
+    "title": "James J. Harvey, Green Fins & Reef-World #oceanconservation  #scubadiving #reefworld",
+    "link": "https://www.youtube.com/shorts/HOufyh0Ofr4",
+    "date_str": "17 Mar 2026",
+    "timestamp": 1773705600.0,
+    "type": "video"
+  },
+  {
+    "title": "James J. Harvey, Green Fins & Reef-World",
+    "link": "https://www.youtube.com/watch?v=X2mDZD9iaUw",
     "date_str": "17 Mar 2026",
     "timestamp": 1773705600.0,
     "type": "video"
@@ -2199,11 +2752,25 @@
     "type": "blog"
   },
   {
+    "title": "WE ARE LIFEGUARDS: Saving Lives on the Beach With the RNLI",
+    "link": "https://wearelifeguards.podbean.com/e/we-are-lifeguards-25-years-of-keeping-beaches-safer/",
+    "date_str": "16 Mar 2026",
+    "timestamp": 1773619200.0,
+    "type": "blog"
+  },
+  {
     "title": "186-Enhanced MSc Austere Critical Care",
     "link": "https://podcasters.spotify.com/pod/show/corom-foundation/episodes/186-Enhanced-MSc-Austere-Critical-Care-e3fvkq0",
     "date_str": "13 Mar 2026",
     "timestamp": 1773396000.0,
     "type": "podcast"
+  },
+  {
+    "title": "First climbs: Martin Veale",
+    "link": "https://www.youtube.com/watch?v=04diiBAdmL0",
+    "date_str": "13 Mar 2026",
+    "timestamp": 1773360000.0,
+    "type": "video"
   },
   {
     "title": "(Early) Coffee Talk 3/12/26",
@@ -2239,6 +2806,13 @@
     "date_str": "11 Mar 2026",
     "timestamp": 1773216000.0,
     "type": "podcast"
+  },
+  {
+    "title": "How to make a Slope Card - works on ANY map, anywhere.",
+    "link": "https://www.youtube.com/watch?v=GBB2lL9Ax6M",
+    "date_str": "11 Mar 2026",
+    "timestamp": 1773187200.0,
+    "type": "video"
   },
   {
     "title": "EM Quick Hits 71 EMC²: Fever Without a Source, Coaching the EM Mind Part 1, Traumatic Pneumothorax Part 2, PECARN C-spine Rule, Medetomidine Withdrawal, EMS Handover",
@@ -2291,6 +2865,13 @@
     "type": "video"
   },
   {
+    "title": "This Kit is a Must Have for My Job (2026 Chest Rig Update)",
+    "link": "https://www.youtube.com/watch?v=qatmZz6HyYg",
+    "date_str": "08 Mar 2026",
+    "timestamp": 1772928000.0,
+    "type": "video"
+  },
+  {
     "title": "Saturday Coffee Talk (3/7/26)",
     "link": "https://the-world-s-okayest-medic-podcast.zencast.website/episodes/saturday-coffee-talk-3726",
     "date_str": "07 Mar 2026",
@@ -2312,6 +2893,13 @@
     "type": "podcast"
   },
   {
+    "title": "Staying Alive - The Subtle Art of Navigation",
+    "link": "https://www.youtube.com/watch?v=dT_5uY6xD2Y",
+    "date_str": "06 Mar 2026",
+    "timestamp": 1772755200.0,
+    "type": "video"
+  },
+  {
     "title": "The Last POLST Bender",
     "link": "https://ems-20-20.simplecast.com/episodes/the-last-polst-bender-zAEaBkFE",
     "date_str": "04 Mar 2026",
@@ -2324,6 +2912,20 @@
     "date_str": "03 Mar 2026",
     "timestamp": 1772524800.0,
     "type": "podcast"
+  },
+  {
+    "title": "Stratis Kas, InDEPTH | Technical Diver",
+    "link": "https://www.youtube.com/shorts/RUVNZfj6eYE",
+    "date_str": "03 Mar 2026",
+    "timestamp": 1772496000.0,
+    "type": "video"
+  },
+  {
+    "title": "Stratis Kas, InDEPTH",
+    "link": "https://www.youtube.com/watch?v=Vitd0Ty3rc0",
+    "date_str": "03 Mar 2026",
+    "timestamp": 1772496000.0,
+    "type": "video"
   },
   {
     "title": "BONUS Mini Episode: Burn Intubation",
@@ -2359,6 +2961,20 @@
     "date_str": "28 Feb 2026",
     "timestamp": 1772258256.0,
     "type": "podcast"
+  },
+  {
+    "title": "Just stop what you're doing - look around",
+    "link": "https://www.youtube.com/watch?v=dg-QJ4oJA2I",
+    "date_str": "28 Feb 2026",
+    "timestamp": 1772236800.0,
+    "type": "video"
+  },
+  {
+    "title": "Most interesting video on YouTube - about a hole",
+    "link": "https://www.youtube.com/watch?v=ecxCNUkjYjQ",
+    "date_str": "28 Feb 2026",
+    "timestamp": 1772236800.0,
+    "type": "video"
   },
   {
     "title": "184-CoROM Conversations - Nursing CPG",
@@ -2410,6 +3026,41 @@
     "type": "podcast"
   },
   {
+    "title": "BMC British Lead Climbing Championships 2026 FINALS - Live from the BIG Depot Climbing, Manchester",
+    "link": "https://www.youtube.com/watch?v=yfaOiRqnr-8",
+    "date_str": "22 Feb 2026",
+    "timestamp": 1771718400.0,
+    "type": "video"
+  },
+  {
+    "title": "BMC British Lead Climbing Championships 2026 U17 FINALS - Live from BIG Depot Climbing, Manchester",
+    "link": "https://www.youtube.com/watch?v=e2PP5gE6gjk",
+    "date_str": "22 Feb 2026",
+    "timestamp": 1771718400.0,
+    "type": "video"
+  },
+  {
+    "title": "BMC British Lead Climbing Championships 2026 SEMI-FINALS - Live from BIG Depot Climbing, Manchester",
+    "link": "https://www.youtube.com/watch?v=QACWE6F8FbA",
+    "date_str": "22 Feb 2026",
+    "timestamp": 1771718400.0,
+    "type": "video"
+  },
+  {
+    "title": "New Terrain Trailer - Screening at The Kendal Mountain Tour",
+    "link": "https://www.youtube.com/watch?v=cV525QGpP5w",
+    "date_str": "22 Feb 2026",
+    "timestamp": 1771718400.0,
+    "type": "video"
+  },
+  {
+    "title": "Peripheral Trailer - Screening at The Kendal Mountain Tour",
+    "link": "https://www.youtube.com/watch?v=bSauTNu-Igc",
+    "date_str": "21 Feb 2026",
+    "timestamp": 1771632000.0,
+    "type": "video"
+  },
+  {
     "title": "In The Wake of Stabby McStabberface",
     "link": "https://ems-20-20.simplecast.com/episodes/in-the-wake-of-stabby-mcstabberface-yoU5SwtV",
     "date_str": "20 Feb 2026",
@@ -2424,12 +3075,40 @@
     "type": "podcast"
   },
   {
+    "title": "Winner Get's Cake Trailer - Screening at The Kendal Mountain Tour",
+    "link": "https://www.youtube.com/watch?v=MIWL2xFwUXA",
+    "date_str": "20 Feb 2026",
+    "timestamp": 1771545600.0,
+    "type": "video"
+  },
+  {
+    "title": "Vautour - Screening at The Kendal Mountain Tour",
+    "link": "https://www.youtube.com/watch?v=Jbf7xfnRKtM",
+    "date_str": "19 Feb 2026",
+    "timestamp": 1771459200.0,
+    "type": "video"
+  },
+  {
     "title": "From Bradycardia to Barotrauma: An Expedition Medic’s Guide to the Physiology of Freediving",
     "link": "https://www.theadventuremedic.com/coreskills/from-bradycardia-to-barotrauma-an-expedition-medics-guide-to-the-physiology-of-freediving/",
     "date_str": "18 Feb 2026",
     "timestamp": 1771438639.0,
     "type": "blog",
     "image": ""
+  },
+  {
+    "title": "Most interesting video on YouTube - about a field",
+    "link": "https://www.youtube.com/watch?v=WfedELEl2cA",
+    "date_str": "18 Feb 2026",
+    "timestamp": 1771372800.0,
+    "type": "video"
+  },
+  {
+    "title": "Trango Trailer - Screening at The Kendal Mountain Tour",
+    "link": "https://www.youtube.com/watch?v=vGjmrSVyfSc",
+    "date_str": "18 Feb 2026",
+    "timestamp": 1771372800.0,
+    "type": "video"
   },
   {
     "title": "Surf, Science, and Survival: A Doctor’s Life in Remote Medicine",
@@ -2446,6 +3125,13 @@
     "type": "podcast"
   },
   {
+    "title": "Valentine's Day Rescue - Lymington Coastguard Rescue Team",
+    "link": "https://www.youtube.com/shorts/oXZIyE1iiIw",
+    "date_str": "14 Feb 2026",
+    "timestamp": 1771027200.0,
+    "type": "video"
+  },
+  {
     "title": "182-TTEMS Review by BSc RPP Students",
     "link": "https://podcasters.spotify.com/pod/show/corom-foundation/episodes/182-TTEMS-Review-by-BSc-RPP-Students-e3f0p3f",
     "date_str": "13 Feb 2026",
@@ -2455,6 +3141,13 @@
   {
     "title": "Union Adventist University - Master of Public Health program",
     "link": "https://www.youtube.com/watch?v=-1arx7OqJ2I",
+    "date_str": "13 Feb 2026",
+    "timestamp": 1770940800.0,
+    "type": "video"
+  },
+  {
+    "title": "THIS is how to clean a compass",
+    "link": "https://www.youtube.com/watch?v=pMEamm811rw",
     "date_str": "13 Feb 2026",
     "timestamp": 1770940800.0,
     "type": "video"
@@ -2488,11 +3181,39 @@
     "type": "blog"
   },
   {
+    "title": "It's OK to watch this video alone.",
+    "link": "https://www.youtube.com/watch?v=BbjBwZA6Vt8",
+    "date_str": "10 Feb 2026",
+    "timestamp": 1770681600.0,
+    "type": "video"
+  },
+  {
     "title": "Podcast 993: Personalized Gene Editing Therapy",
     "link": "https://emergencymedicalminute.libsyn.com/podcast-993-personalized-gene-editing-therapy",
     "date_str": "09 Feb 2026",
     "timestamp": 1770631200.0,
     "type": "podcast"
+  },
+  {
+    "title": "UIAA Ice Climbing Continental Cup - Sunderland, UK - Finals",
+    "link": "https://www.youtube.com/watch?v=o0gzSDB8VAI",
+    "date_str": "09 Feb 2026",
+    "timestamp": 1770595200.0,
+    "type": "video"
+  },
+  {
+    "title": "UIAA Ice Climbing Continental Cup - Sunderland, UK - Semi-final",
+    "link": "https://www.youtube.com/watch?v=8LcgJYgBrrk",
+    "date_str": "09 Feb 2026",
+    "timestamp": 1770595200.0,
+    "type": "video"
+  },
+  {
+    "title": "Mission Medic Bag - Review",
+    "link": "https://www.youtube.com/watch?v=v93CCiLz8z8",
+    "date_str": "08 Feb 2026",
+    "timestamp": 1770508800.0,
+    "type": "video"
   },
   {
     "title": "181-TBS26 Conference Review",
@@ -2572,6 +3293,20 @@
     "type": "podcast"
   },
   {
+    "title": "BMC British Boulder Championships 2026 FINALS - Live from the Depot Climbing, Manchester",
+    "link": "https://www.youtube.com/watch?v=56hQOE_5ahU",
+    "date_str": "25 Jan 2026",
+    "timestamp": 1769299200.0,
+    "type": "video"
+  },
+  {
+    "title": "BMC British Boulder Championships 2026 SEMI-FINALS - Live from the Depot Climbing, Manchester",
+    "link": "https://www.youtube.com/watch?v=FcMxsRs3qS0",
+    "date_str": "25 Jan 2026",
+    "timestamp": 1769299200.0,
+    "type": "video"
+  },
+  {
     "title": "Risk Management and the Expedition Medic",
     "link": "https://www.theadventuremedic.com/coreskills/risk-management-and-the-expedition-medic/",
     "date_str": "24 Jan 2026",
@@ -2592,6 +3327,13 @@
     "date_str": "21 Jan 2026",
     "timestamp": 1769007600.0,
     "type": "blog"
+  },
+  {
+    "title": "The BMC is Moving Together",
+    "link": "https://www.youtube.com/watch?v=44Jia_sosvg",
+    "date_str": "21 Jan 2026",
+    "timestamp": 1768953600.0,
+    "type": "video"
   },
   {
     "title": "From Clinics to Conservation: Vet Medicine in Extreme Environments",
@@ -2675,6 +3417,13 @@
     "link": "https://www.youtube.com/shorts/BEiLu0pVV8E",
     "date_str": "12 Jan 2026",
     "timestamp": 1768176000.0,
+    "type": "video"
+  },
+  {
+    "title": "Tactical Medic Bag Loadout (2026 Update)",
+    "link": "https://www.youtube.com/watch?v=5vzXX5fi2aU",
+    "date_str": "11 Jan 2026",
+    "timestamp": 1768089600.0,
     "type": "video"
   },
   {
@@ -2790,6 +3539,20 @@
     "type": "podcast"
   },
   {
+    "title": "3 Ways to Build Your IFAK (Packing/purchasing considerations)",
+    "link": "https://www.youtube.com/watch?v=PGqy8BDUT9o",
+    "date_str": "28 Dec 2025",
+    "timestamp": 1766880000.0,
+    "type": "video"
+  },
+  {
+    "title": "Rope rescue split decision for Newquay Coastguard",
+    "link": "https://www.youtube.com/shorts/uP3xkue1TEU",
+    "date_str": "27 Dec 2025",
+    "timestamp": 1766793600.0,
+    "type": "video"
+  },
+  {
     "title": "175-Sepsis Discussion from the JTS CPG",
     "link": "https://podcasters.spotify.com/pod/show/corom-foundation/episodes/175-Sepsis-Discussion-from-the-JTS-CPG-e3cmrv6",
     "date_str": "26 Dec 2025",
@@ -2818,11 +3581,32 @@
     "type": "blog"
   },
   {
+    "title": "Coastguard Actually",
+    "link": "https://www.youtube.com/shorts/C7pEJeoL1Uo",
+    "date_str": "20 Dec 2025",
+    "timestamp": 1766188800.0,
+    "type": "video"
+  },
+  {
     "title": "174-Austere Burns Management from the JTS CPG",
     "link": "https://podcasters.spotify.com/pod/show/corom-foundation/episodes/174-Austere-Burns-Management-from-the-JTS-CPG-e3ce27v",
     "date_str": "19 Dec 2025",
     "timestamp": 1766138400.0,
     "type": "podcast"
+  },
+  {
+    "title": "Season's Greetings from the Maritime and Coastguard Agency",
+    "link": "https://www.youtube.com/watch?v=HXx0xAVc4ic",
+    "date_str": "19 Dec 2025",
+    "timestamp": 1766102400.0,
+    "type": "video"
+  },
+  {
+    "title": "Northlands | Ski touring in the Scottish highlands",
+    "link": "https://www.youtube.com/watch?v=dzIeVzfHMUs",
+    "date_str": "19 Dec 2025",
+    "timestamp": 1766102400.0,
+    "type": "video"
   },
   {
     "title": "#40: Burn Care & Women’s Health Outdoors",
@@ -2847,11 +3631,25 @@
     "type": "blog"
   },
   {
+    "title": "We Wild Camp Trailer | Film Coming Soon",
+    "link": "https://www.youtube.com/watch?v=hLyOVEdkilI",
+    "date_str": "17 Dec 2025",
+    "timestamp": 1765929600.0,
+    "type": "video"
+  },
+  {
     "title": "Ep 210 Decompensated Hypothyroidism Recognition and Management",
     "link": "https://emergencymedicinecases.com/decompensated-hypothyroidism/",
     "date_str": "16 Dec 2025",
     "timestamp": 1765896758.0,
     "type": "blog"
+  },
+  {
+    "title": "Classroom VS “Real World”",
+    "link": "https://www.youtube.com/watch?v=-sdwFAiEJI8",
+    "date_str": "14 Dec 2025",
+    "timestamp": 1765670400.0,
+    "type": "video"
   },
   {
     "title": "Good Waterproofs are key to Winter Walking",
@@ -2882,11 +3680,46 @@
     "type": "podcast"
   },
   {
+    "title": "Well drilled crew escape 'out of the blue' capsize",
+    "link": "https://www.youtube.com/shorts/jhrfYuJ7eYQ",
+    "date_str": "05 Dec 2025",
+    "timestamp": 1764892800.0,
+    "type": "video"
+  },
+  {
+    "title": "Well drilled fishing crew escaped ‘out of the blue’ capsize",
+    "link": "https://www.youtube.com/watch?v=kbG5x9Gprno",
+    "date_str": "05 Dec 2025",
+    "timestamp": 1764892800.0,
+    "type": "video"
+  },
+  {
+    "title": "Multi-agency days with HM Coastguard",
+    "link": "https://www.youtube.com/shorts/QcQIVGbxz8g",
+    "date_str": "04 Dec 2025",
+    "timestamp": 1764806400.0,
+    "type": "video"
+  },
+  {
+    "title": "Kendal Mountain Festival Highlights 2025",
+    "link": "https://www.youtube.com/watch?v=i6PV7R6j1EE",
+    "date_str": "03 Dec 2025",
+    "timestamp": 1764720000.0,
+    "type": "video"
+  },
+  {
     "title": "EM Quick Hits 69 Pediatric Urinary Retention & Acute Transverse Myelitis, Post-Dural Puncture Headache, Med Mal Cases: Clenched Fist Injury, IV Thrombolysis for Minor Stroke, EM Leadership Spotlight #4",
     "link": "https://emergencymedicinecases.com/em-quick-hits-69-pediatric-urinary-retention-acute-transverse-myelitis-post-dural-puncture-headache-med-mal-cases-clenched-fist-injury-iv-thrombolysis-for-minor-stroke-em-leadership-spotlight/",
     "date_str": "02 Dec 2025",
     "timestamp": 1764693439.0,
     "type": "blog"
+  },
+  {
+    "title": "Mud rescue for Santa and his elves",
+    "link": "https://www.youtube.com/shorts/4i6bvvafk_E",
+    "date_str": "02 Dec 2025",
+    "timestamp": 1764633600.0,
+    "type": "video"
   },
   {
     "title": "Episode 188 - Prehospital OB Updates 2025",
@@ -2901,6 +3734,41 @@
     "date_str": "01 Dec 2025",
     "timestamp": 1764547260.0,
     "type": "blog"
+  },
+  {
+    "title": "Practice is good, experience is better",
+    "link": "https://www.youtube.com/shorts/O9XNFW4DBYk",
+    "date_str": "30 Nov 2025",
+    "timestamp": 1764460800.0,
+    "type": "video"
+  },
+  {
+    "title": "Night rescue of climbers dangling in the dark",
+    "link": "https://www.youtube.com/shorts/jjp5XL1I_Lw",
+    "date_str": "27 Nov 2025",
+    "timestamp": 1764201600.0,
+    "type": "video"
+  },
+  {
+    "title": "Off Body EDC | New Gamut Review & Loadout",
+    "link": "https://www.youtube.com/watch?v=NXNlJcC3qxw",
+    "date_str": "27 Nov 2025",
+    "timestamp": 1764201600.0,
+    "type": "video"
+  },
+  {
+    "title": "Love Notes To Nature | A reflection of land and borders along Stanage Edge",
+    "link": "https://www.youtube.com/watch?v=0K29w3ReBZg",
+    "date_str": "27 Nov 2025",
+    "timestamp": 1764201600.0,
+    "type": "video"
+  },
+  {
+    "title": "Their Nature",
+    "link": "https://www.youtube.com/watch?v=9IrNiEYAG0o",
+    "date_str": "27 Nov 2025",
+    "timestamp": 1764201600.0,
+    "type": "video"
   },
   {
     "title": "Lightning rounds 58: Steroids for septic shock with David Janz",
@@ -2925,10 +3793,31 @@
     "image": ""
   },
   {
+    "title": "Day Shift on the Front Range #flightmedic",
+    "link": "https://www.youtube.com/shorts/vz1FkSDTEy4",
+    "date_str": "21 Nov 2025",
+    "timestamp": 1763683200.0,
+    "type": "video"
+  },
+  {
     "title": "Costa Rica Multi-Sport CME Adventure | April 24 – May 3, 2026",
     "link": "https://www.youtube.com/shorts/HneRwBv65RU",
     "date_str": "20 Nov 2025",
     "timestamp": 1763596800.0,
+    "type": "video"
+  },
+  {
+    "title": "HM Coastguard Caernarfon helicopter base and equipment",
+    "link": "https://www.youtube.com/shorts/pHC40Hsij0g",
+    "date_str": "20 Nov 2025",
+    "timestamp": 1763596800.0,
+    "type": "video"
+  },
+  {
+    "title": "HM Coastguard's search and rescue operations in the Outer Hebrides",
+    "link": "https://www.youtube.com/shorts/fjkstUu5qf0",
+    "date_str": "14 Nov 2025",
+    "timestamp": 1763078400.0,
     "type": "video"
   },
   {
@@ -2989,6 +3878,13 @@
     "type": "podcast"
   },
   {
+    "title": "BEARFAK *Min* (IFAK Review)",
+    "link": "https://www.youtube.com/watch?v=Kb-XZDDHMGE",
+    "date_str": "02 Nov 2025",
+    "timestamp": 1762041600.0,
+    "type": "video"
+  },
+  {
     "title": "RCUK ALS Updates 2025 ",
     "link": "https://podcasters.spotify.com/pod/show/josh-barker01/episodes/RCUK-ALS-Updates-2025-e3bmplt",
     "date_str": "01 Nov 2025",
@@ -3031,11 +3927,32 @@
     "type": "podcast"
   },
   {
+    "title": "The Kendal Mountain Festival 2025 Film Programme Is Announced!",
+    "link": "https://www.youtube.com/watch?v=DJT-qaxA6cY",
+    "date_str": "22 Oct 2025",
+    "timestamp": 1761091200.0,
+    "type": "video"
+  },
+  {
+    "title": "A Little Story About Hope - Kendal Mountain Festival Trailer 2025",
+    "link": "https://www.youtube.com/watch?v=_jpudJxHDPA",
+    "date_str": "22 Oct 2025",
+    "timestamp": 1761091200.0,
+    "type": "video"
+  },
+  {
     "title": "Pre-Alert '25; Roadside to Resus",
     "link": "https://theresusroom.libsyn.com/pre-alert-25-roadside-to-resus",
     "date_str": "20 Oct 2025",
     "timestamp": 1760918460.0,
     "type": "blog"
+  },
+  {
+    "title": "I'm DONE With The EKO Stethoscope",
+    "link": "https://www.youtube.com/watch?v=rQigQ0yev3o",
+    "date_str": "19 Oct 2025",
+    "timestamp": 1760832000.0,
+    "type": "video"
   },
   {
     "title": "AM Team Recommendations October 2025",
@@ -3825,6 +4742,13 @@
     "type": "video"
   },
   {
+    "title": "Kendal Mountain Adventure Tour Trailer - 2025",
+    "link": "https://www.youtube.com/watch?v=DASAQNlVbmw",
+    "date_str": "10 Feb 2025",
+    "timestamp": 1739145600.0,
+    "type": "video"
+  },
+  {
     "title": "World Extreme Medicine Conference 2024: Pushing Boundaries",
     "link": "https://www.theadventuremedic.com/features/world-extreme-medicine-conference-2024-pushing-boundaries/",
     "date_str": "06 Feb 2025",
@@ -3847,11 +4771,53 @@
     "type": "video"
   },
   {
+    "title": "Linked by a single rope to cross Vatnajokull, the largest ice cap in Western Europe.",
+    "link": "https://www.youtube.com/watch?v=ZIGO8vqYZMU",
+    "date_str": "04 Feb 2025",
+    "timestamp": 1738627200.0,
+    "type": "video"
+  },
+  {
+    "title": "Libertad - Trailer | Kendal Mountain Player Film",
+    "link": "https://www.youtube.com/watch?v=WZo1evFqOTk",
+    "date_str": "31 Jan 2025",
+    "timestamp": 1738281600.0,
+    "type": "video"
+  },
+  {
+    "title": "Film Producer, Rebecca Mark-Lawson speaks about the creation of the award-winning film, Plunge.",
+    "link": "https://www.youtube.com/watch?v=1R3l9--BqWo",
+    "date_str": "29 Jan 2025",
+    "timestamp": 1738108800.0,
+    "type": "video"
+  },
+  {
+    "title": "How open water swimming can provide empowerment, friendship and healing in the frigid sea.",
+    "link": "https://www.youtube.com/watch?v=8cvw8VfelTY",
+    "date_str": "28 Jan 2025",
+    "timestamp": 1738022400.0,
+    "type": "video"
+  },
+  {
     "title": "Episode 177 - A-Fib With RVR - A Medic Mindset Collaboration",
     "link": "https://soundcloud.com/mchdpp/medicmindset_final",
     "date_str": "22 Jan 2025",
     "timestamp": 1737504000.0,
     "type": "podcast"
+  },
+  {
+    "title": "Merrell - Off Grid. On Topic: Promoting diversity and inclusion in the outdoors",
+    "link": "https://www.youtube.com/watch?v=3lnPbD6y0c4",
+    "date_str": "15 Jan 2025",
+    "timestamp": 1736899200.0,
+    "type": "video"
+  },
+  {
+    "title": "Award-winning director Nathanaël Sapey-triomphe shares the creative process for his latest film.",
+    "link": "https://www.youtube.com/watch?v=iEZLmJyxp4g",
+    "date_str": "14 Jan 2025",
+    "timestamp": 1736812800.0,
+    "type": "video"
   },
   {
     "title": "Risk Management : Our Prolonged Field Care courses feature in outdoor/expedition industry publications.",
@@ -4099,6 +5065,13 @@
     "type": "podcast"
   },
   {
+    "title": "Formula One Paramedic: Adam Barnard",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Formula-One-Paramedic-Adam-Barnard-e2ebp13",
+    "date_str": "03 Feb 2024",
+    "timestamp": 1706961480.0,
+    "type": "podcast"
+  },
+  {
     "title": "403. The Hypobaric Environment and Altitude-Related Decompression Illness",
     "link": "https://pjmed.libsyn.com/403-the-hypobaric-environment-and-altitude-related-decompression-illness",
     "date_str": "17 Jan 2024",
@@ -4141,6 +5114,13 @@
     "type": "blog"
   },
   {
+    "title": "Faculty of Pre-Hospital Care Conference 2023",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Faculty-of-Pre-Hospital-Care-Conference-2023-e2c2nkg",
+    "date_str": "29 Nov 2023",
+    "timestamp": 1701246985.0,
+    "type": "podcast"
+  },
+  {
     "title": "398. Guerilla Medicine for SOF Medics Part 3",
     "link": "https://pjmed.libsyn.com/398-guerilla-medicine-for-sof-medics-part-3",
     "date_str": "27 Nov 2023",
@@ -4174,6 +5154,13 @@
     "date_str": "11 Oct 2023",
     "timestamp": 1697039820.0,
     "type": "blog"
+  },
+  {
+    "title": "Specialist Paramedic Critical Care: Callum Sutton",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Specialist-Paramedic-Critical-Care-Callum-Sutton-e2a8a07",
+    "date_str": "08 Oct 2023",
+    "timestamp": 1696775700.0,
+    "type": "podcast"
   },
   {
     "title": "393. Holistic approach to Operator Syndrome and Resilience",
@@ -4260,6 +5247,13 @@
     "type": "blog"
   },
   {
+    "title": "Ukraine Paramedic: Val Cochrane",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Ukraine-Paramedic-Val-Cochrane-e2776ti",
+    "date_str": "24 Jul 2023",
+    "timestamp": 1690228372.0,
+    "type": "podcast"
+  },
+  {
     "title": "386. Quickie. Tourniquet pearls from the TCCC Committee discussion",
     "link": "https://pjmed.libsyn.com/386-quickie-tourniquet-pearls-from-the-tccc-committee-discussion",
     "date_str": "21 Jul 2023",
@@ -4272,6 +5266,13 @@
     "date_str": "12 Jul 2023",
     "timestamp": 1689195240.0,
     "type": "blog"
+  },
+  {
+    "title": "International Paramedics Day",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/International-Paramedics-Day-e26mvdi",
+    "date_str": "08 Jul 2023",
+    "timestamp": 1688818286.0,
+    "type": "podcast"
   },
   {
     "title": "384. CCAT and Critical Care Doc discusses sTBI in the ICU- what happens after you hand off the casualty? Part 1 of 2",
@@ -4309,6 +5310,13 @@
     "type": "blog"
   },
   {
+    "title": "Critical Care Paramedic: Gordon Ingram ",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Critical-Care-Paramedic-Gordon-Ingram-e2461ej",
+    "date_str": "08 Jun 2023",
+    "timestamp": 1686224822.0,
+    "type": "podcast"
+  },
+  {
     "title": "380. What is Shock? part 2/2",
     "link": "https://pjmed.libsyn.com/380-what-is-shock-part-22",
     "date_str": "07 Jun 2023",
@@ -4321,6 +5329,13 @@
     "date_str": "30 May 2023",
     "timestamp": 1685415660.0,
     "type": "blog"
+  },
+  {
+    "title": "Maritime SAR Paramedic: Martin McTigue",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Maritime-SAR-Paramedic-Martin-McTigue-e21u2hf",
+    "date_str": "07 Apr 2023",
+    "timestamp": 1680888647.0,
+    "type": "podcast"
   },
   {
     "title": "Wilderness Medicine: CME Can Be Epic!",
@@ -4344,11 +5359,25 @@
     "type": "video"
   },
   {
+    "title": "Combat Medical Technician: Kane Overton",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Combat-Medical-Technician-Kane-Overton-e1udrlp",
+    "date_str": "07 Feb 2023",
+    "timestamp": 1675792290.0,
+    "type": "podcast"
+  },
+  {
     "title": "Hands on Workshops and Lectures at the National Conference on Wilderness Medicine",
     "link": "https://www.youtube.com/watch?v=uvPvaaRfMR0",
     "date_str": "29 Jan 2023",
     "timestamp": 1674950400.0,
     "type": "video"
+  },
+  {
+    "title": "Special Operations Response Team Paramedic: Jamie Pattison ",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Special-Operations-Response-Team-Paramedic-Jamie-Pattison-e1tugth",
+    "date_str": "24 Jan 2023",
+    "timestamp": 1674578211.0,
+    "type": "podcast"
   },
   {
     "title": "#28: Avalanche Safety and Toxinology",
@@ -4358,10 +5387,31 @@
     "type": "podcast"
   },
   {
+    "title": "Paramedic Officer: Daniel Finnerty ",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Paramedic-Officer-Daniel-Finnerty-e1s9r2l",
+    "date_str": "15 Dec 2022",
+    "timestamp": 1671127728.0,
+    "type": "podcast"
+  },
+  {
+    "title": "Trauma Care Conference 2022: Roadside to Rehab",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Trauma-Care-Conference-2022-Roadside-to-Rehab-e1rt53r",
+    "date_str": "07 Dec 2022",
+    "timestamp": 1670429524.0,
+    "type": "podcast"
+  },
+  {
     "title": "Rory O'Connor with Adrian Chiles on Radio Five Live",
     "link": "https://podcasters.spotify.com/pod/show/collegeofparamedics/episodes/Rory-OConnor-with-Adrian-Chiles-on-Radio-Five-Live-e1rkv0c",
     "date_str": "02 Dec 2022",
     "timestamp": 1669978736.0,
+    "type": "podcast"
+  },
+  {
+    "title": "She Who Dares: Cat Turnbull",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/She-Who-Dares-Cat-Turnbull-e1q8muk",
+    "date_str": "06 Nov 2022",
+    "timestamp": 1667746483.0,
     "type": "podcast"
   },
   {
@@ -4386,6 +5436,13 @@
     "type": "video"
   },
   {
+    "title": "Consultant Paramedic: Steve Bell",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Consultant-Paramedic-Steve-Bell-e1om7km",
+    "date_str": "02 Oct 2022",
+    "timestamp": 1664739115.0,
+    "type": "podcast"
+  },
+  {
     "title": "WildEM E15 altitude sickness part I",
     "link": "https://soundcloud.com/user-905228559/wildem-e15-altitude-sickness-part-i",
     "date_str": "01 Oct 2022",
@@ -4405,6 +5462,20 @@
     "date_str": "01 Sep 2022",
     "timestamp": 1662069639.0,
     "type": "blog"
+  },
+  {
+    "title": "Jet Suit Paramedic: Jamie Walsh",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Jet-Suit-Paramedic-Jamie-Walsh-e1mv0fu",
+    "date_str": "01 Sep 2022",
+    "timestamp": 1662025316.0,
+    "type": "podcast"
+  },
+  {
+    "title": "Jake Jones: Author of \"Can You Hear Me?\"",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Jake-Jones-Author-of-Can-You-Hear-Me-e1lfc8l",
+    "date_str": "22 Jul 2022",
+    "timestamp": 1658494616.0,
+    "type": "podcast"
   },
   {
     "title": "Graham Clark talks on LBC Radio",
@@ -4428,10 +5499,24 @@
     "type": "podcast"
   },
   {
+    "title": "Search and Rescue Winch Paramedic: Ollie Neece",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Search-and-Rescue-Winch-Paramedic-Ollie-Neece-e1k48rk",
+    "date_str": "20 Jun 2022",
+    "timestamp": 1655728309.0,
+    "type": "podcast"
+  },
+  {
     "title": "#26: VTE and Telemedicine",
     "link": "https://soundcloud.com/wildernessmedicinepodcast/june-2022-wilderness-environmental-medicine-live",
     "date_str": "01 Jun 2022",
     "timestamp": 1654083663.0,
+    "type": "podcast"
+  },
+  {
+    "title": "Humanitarian Aid Paramedic: Coco Tang",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Humanitarian-Aid-Paramedic-Coco-Tang-e1j8j6j",
+    "date_str": "31 May 2022",
+    "timestamp": 1654025790.0,
     "type": "podcast"
   },
   {
@@ -4440,6 +5525,13 @@
     "date_str": "11 Apr 2022",
     "timestamp": 1649700003.0,
     "type": "blog"
+  },
+  {
+    "title": "Paramedic Adventures with Rob Stanfield",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Paramedic-Adventures-with-Rob-Stanfield-e1gof2v",
+    "date_str": "08 Apr 2022",
+    "timestamp": 1649405049.0,
+    "type": "podcast"
   },
   {
     "title": "#25: Anaphylaxis and Everest",
@@ -4456,6 +5548,13 @@
     "type": "video"
   },
   {
+    "title": "Paramedic Career Pathways",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Paramedic-Career-Pathways-e1dkeat",
+    "date_str": "30 Jan 2022",
+    "timestamp": 1643563648.0,
+    "type": "podcast"
+  },
+  {
     "title": "2021: End Of Year Round - Up",
     "link": "https://www.r2rinternational.com/single-post/2021-end-of-year-round-up",
     "date_str": "30 Dec 2021",
@@ -4463,10 +5562,31 @@
     "type": "blog"
   },
   {
+    "title": "World Extreme Medicine Conference Review 2021",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/World-Extreme-Medicine-Conference-Review-2021-e1blq52",
+    "date_str": "14 Dec 2021",
+    "timestamp": 1639499819.0,
+    "type": "podcast"
+  },
+  {
     "title": "December 2021 - Wilderness & Environmental Medicine Live!",
     "link": "https://soundcloud.com/wildernessmedicinepodcast/december-2021-wilderness-environmental-medicine-live",
     "date_str": "06 Dec 2021",
     "timestamp": 1638807907.0,
+    "type": "podcast"
+  },
+  {
+    "title": "Choosing to be a Paramedic",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Choosing-to-be-a-Paramedic-e1a5kf9",
+    "date_str": "12 Nov 2021",
+    "timestamp": 1636715152.0,
+    "type": "podcast"
+  },
+  {
+    "title": "Introduction",
+    "link": "https://podcasters.spotify.com/pod/show/paramedicast/episodes/Introduction-e17jou7",
+    "date_str": "12 Nov 2021",
+    "timestamp": 1636715027.0,
     "type": "podcast"
   },
   {
@@ -4981,6 +6101,13 @@
     "type": "podcast"
   },
   {
+    "title": "USC Keck Global Medicine Master's Program Panama Team January 2020",
+    "link": "https://www.youtube.com/watch?v=T9sc9SsFMwo",
+    "date_str": "05 Apr 2020",
+    "timestamp": 1586044800.0,
+    "type": "video"
+  },
+  {
     "title": "Paramedic Insight Podcast - Non Technical Skills and the Challenges of the Covid 19 Response",
     "link": "https://podcasters.spotify.com/pod/show/collegeofparamedics/episodes/Paramedic-Insight-Podcast---Non-Technical-Skills-and-the-Challenges-of-the-Covid-19-Response-ec9mqu",
     "date_str": "02 Apr 2020",
@@ -5049,6 +6176,13 @@
     "date_str": "28 Feb 2020",
     "timestamp": 1582919576.0,
     "type": "blog"
+  },
+  {
+    "title": "Eastern Virginia Medical School Global Health Volunteers with Floating Doctors in Panama",
+    "link": "https://www.youtube.com/watch?v=SFJ5khhDjvU",
+    "date_str": "02 Feb 2020",
+    "timestamp": 1580601600.0,
+    "type": "video"
   },
   {
     "title": "January Offers end midnight 31.01.20. Book now before its too late!!\n",
@@ -5177,6 +6311,13 @@
     "type": "blog"
   },
   {
+    "title": "Floating Doctors and the Ngäbe-Buglé",
+    "link": "https://www.youtube.com/watch?v=tFvRKh-O5NE",
+    "date_str": "31 Dec 2018",
+    "timestamp": 1546214400.0,
+    "type": "video"
+  },
+  {
     "title": "ATMC18 - Smiley Billings on Registration for the Military Medic",
     "link": "https://atma.podbean.com/e/atmc18-smiley-billings-on-registration-for-the-military-medic/",
     "date_str": "14 Nov 2018",
@@ -5203,5 +6344,89 @@
     "date_str": "04 Jul 2018",
     "timestamp": 1530694223.0,
     "type": "blog"
+  },
+  {
+    "title": "Floating Doctors: Christmas Comes in January!",
+    "link": "https://www.youtube.com/watch?v=YKbAQAnMZaA",
+    "date_str": "07 Feb 2018",
+    "timestamp": 1517961600.0,
+    "type": "video"
+  },
+  {
+    "title": "Floating Doctors: Dental Lead Philippe Martin's First Multiday Clinic",
+    "link": "https://www.youtube.com/watch?v=23Cwz2y3mgU",
+    "date_str": "26 Nov 2017",
+    "timestamp": 1511654400.0,
+    "type": "video"
+  },
+  {
+    "title": "Floating Doctors: Ultrasound Training for Community Midwives",
+    "link": "https://www.youtube.com/watch?v=uzkiBSqdWWo",
+    "date_str": "25 Nov 2017",
+    "timestamp": 1511568000.0,
+    "type": "video"
+  },
+  {
+    "title": "Floating Doctors: Kindness at the Asilo",
+    "link": "https://www.youtube.com/watch?v=kH0pyFIpXCc",
+    "date_str": "22 Nov 2017",
+    "timestamp": 1511308800.0,
+    "type": "video"
+  },
+  {
+    "title": "Floating Doctors: Thanks for Remote Communicaton, Globalstar!",
+    "link": "https://www.youtube.com/watch?v=2fNachI5GOg",
+    "date_str": "19 Nov 2017",
+    "timestamp": 1511049600.0,
+    "type": "video"
+  },
+  {
+    "title": "Floating Doctors Elder Care",
+    "link": "https://www.youtube.com/watch?v=LqZ86dqqnIA",
+    "date_str": "19 Nov 2017",
+    "timestamp": 1511049600.0,
+    "type": "video"
+  },
+  {
+    "title": "Floating Doctors:  Jungle Dentistry",
+    "link": "https://www.youtube.com/watch?v=3QMysbkTQVQ",
+    "date_str": "30 Jan 2015",
+    "timestamp": 1422576000.0,
+    "type": "video"
+  },
+  {
+    "title": "Floating Doctors: Emergency Evacuation for Postpartum Hemorrhage",
+    "link": "https://www.youtube.com/watch?v=sXhutbsc-gg",
+    "date_str": "20 Jan 2015",
+    "timestamp": 1421712000.0,
+    "type": "video"
+  },
+  {
+    "title": "Mrs Myra and the Asilo",
+    "link": "https://www.youtube.com/watch?v=jCRVTaURb2E",
+    "date_str": "12 Dec 2014",
+    "timestamp": 1418342400.0,
+    "type": "video"
+  },
+  {
+    "title": "FLOATING DOCTORS: Playa Verde, A Day in the Life",
+    "link": "https://www.youtube.com/watch?v=MMFLEHJRbDQ",
+    "date_str": "16 Jul 2014",
+    "timestamp": 1405468800.0,
+    "type": "video"
+  },
+  {
+    "title": "Gustivino's Fight for Life: A Floating Doctors Story",
+    "link": "https://www.youtube.com/watch?v=t0AEYQIYzTs",
+    "date_str": "06 Mar 2014",
+    "timestamp": 1394064000.0,
+    "type": "video"
+  },
+  {
+    "title": "FLOATING DOCTORS: Gustivino's Fight for Life",
+    "link": "https://www.youtube.com/watch?v=hq9B6Gsve8c",
+    "date_str": "12 Dec 2013",
+    "timestamp": 1386806400.0,
+    "type": "video"
   }
 ]
