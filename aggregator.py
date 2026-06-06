@@ -42,17 +42,18 @@ def robust_parse_date(date_str):
     except:
         return datetime.now().timestamp(), "Recent"
 
-for url in feed_urls[:150]:
+# INCREASED LIMITS: 300 feeds and 100 items deep to recover your 2000+ pool
+for url in feed_urls[:300]:
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=10) as response:
+        with urllib.request.urlopen(req, timeout=15) as response:
             xml_data = response.read()
             feed_root = ET.fromstring(xml_data)
             channel = feed_root.find('channel')
             items = channel.findall('item') if channel is not None else feed_root.findall('.//{http://www.w3.org/2005/Atom}entry')
             if not items: items = feed_root.findall('item')
                 
-            for item in items[:60]:
+            for item in items[:100]:
                 title = item.findtext('title') or item.findtext('{http://www.w3.org/2005/Atom}title')
                 link = item.findtext('link') or (item.find('{http://www.w3.org/2005/Atom}link').get('href') if item.find('{http://www.w3.org/2005/Atom}link') is not None else "")
                 if not title or not link or link in known_links: continue
@@ -82,6 +83,7 @@ os.makedirs('public', exist_ok=True)
 with open(ARCHIVE_FILE, 'w', encoding='utf-8') as f:
     json.dump(existing_archive, f, ensure_ascii=False, indent=2)
 
+# --- HTML GENERATION (Same as before but with the correct name) ---
 html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -102,16 +104,14 @@ html_content = f"""
         .subheading {{ font-size: 20px; font-weight: bold; color: var(--brand-navy); margin: 35px 0 15px 0; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }}
         .tags-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; max-height: 185px; overflow-y: auto; padding: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; }}
         .tag-pill {{ background: #f1f5f9; color: #475569; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; border: 1px solid #cbd5e1; transition: all 0.15s; user-select: none; }}
-        .tag-pill:hover {{ background: #e2e8f0; color: var(--brand-navy); }}
         .tag-pill.active {{ background: var(--brand-navy); color: white; border-color: var(--brand-navy); }}
-        .fruit-machine-box {{ background: #fff; border: 3px dashed var(--brand-crimson); border-radius: 12px; padding: 25px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }}
-        .machine-header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--brand-bg); padding-bottom: 12px; margin-bottom: 20px; }}
-        .spin-btn {{ background: var(--brand-crimson); color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; transition: background 0.2s; }}
-        .spin-btn:hover {{ background: var(--brand-crimson-hover); }}
+        .fruit-machine-box {{ background: #fff; border: 3px dashed var(--brand-crimson); border-radius: 12px; padding: 25px; margin-bottom: 30px; }}
+        .machine-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }}
+        .spin-btn {{ background: var(--brand-crimson); color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; }}
         .slots-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }}
         @media(max-width: 768px) {{ .slots-grid {{ grid-template-columns: 1fr; }} }}
         .slot-column {{ background: var(--brand-bg); border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }}
-        .slot-item {{ background: #fff; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #334155; font-weight: 600; line-height: 1.4; }}
+        .slot-item {{ background: #fff; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #334155; font-weight: 600; }}
         .card {{ background: white; padding: 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; gap: 18px; align-items: center; text-decoration: none; color: inherit; border-left: 6px solid var(--brand-slate); }}
         .card.video {{ border-left-color: var(--brand-crimson); }}
         .card.podcast {{ border-left-color: #3b82f6; }}
@@ -142,20 +142,20 @@ html_content = f"""
         <div class="fruit-machine-box">
             <div class="machine-header">
                 <div style="font-weight:800; font-size:21px; color:var(--brand-navy);">🎰 The CPD Fruit Machine</div>
-                <button class="spin-btn" onclick="spinMachine()">Pull Lever to Randomise</button>
+                <button class="spin-btn" onclick="spinMachine()">Pull Lever</button>
             </div>
             <div class="slots-grid">
-                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">🎬 3x Video Resources</div><div id="video-slots"></div></div>
-                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">🎙️ 3x Podcast Episodes</div><div id="podcast-slots"></div></div>
-                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">📰 3x Articles &amp; Blogs</div><div id="blog-slots"></div></div>
+                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">🎬 3x Videos</div><div id="video-slots"></div></div>
+                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">🎙️ 3x Podcasts</div><div id="podcast-slots"></div></div>
+                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">📰 3x Articles</div><div id="blog-slots"></div></div>
             </div>
         </div>
 
-        <div class="subheading">Search the Archive</div>
-        <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search resource library by keywords..." onkeyup="masterFilter()">
+        <div class="subheading">Search Archive</div>
+        <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search..." onkeyup="masterFilter()">
 
         <div class="subheading">Browse by Category</div>
-        <div class="tags-container" id="tagMenuBox">
+        <div class="tags-container">
             <div class="tag-pill active" onclick="toggleTagFilter(this, 'ALL')">All Categories</div>
 """
 
@@ -163,7 +163,7 @@ for tag in master_tags:
     safe_t = tag.replace("'", "\\'")
     html_content += f"""            <div class="tag-pill" onclick="toggleTagFilter(this, '{safe_t}')">{tag}</div>\n"""
 
-html_content += """        </div>
+html_content += f"""        </div>
         <main id="archiveTimeline">
 """
 
@@ -181,12 +181,11 @@ for item in existing_archive:
             <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{clean_title.lower()}" data-tags='{t_json}'>
                 <div class="media-icon-container {item['type']}">{icons[item['type']]}</div>
                 <div class="card-body">
-                    <h3>{item['title']}</h3>
-                    <div class="meta">
-                        <span class="badge {item['type']}">{item['type']}</span>
-                        <span>Published: {item['date_str']}</span>
+                    <h3 style="margin:0 0 6px 0; font-size:18px;">{item['title']}</h3>
+                    <div class="meta" style="font-size:12px; color:var(--brand-slate);">
+                        <span class="badge {item['type']}">{item['type']}</span> {item['date_str']}
                     </div>
-                    <div class="card-tags">{inline_tags}</div>
+                    <div style="margin-top:8px;">{inline_tags}</div>
                 </div>
             </a>"""
 
@@ -212,9 +211,9 @@ html_content += f"""
             const videos = getRandomItems(archiveItems, 'video', 3);
             const podcasts = getRandomItems(archiveItems, 'podcast', 3);
             const blogs = getRandomItems(archiveItems, 'blog', 3);
-            vSlots.innerHTML = videos.map(v => `<a class="slot-item" href="${{v.link}}" target="_blank"><div class="media-icon-container video">${{svgIcons.video}}</div><span>${{v.title}}</span></a>`).join('');
-            pSlots.innerHTML = podcasts.map(p => `<a class="slot-item" href="${{p.link}}" target="_blank"><div class="media-icon-container podcast">${{svgIcons.podcast}}</div><span>${{p.title}}</span></a>`).join('');
-            bSlots.innerHTML = blogs.map(b => `<a class="slot-item" href="${{b.link}}" target="_blank"><div class="media-icon-container blog">${{svgIcons.blog}}</div><span>${{b.title}}</span></a>`).join('');
+            vSlots.innerHTML = videos.map(v => `<a class="slot-item" href="${{v.link}}" target="_blank"><div class="media-icon-container video">${{svgIcons.video}}</div><span>${{v.title.substring(0,45)}}...</span></a>`).join('');
+            pSlots.innerHTML = podcasts.map(p => `<a class="slot-item" href="${{p.link}}" target="_blank"><div class="media-icon-container podcast">${{svgIcons.podcast}}</div><span>${{p.title.substring(0,45)}}...</span></a>`).join('');
+            bSlots.innerHTML = blogs.map(b => `<a class="slot-item" href="${{b.link}}" target="_blank"><div class="media-icon-container blog">${{svgIcons.blog}}</div><span>${{b.title.substring(0,45)}}...</span></a>`).join('');
         }}
 
         function toggleTagFilter(element, tagValue) {{
@@ -226,13 +225,11 @@ html_content += f"""
 
         function masterFilter() {{
             const query = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('#archiveTimeline .card');
-            cards.forEach(card => {{
+            document.querySelectorAll('.card').forEach(card => {{
                 const title = card.getAttribute('data-title');
                 const cardTags = JSON.parse(card.getAttribute('data-tags') || "[]");
-                const matchesKeyword = title.includes(query);
-                const matchesCategory = (activeSelectedTag === "ALL") || cardTags.includes(activeSelectedTag);
-                card.style.display = (matchesKeyword && matchesCategory) ? 'flex' : 'none';
+                const match = title.includes(query) && (activeSelectedTag === "ALL" || cardTags.includes(activeSelectedTag));
+                card.style.display = match ? 'flex' : 'none';
             }});
         }}
         window.onload = spinMachine;
@@ -243,5 +240,3 @@ html_content += f"""
 
 with open('public/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
-
-print("Title execution completely updated!")
