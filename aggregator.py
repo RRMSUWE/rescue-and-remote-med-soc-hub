@@ -82,14 +82,13 @@ os.makedirs('public', exist_ok=True)
 with open(ARCHIVE_FILE, 'w', encoding='utf-8') as f:
     json.dump(existing_archive, f, ensure_ascii=False, indent=2)
 
-# --- START HTML GENERATION WITH UPDATED TITLE ---
 html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RRMS Resource Hub</title>
+    <title>Rescue &amp; Remote Medicine Society Resource Hub</title>
     <style>
         :root {{ --brand-navy: #0f223d; --brand-crimson: #cf2027; --brand-crimson-hover: #b0181e; --brand-bg: #f5f7fa; --brand-slate: #475569; }}
         body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--brand-bg); color: #222; margin: 0; padding: 20px; }}
@@ -102,26 +101,32 @@ html_content = f"""
         @media(max-width: 600px) {{ header {{ flex-direction: column; text-align: center; }} .header-text {{ text-align: center; }} }}
         .subheading {{ font-size: 20px; font-weight: bold; color: var(--brand-navy); margin: 35px 0 15px 0; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }}
         .tags-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; max-height: 185px; overflow-y: auto; padding: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; }}
-        .tag-pill {{ background: #f1f5f9; color: #475569; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; border: 1px solid #cbd5e1; transition: all 0.15s; }}
+        .tag-pill {{ background: #f1f5f9; color: #475569; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; border: 1px solid #cbd5e1; transition: all 0.15s; user-select: none; }}
+        .tag-pill:hover {{ background: #e2e8f0; color: var(--brand-navy); }}
         .tag-pill.active {{ background: var(--brand-navy); color: white; border-color: var(--brand-navy); }}
-        .fruit-machine-box {{ background: #fff; border: 3px dashed var(--brand-crimson); border-radius: 12px; padding: 25px; margin-bottom: 30px; }}
-        .machine-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }}
-        .spin-btn {{ background: var(--brand-crimson); color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; }}
+        .fruit-machine-box {{ background: #fff; border: 3px dashed var(--brand-crimson); border-radius: 12px; padding: 25px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }}
+        .machine-header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--brand-bg); padding-bottom: 12px; margin-bottom: 20px; }}
+        .spin-btn {{ background: var(--brand-crimson); color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; transition: background 0.2s; }}
+        .spin-btn:hover {{ background: var(--brand-crimson-hover); }}
         .slots-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }}
         @media(max-width: 768px) {{ .slots-grid {{ grid-template-columns: 1fr; }} }}
         .slot-column {{ background: var(--brand-bg); border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }}
-        .slot-item {{ background: #fff; padding: 10px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 10px; text-decoration: none; color: #334155; font-weight: 600; }}
+        .slot-item {{ background: #fff; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #334155; font-weight: 600; line-height: 1.4; }}
         .card {{ background: white; padding: 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; gap: 18px; align-items: center; text-decoration: none; color: inherit; border-left: 6px solid var(--brand-slate); }}
         .card.video {{ border-left-color: var(--brand-crimson); }}
         .card.podcast {{ border-left-color: #3b82f6; }}
         .card.blog {{ border-left-color: #10b981; }}
-        .search-bar {{ width: 100%; padding: 15px 20px; font-size: 16px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; margin-bottom: 10px; }}
+        .search-bar {{ width: 100%; padding: 15px 20px; font-size: 16px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; margin-bottom: 10px; background: white; }}
         .card-tag-inline {{ font-size: 11px; background: #edf2f7; color: #4a5568; padding: 2px 8px; border-radius: 4px; border: 1px solid #e2e8f0; font-weight: 600; margin-right: 4px; }}
         .badge {{ text-transform: uppercase; font-weight: bold; font-size: 10px; padding: 3px 7px; border-radius: 4px; color: white; margin-right: 8px; }}
         .badge.video {{ background: var(--brand-crimson); }}
         .badge.podcast {{ background: #3b82f6; }}
         .badge.blog {{ background: #10b981; }}
-        .media-icon-container svg {{ width: 24px; height: 24px; fill: currentColor; }}
+        .media-icon-container {{ width: 42px; height: 42px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }}
+        .media-icon-container.video {{ background: #fef2f2; color: var(--brand-crimson); }}
+        .media-icon-container.podcast {{ background: #eff6ff; color: #3b82f6; }}
+        .media-icon-container.blog {{ background: #ecfdf5; color: #10b981; }}
+        .media-icon-container svg {{ width: 22px; height: 22px; fill: currentColor; }}
     </style>
 </head>
 <body>
@@ -130,28 +135,28 @@ html_content = f"""
             <img class="header-logo" src="logo.png" alt="RRMS UWE Logo">
             <div class="header-text">
                 <h1>Rescue &amp; Remote Medicine Society Resource Hub</h1>
-                <p>University of the West of England Student Union Branch • Pool: {len(existing_archive)} Resources</p>
+                <p>University of the West of England Student Union Branch • Active Pool: {len(existing_archive)} Resources</p>
             </div>
         </header>
 
         <div class="fruit-machine-box">
             <div class="machine-header">
                 <div style="font-weight:800; font-size:21px; color:var(--brand-navy);">🎰 The CPD Fruit Machine</div>
-                <button class="spin-btn" onclick="spinMachine()">Pull Lever</button>
+                <button class="spin-btn" onclick="spinMachine()">Pull Lever to Randomise</button>
             </div>
             <div class="slots-grid">
-                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:10px;">🎬 VIDEOS</div><div id="video-slots"></div></div>
-                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:10px;">🎙️ PODCASTS</div><div id="podcast-slots"></div></div>
-                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:10px;">📰 ARTICLES</div><div id="blog-slots"></div></div>
+                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">🎬 3x Video Resources</div><div id="video-slots"></div></div>
+                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">🎙️ 3x Podcast Episodes</div><div id="podcast-slots"></div></div>
+                <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">📰 3x Articles &amp; Blogs</div><div id="blog-slots"></div></div>
             </div>
         </div>
 
-        <div class="subheading">Search Archive</div>
-        <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Keywords..." onkeyup="masterFilter()">
+        <div class="subheading">Search the Archive</div>
+        <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search resource library by keywords..." onkeyup="masterFilter()">
 
-        <div class="subheading">Categories</div>
-        <div class="tags-container">
-            <div class="tag-pill active" onclick="toggleTagFilter(this, 'ALL')">All</div>
+        <div class="subheading">Browse by Category</div>
+        <div class="tags-container" id="tagMenuBox">
+            <div class="tag-pill active" onclick="toggleTagFilter(this, 'ALL')">All Categories</div>
 """
 
 for tag in master_tags:
@@ -169,17 +174,19 @@ icons = {
 }
 
 for item in existing_archive:
+    clean_title = item['title'].replace('"', '&quot;').replace("'", "&#39;")
     t_json = json.dumps(item.get('tags', []))
     inline_tags = "".join([f'<span class="card-tag-inline">{t}</span>' for t in item.get('tags', [])])
     html_content += f"""
-            <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{item['title'].lower()}" data-tags='{t_json}'>
+            <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{clean_title.lower()}" data-tags='{t_json}'>
                 <div class="media-icon-container {item['type']}">{icons[item['type']]}</div>
                 <div class="card-body">
-                    <h3 style="margin:0 0 5px 0; font-size:17px;">{item['title']}</h3>
-                    <div style="font-size:12px; color:var(--brand-slate);">
-                        <span class="badge {item['type']}">{item['type']}</span> {item['date_str']}
+                    <h3>{item['title']}</h3>
+                    <div class="meta">
+                        <span class="badge {item['type']}">{item['type']}</span>
+                        <span>Published: {item['date_str']}</span>
                     </div>
-                    <div style="margin-top:8px;">{inline_tags}</div>
+                    <div class="card-tags">{inline_tags}</div>
                 </div>
             </a>"""
 
@@ -188,31 +195,44 @@ html_content += f"""
     </div>
     <script>
         const archiveItems = {json.dumps(existing_archive)};
-        const icons = {json.dumps(icons)};
-        let activeTag = "ALL";
+        const svgIcons = {json.dumps(icons)};
+        let activeSelectedTag = "ALL";
 
-        function spinMachine() {{
-            const get = (t) => archiveItems.filter(i=>i.type===t).sort(()=>0.5-Math.random()).slice(0,3);
-            const render = (items, type) => items.map(i=>`<a class="slot-item" href="${{i.link}}" target="_blank"><div style="color:${{type==='video'?'#cf2027':type==='podcast'?'#3b82f6':'#10b981'}}">${{icons[type]}}</div>${{i.title.substring(0,40)}}...</a>`).join('');
-            document.getElementById('video-slots').innerHTML = render(get('video'), 'video');
-            document.getElementById('podcast-slots').innerHTML = render(get('podcast'), 'podcast');
-            document.getElementById('blog-slots').innerHTML = render(get('blog'), 'blog');
+        function getRandomItems(arr, type, num) {{
+            const filtered = arr.filter(i => i.type === type);
+            if(filtered.length === 0) return [];
+            const shuffled = [...filtered].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, num);
         }}
 
-        function toggleTagFilter(el, tag) {{
-            document.querySelectorAll('.tag-pill').forEach(p=>p.classList.remove('active'));
-            el.classList.add('active');
-            activeTag = tag;
+        function spinMachine() {{
+            const vSlots = document.getElementById('video-slots');
+            const pSlots = document.getElementById('podcast-slots');
+            const bSlots = document.getElementById('blog-slots');
+            const videos = getRandomItems(archiveItems, 'video', 3);
+            const podcasts = getRandomItems(archiveItems, 'podcast', 3);
+            const blogs = getRandomItems(archiveItems, 'blog', 3);
+            vSlots.innerHTML = videos.map(v => `<a class="slot-item" href="${{v.link}}" target="_blank"><div class="media-icon-container video">${{svgIcons.video}}</div><span>${{v.title}}</span></a>`).join('');
+            pSlots.innerHTML = podcasts.map(p => `<a class="slot-item" href="${{p.link}}" target="_blank"><div class="media-icon-container podcast">${{svgIcons.podcast}}</div><span>${{p.title}}</span></a>`).join('');
+            bSlots.innerHTML = blogs.map(b => `<a class="slot-item" href="${{b.link}}" target="_blank"><div class="media-icon-container blog">${{svgIcons.blog}}</div><span>${{b.title}}</span></a>`).join('');
+        }}
+
+        function toggleTagFilter(element, tagValue) {{
+            document.querySelectorAll('.tag-pill').forEach(pill => pill.classList.remove('active'));
+            element.classList.add('active');
+            activeSelectedTag = tagValue;
             masterFilter();
         }}
 
         function masterFilter() {{
-            const q = document.getElementById('searchInput').value.toLowerCase();
-            document.querySelectorAll('.card').forEach(c => {{
-                const title = c.getAttribute('data-title');
-                const tags = JSON.parse(c.getAttribute('data-tags'));
-                const match = title.includes(q) && (activeTag === "ALL" || tags.includes(activeTag));
-                c.style.display = match ? 'flex' : 'none';
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('#archiveTimeline .card');
+            cards.forEach(card => {{
+                const title = card.getAttribute('data-title');
+                const cardTags = JSON.parse(card.getAttribute('data-tags') || "[]");
+                const matchesKeyword = title.includes(query);
+                const matchesCategory = (activeSelectedTag === "ALL") || cardTags.includes(activeSelectedTag);
+                card.style.display = (matchesKeyword && matchesCategory) ? 'flex' : 'none';
             }});
         }}
         window.onload = spinMachine;
@@ -223,3 +243,5 @@ html_content += f"""
 
 with open('public/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
+
+print("Title execution completely updated!")
