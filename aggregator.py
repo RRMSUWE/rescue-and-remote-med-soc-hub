@@ -88,6 +88,15 @@ for url in feed_urls[:40]:
                     pub_date_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or ""
                     timestamp, date_display_str = robust_parse_date(pub_date_raw)
 
+                    # Extract dynamic text categories/tags embedded by the creators
+                    item_tags = []
+                    for cat in item.findall('category') + item.findall('.//{http://www.w3.org/2005/Atom}category'):
+                        tag_text = cat.text or cat.get('term') or ""
+                        tag_text = tag_text.strip().title()
+                        # Screen out unhelpful generic system tags if any exist
+                        if tag_text and len(tag_text) < 20 and tag_text not in ["Uncategorized", "Post"]:
+                            item_tags.append(tag_text)
+
                     lower_link = link_str.lower()
                     lower_title = str(title).lower()
                     
@@ -103,7 +112,8 @@ for url in feed_urls[:40]:
                         "link": link_str, 
                         "date_str": str(date_display_str), 
                         "timestamp": float(timestamp),
-                        "type": item_type
+                        "type": item_type,
+                        "tags": list(set(item_tags)) # Remove duplicate tags on a single post
                     })
                     known_links.add(link_str)
                     new_items_count += 1
@@ -122,6 +132,18 @@ try:
 except Exception:
     pass
 
+# Collect every unique category tag across the whole history pool to build the menu options dynamically
+master_tags_set = set()
+for item in existing_archive:
+    # Ensure backward compatibility if an old item object lacks the tags key
+    if "tags" not in item:
+        item["tags"] = []
+    for t in item["tags"]:
+        master_tags_set.add(t)
+
+# Convert to list and sort alphabetically for a neat directory look
+sorted_master_tags = sorted(list(master_tags_set))
+
 os.makedirs('public', exist_ok=True)
 with open(ARCHIVE_FILE, 'w', encoding='utf-8') as f:
     json.dump(existing_archive, f, ensure_ascii=False, indent=2)
@@ -134,7 +156,6 @@ html_content = f"""
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rescue &amp; Remote Medicine Society Hub</title>
     <style>
-        /* Exact Brand Identity Colors matched to society emblem */
         :root {{
             --brand-navy: #0f223d;
             --brand-crimson: #cf2027;
@@ -146,7 +167,6 @@ html_content = f"""
         body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--brand-bg); color: #222; margin: 0; padding: 20px; }}
         .container {{ max-width: 950px; margin: 0 auto; }}
         
-        /* Premium Branding Header Alignment */
         header {{ 
             display: flex; 
             align-items: center; 
@@ -171,7 +191,12 @@ html_content = f"""
 
         .subheading {{ font-size: 20px; font-weight: bold; color: var(--brand-navy); margin: 35px 0 15px 0; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }}
         
-        /* CPD Dashboard Polishing */
+        /* Dynamic Category Pills Menu Styling */
+        .tags-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; max-height: 145px; overflow-y: auto; padding: 8px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; }}
+        .tag-pill {{ background: #f1f5f9; color: #475569; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; border: 1px solid #cbd5e1; transition: all 0.15s; user-select: none; }}
+        .tag-pill:hover {{ background: #e2e8f0; color: var(--brand-navy); }}
+        .tag-pill.active {{ background: var(--brand-navy); color: white; border-color: var(--brand-navy); box-shadow: 0 2px 5px rgba(15,34,61,0.2); }}
+
         .fruit-machine-box {{ background: #fff; border: 3px dashed var(--brand-crimson); border-radius: 12px; padding: 25px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }}
         .machine-header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--brand-bg); padding-bottom: 12px; margin-bottom: 20px; }}
         .machine-title {{ font-weight: 800; font-size: 21px; color: var(--brand-navy); }}
@@ -183,17 +208,15 @@ html_content = f"""
         .slot-column {{ background: var(--brand-bg); border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }}
         .column-header {{ font-weight: bold; text-transform: uppercase; font-size: 12px; margin-bottom: 12px; color: var(--brand-slate); border-bottom: 2px solid #cbd5e1; padding-bottom: 5px; letter-spacing: 0.5px; }}
         
-        .slot-item {{ background: #fff; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #334155; font-weight: 600; line-height: 1.4; box-shadow: 0 2px 4px rgba(0,0,0,0.01); transition: border-color 0.15s, color 0.15s; }}
+        .slot-item {{ background: #fff; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #334155; font-weight: 600; line-height: 1.4; transition: border-color 0.15s, color 0.15s; }}
         .slot-item:hover {{ border-color: var(--brand-crimson); color: var(--brand-crimson); }}
         
-        /* Unified Layout Media Branding Icons */
         .media-icon-container {{ width: 42px; height: 42px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }}
         .media-icon-container.video {{ background: #fef2f2; color: var(--brand-crimson); }}
         .media-icon-container.podcast {{ background: #eff6ff; color: #3b82f6; }}
         .media-icon-container.blog {{ background: #ecfdf5; color: #10b981; }}
         .media-icon-container svg {{ width: 22px; height: 22px; fill: currentColor; }}
 
-        /* Timeline Card System */
         .card {{ background: white; padding: 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; gap: 18px; align-items: center; text-decoration: none; color: inherit; border-left: 6px solid var(--brand-slate); transition: transform 0.15s, box-shadow 0.15s; }}
         .card.video {{ border-left-color: var(--brand-crimson); }}
         .card.podcast {{ border-left-color: #3b82f6; }}
@@ -203,11 +226,14 @@ html_content = f"""
         .card .media-icon-container {{ width: 52px; height: 52px; border-radius: 8px; }}
         .card .media-icon-container svg {{ width: 26px; height: 26px; }}
         
-        .search-bar {{ width: 100%; padding: 15px 20px; font-size: 16px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; outline: none; margin-bottom: 10px; background: white; transition: border-color 0.2s; }}
+        .search-bar {{ width: 100%; padding: 15px 20px; font-size: 16px; border: 2px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; outline: none; margin-bottom: 10px; background: white; }}
         .search-bar:focus {{ border-color: var(--brand-navy); }}
         .card-body {{ flex-grow: 1; }}
         .card h3 {{ margin: 0 0 6px 0; font-size: 18px; color: var(--brand-navy); font-weight: 700; line-height: 1.3; }}
         .meta {{ font-size: 12px; color: var(--brand-slate); display: flex; gap: 12px; align-items: center; font-weight: 500; }}
+        .card-tags {{ display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }}
+        .card-tag-inline {{ font-size: 11px; background: #f1f5f9; color: #64748b; padding: 1px 6px; border-radius: 4px; border: 1px solid #e2e8f0; font-weight: bold; }}
+        
         .badge {{ text-transform: uppercase; font-weight: bold; font-size: 10px; padding: 3px 7px; border-radius: 4px; color: white; }}
         .badge.video {{ background: var(--brand-crimson); }}
         .badge.podcast {{ background: #3b82f6; }}
@@ -247,7 +273,20 @@ html_content = f"""
         </div>
 
         <div class="subheading">Search the Archive</div>
-        <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search resource library by keywords..." onkeyup="filterArchive()">
+        <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search resource library by keywords..." onkeyup="masterFilter()">
+
+        <div class="subheading">Browse by Category</div>
+        <div class="tags-container" id="tagMenuBox">
+            <div class="tag-pill active" onclick="toggleTagFilter(this, 'ALL')">All Categories</div>
+"""
+
+# Render out the unique source tags as interactive buttons
+for tag in sorted_master_tags:
+    # Escape single quotes out of medical tag names for standard javascript safety
+    safe_js_tag = tag.replace("'", "\\'")
+    html_content += f"""            <div class="tag-pill" onclick="toggleTagFilter(this, '{safe_js_tag}')">{tag}</div>\n"""
+
+html_content += f"""        </div>
 
         <div class="subheading">Archive</div>
         <main id="archiveTimeline">
@@ -261,8 +300,13 @@ icons = {
 
 for item in existing_archive:
     clean_title = item['title'].replace('"', '&quot;').replace("'", "&#39;")
+    tags_list_str = json.dumps(item.get('tags', []))
+    
+    # Inline rendering block of the individual tags inside the card
+    inline_tags_html = "".join([f'<span class="card-tag-inline">{t}</span>' for t in item.get('tags', [])])
+    
     html_content += f"""
-            <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{clean_title.lower()}">
+            <a href="{item['link']}" target="_blank" class="card {item['type']}" data-title="{clean_title.lower()}" data-tags='{tags_list_str}'>
                 <div class="media-icon-container {item['type']}">
                     {icons[item['type']]}
                 </div>
@@ -272,6 +316,7 @@ for item in existing_archive:
                         <span class="badge {item['type']}">{item['type']}</span>
                         <span>Published: {item['date_str']}</span>
                     </div>
+                    <div class="card-tags">{inline_tags_html}</div>
                 </div>
             </a>
     """
@@ -283,6 +328,7 @@ html_content += f"""
     <script>
         const archiveItems = {json.dumps(existing_archive)};
         const svgIcons = {json.dumps(icons)};
+        let activeSelectedTag = "ALL";
 
         function getRandomItems(arr, type, num) {{
             const filtered = arr.filter(i => i.type === type);
@@ -322,12 +368,31 @@ html_content += f"""
             `).join('');
         }}
 
-        function filterArchive() {{
+        // Handle category selection toggles
+        function toggleTagFilter(element, tagValue) {{
+            document.querySelectorAll('.tag-pill').forEach(pill => pill.classList.remove('active'));
+            element.classList.add('active');
+            activeSelectedTag = tagValue;
+            masterFilter(); // Trigger combined filter evaluate
+        }}
+
+        // Combined filtering machine (Handles Search Keywords + Category Pills simultaneously)
+        function masterFilter() {{
             const query = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.querySelectorAll('#archiveTimeline .card');
+
             cards.forEach(card => {{
                 const title = card.getAttribute('data-title');
-                card.style.display = title.includes(query) ? 'flex' : 'none';
+                const cardTags = JSON.parse(card.getAttribute('data-tags') || "[]");
+                
+                const matchesKeyword = title.includes(query);
+                const matchesCategory = (activeSelectedTag === "ALL") || cardTags.includes(activeSelectedTag);
+
+                if(matchesKeyword && matchesCategory) {{
+                    card.style.display = 'flex';
+                }} else {{
+                    card.style.display = 'none';
+                }}
             }});
         }}
 
@@ -340,4 +405,4 @@ html_content += f"""
 with open('public/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Branded theme implementation completely successful!")
+print("Dynamic operational indexing categorized completely!")
