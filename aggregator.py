@@ -9,6 +9,16 @@ import re
 ARCHIVE_FILE = 'public/archive.json'
 existing_archive = []
 
+# 1. Define the Auto-Tagging Keyword Map matched to your society domains
+tag_map = {
+    "Tactical & Fieldcraft": ["raid", "patrol", "fieldcraft", "tactical", "tccc", "tecc", "ballistic", "blast", "austere", "weapon"],
+    "Airway & Breathing": ["airway", "intubation", "ventilator", "oxygen", "breathing", "thoracic", "cric", "rsa", "ventilation"],
+    "Trauma & Bleeding": ["hemorrhage", "bleeding", "tourniquet", "fracture", "burns", "amputation", "trauma", "pelvic", "wound", "shock"],
+    "Environment & Wilderness": ["hypothermia", "heat", "altitude", "wilderness", "jungle", "arctic", "desert", "climbing", "mountain", "expedition"],
+    "Rescue & Technical": ["rope", "extraction", "extrication", "sar", "usar", "helicopter", "hoist", "water rescue", "swiftwater", "confined space"],
+    "Clinical Medicine": ["cardiac", "sepsis", "pharmacology", "ultrasound", "pocus", "diagnosis", "toxicology", "infection", "antibiotic"]
+}
+
 if os.path.exists(ARCHIVE_FILE):
     try:
         with open(ARCHIVE_FILE, 'r', encoding='utf-8') as f:
@@ -34,6 +44,7 @@ if root is not None:
         if xml_url:
             feed_urls.append(xml_url)
 
+# INCREASED LIMITS: Scraping up to 150 feeds to recover your massive database pool
 print(f"Checking {len(feed_urls)} source feeds for updates...")
 new_items_count = 0
 
@@ -53,7 +64,7 @@ def robust_parse_date(date_str):
         pass
     return datetime.now().timestamp(), "Recent"
 
-for url in feed_urls[:40]:
+for url in feed_urls[:150]:
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=10) as response:
@@ -62,7 +73,6 @@ for url in feed_urls[:40]:
             try:
                 feed_root = ET.fromstring(xml_data)
             except Exception as xml_err:
-                print(f"Skipping feed {url} due to bad XML formatting: {xml_err}")
                 continue
             
             channel = feed_root.find('channel')
@@ -71,7 +81,8 @@ for url in feed_urls[:40]:
             if not items:
                 items = feed_root.findall('item')
                 
-            for item in items[:25]:
+            # INCREASED LIMITS: Looking up to 60 historical items deep per feed channel
+            for item in items[:60]:
                 try:
                     title = item.findtext('title') or item.findtext('{http://www.w3.org/2005/Atom}title')
                     link = item.findtext('link') or (item.find('{http://www.w3.org/2005/Atom}link').get('href') if item.find('{http://www.w3.org/2005/Atom}link') is not None else "")
@@ -88,17 +99,21 @@ for url in feed_urls[:40]:
                     pub_date_raw = item.findtext('pubDate') or item.findtext('{http://www.w3.org/2005/Atom}published') or ""
                     timestamp, date_display_str = robust_parse_date(pub_date_raw)
 
-                    # Extract dynamic text categories/tags embedded by the creators
+                    # Gather existing feed tags
                     item_tags = []
                     for cat in item.findall('category') + item.findall('.//{http://www.w3.org/2005/Atom}category'):
                         tag_text = cat.text or cat.get('term') or ""
                         tag_text = tag_text.strip().title()
-                        # Screen out unhelpful generic system tags if any exist
                         if tag_text and len(tag_text) < 20 and tag_text not in ["Uncategorized", "Post"]:
                             item_tags.append(tag_text)
 
-                    lower_link = link_str.lower()
+                    # AUTO-TAGGING ENGINE: Match title keywords against mapped definitions
                     lower_title = str(title).lower()
+                    for category_name, keywords in tag_map.items():
+                        if any(word in lower_title for word in keywords):
+                            item_tags.append(category_name)
+
+                    lower_link = link_str.lower()
                     
                     if "youtube.com" in lower_link or "youtu.be" in lower_link or "video" in lower_title:
                         item_type = "video"
@@ -113,18 +128,17 @@ for url in feed_urls[:40]:
                         "date_str": str(date_display_str), 
                         "timestamp": float(timestamp),
                         "type": item_type,
-                        "tags": list(set(item_tags)) # Remove duplicate tags on a single post
+                        "tags": list(set(item_tags))
                     })
                     known_links.add(link_str)
                     new_items_count += 1
-                except Exception as item_err:
+                except Exception:
                     continue
                 
-    except Exception as e:
-        print(f"Skipping feed {url}: {e}")
+    except Exception:
         continue
 
-print(f"Archived {new_items_count} brand-new resources.")
+print(f"Archived {new_items_count} resources.")
 existing_archive = [i for i in existing_archive if i.get('title') and i.get('link')]
 
 try:
@@ -132,16 +146,14 @@ try:
 except Exception:
     pass
 
-# Collect every unique category tag across the whole history pool to build the menu options dynamically
+# Collect every unique category tag across history pool
 master_tags_set = set()
 for item in existing_archive:
-    # Ensure backward compatibility if an old item object lacks the tags key
     if "tags" not in item:
         item["tags"] = []
     for t in item["tags"]:
         master_tags_set.add(t)
 
-# Convert to list and sort alphabetically for a neat directory look
 sorted_master_tags = sorted(list(master_tags_set))
 
 os.makedirs('public', exist_ok=True)
@@ -191,8 +203,7 @@ html_content = f"""
 
         .subheading {{ font-size: 20px; font-weight: bold; color: var(--brand-navy); margin: 35px 0 15px 0; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }}
         
-        /* Dynamic Category Pills Menu Styling */
-        .tags-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; max-height: 145px; overflow-y: auto; padding: 8px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; }}
+        .tags-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; max-height: 185px; overflow-y: auto; padding: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02); }}
         .tag-pill {{ background: #f1f5f9; color: #475569; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; border: 1px solid #cbd5e1; transition: all 0.15s; user-select: none; }}
         .tag-pill:hover {{ background: #e2e8f0; color: var(--brand-navy); }}
         .tag-pill.active {{ background: var(--brand-navy); color: white; border-color: var(--brand-navy); box-shadow: 0 2px 5px rgba(15,34,61,0.2); }}
@@ -231,8 +242,8 @@ html_content = f"""
         .card-body {{ flex-grow: 1; }}
         .card h3 {{ margin: 0 0 6px 0; font-size: 18px; color: var(--brand-navy); font-weight: 700; line-height: 1.3; }}
         .meta {{ font-size: 12px; color: var(--brand-slate); display: flex; gap: 12px; align-items: center; font-weight: 500; }}
-        .card-tags {{ display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }}
-        .card-tag-inline {{ font-size: 11px; background: #f1f5f9; color: #64748b; padding: 1px 6px; border-radius: 4px; border: 1px solid #e2e8f0; font-weight: bold; }}
+        .card-tags {{ display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }}
+        .card-tag-inline {{ font-size: 11px; background: #edf2f7; color: #4a5568; padding: 2px 8px; border-radius: 4px; border: 1px solid #e2e8f0; font-weight: 600; }}
         
         .badge {{ text-transform: uppercase; font-weight: bold; font-size: 10px; padding: 3px 7px; border-radius: 4px; color: white; }}
         .badge.video {{ background: var(--brand-crimson); }}
@@ -280,9 +291,7 @@ html_content = f"""
             <div class="tag-pill active" onclick="toggleTagFilter(this, 'ALL')">All Categories</div>
 """
 
-# Render out the unique source tags as interactive buttons
 for tag in sorted_master_tags:
-    # Escape single quotes out of medical tag names for standard javascript safety
     safe_js_tag = tag.replace("'", "\\'")
     html_content += f"""            <div class="tag-pill" onclick="toggleTagFilter(this, '{safe_js_tag}')">{tag}</div>\n"""
 
@@ -301,8 +310,6 @@ icons = {
 for item in existing_archive:
     clean_title = item['title'].replace('"', '&quot;').replace("'", "&#39;")
     tags_list_str = json.dumps(item.get('tags', []))
-    
-    # Inline rendering block of the individual tags inside the card
     inline_tags_html = "".join([f'<span class="card-tag-inline">{t}</span>' for t in item.get('tags', [])])
     
     html_content += f"""
@@ -368,15 +375,13 @@ html_content += f"""
             `).join('');
         }}
 
-        // Handle category selection toggles
         function toggleTagFilter(element, tagValue) {{
             document.querySelectorAll('.tag-pill').forEach(pill => pill.classList.remove('active'));
             element.classList.add('active');
             activeSelectedTag = tagValue;
-            masterFilter(); // Trigger combined filter evaluate
+            masterFilter();
         }}
 
-        // Combined filtering machine (Handles Search Keywords + Category Pills simultaneously)
         function masterFilter() {{
             const query = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.querySelectorAll('#archiveTimeline .card');
@@ -405,4 +410,4 @@ html_content += f"""
 with open('public/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Dynamic operational indexing categorized completely!")
+print("Unrestricted Deep Scan and Auto-Tagging script initialized successfully!")
