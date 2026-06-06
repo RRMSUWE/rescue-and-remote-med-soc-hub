@@ -4,13 +4,30 @@
     <title>Feeds of rescueandremotemedsoc from Inoreader [https://www.inoreader.com]</title>
   </head>
   <body>
+    <outline text="Technical Rescue" title="Technical Rescue">
+      <outline text="Urban Search &amp; Rescue" title="Urban Search &amp; Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLkSF-_PP0nXUcp05NlfTCbdudrDYNVH25" htmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLkSF-_PP0nXUcp05NlfTCbdudrDYNVH25"/>
+      <outline text="Rescue 3 International" title="Rescue 3 International" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC0_SL9hyWmhDnh5upqnuxVg" htmlUrl="https://www.youtube.com/channel/UC0_SL9hyWmhDnh5upqnuxVg"/>
+      <outline text="DCS" title="DCS" type="rss" xmlUrl="https://dcsrescue.com/feed/" htmlUrl="https://dcsrescue.com/"/>
+    </outline>
+    <outline text="Rope Rescue" title="Rope Rescue">
+      <outline text="Arco Professional Safety Services" title="Arco Professional Safety Services" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC8zScNcwcMCLuz4Ty-1MMZQ" htmlUrl="https://www.youtube.com/channel/UC8zScNcwcMCLuz4Ty-1MMZQ"/>
+      <outline text="Rigging Lab Academy" title="Rigging Lab Academy" type="rss" xmlUrl="https://rigginglabacademy.com/feed/" htmlUrl="https://rigginglabacademy.com/"/>
+      <outline text="CMC" title="CMC" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCQd9ct_6rB5jJ4JVyhuwHdw" htmlUrl="https://www.youtube.com/channel/UCQd9ct_6rB5jJ4JVyhuwHdw"/>
+      <outline text="The Rope Access Channel" title="The Rope Access Channel" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCVDUdoLZjGZQee74PqtFEvg" htmlUrl="https://www.youtube.com/channel/UCVDUdoLZjGZQee74PqtFEvg"/>
+    </outline>
     <outline text="Cave Rescue" title="Cave Rescue">
+      <outline text="Confined Space Training" title="Confined Space Training" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PL2ggZRUAUQCYsSa7Stp_r8TueRSH4aj8m" htmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PL2ggZRUAUQCYsSa7Stp_r8TueRSH4aj8m"/>
       <outline text="The Cave Rescue Organisation" title="The Cave Rescue Organisation" type="rss" xmlUrl="https://cro.org.uk/feed/" htmlUrl="cro.org.uk"/>
     </outline>
     <outline text="Fieldcraft" title="Fieldcraft">
+      <outline text="Boreal River Rescue - Leadership" title="Boreal River Rescue - Leadership" type="rss" xmlUrl="https://rescue.borealriver.com/blogs/education.atom" htmlUrl="https://rescue.borealriver.com/blogs/education"/>
+      <outline text="Boreal River Rescue - Expedition Resources" title="Boreal River Rescue - Expedition Resources" type="rss" xmlUrl="https://rescue.borealriver.com/blogs/expedition-resources.atom" htmlUrl="https://rescue.borealriver.com/blogs/expedition-resources"/>
       <outline text="The Map Reading Company" title="The Map Reading Company" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCF6JMjE4LM3nuWhaiLjLuOQ" htmlUrl="https://www.youtube.com/channel/UCF6JMjE4LM3nuWhaiLjLuOQ"/>
     </outline>
     <outline text="Water Rescue" title="Water Rescue">
+      <outline text="Boreal River Rescue - Ice Safety and Rescue" title="Boreal River Rescue - Ice Safety and Rescue" type="rss" xmlUrl="https://rescue.borealriver.com/blogs/ice-safety-and-rescue.atom" htmlUrl="https://rescue.borealriver.com/blogs/ice-safety-and-rescue"/>
+      <outline text="Boreal River Rescue - Swiftwater and Whitewater" title="Boreal River Rescue - Swiftwater and Whitewater" type="rss" xmlUrl="https://rescue.borealriver.com/blogs/swiftwater-and-whitewater.atom" htmlUrl="https://rescue.borealriver.com/blogs/swiftwater-and-whitewater"/>
+      <outline text="Whitewater &amp; Swiftwater Rescue Videos" title="Whitewater &amp; Swiftwater Rescue Videos" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLl5byfFgMy1kItfotkBjAEkBYhpoi_Lx7" htmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLl5byfFgMy1kItfotkBjAEkBYhpoi_Lx7"/>
       <outline text="DAN TV" title="DAN TV" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCubVAUy6ROwzk2B5TQ_XttQ" htmlUrl="https://www.youtube.com/channel/UCubVAUy6ROwzk2B5TQ_XttQ"/>
       <outline text="RNLI" title="RNLI" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCtJyE1cNPjz35piKXXXKDEA" htmlUrl="http://www.youtube.com/channel/UCtJyE1cNPjz35piKXXXKDEA"/>
       <outline text="Maritime and Coastguard Agency" title="Maritime and Coastguard Agency" type="rss" xmlUrl="https://rss.buzzsprout.com/1210271.rss" htmlUrl="https://www.buzzsprout.com/1210271"/>
@@ -30,6 +47,7 @@
       <outline text="https://www.who.int/news" title="https://www.who.int/news" type="rss" xmlUrl="https://www.who.int/news" htmlUrl="https://www.who.int/news"/>
     </outline>
     <outline text="Tactical Medicine" title="Tactical Medicine">
+      <outline text="Crisis Medicine" title="Crisis Medicine" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCKDh6xqsHjnYmWV056jVlNw" htmlUrl="https://www.youtube.com/channel/UCKDh6xqsHjnYmWV056jVlNw"/>
       <outline text="PrepMedic" title="PrepMedic" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCVhScPcuVSTlxwpsq1H_KKw" htmlUrl="https://www.youtube.com/channel/UCVhScPcuVSTlxwpsq1H_KKw"/>
       <outline text="Special Operations Medical Association" title="Special Operations Medical Association" type="rss" xmlUrl="https://rss.libsyn.com/shows/53382/destinations/193742.xml" htmlUrl="http://www.pfcare.org/"/>
       <outline text="PJ Medcast" title="PJ Medcast" type="rss" xmlUrl="https://rss.libsyn.com/shows/69023/destinations/285846.xml" htmlUrl="https://www.pjmed.com/"/>
@@ -57,6 +75,8 @@
       <outline text="The Resus Room" title="The Resus Room" type="rss" xmlUrl="https://rss.libsyn.com/shows/78799/destinations/367790.xml" htmlUrl="http://www.theresusroom.co.uk/"/>
     </outline>
     <outline text="Mountain Rescue" title="Mountain Rescue">
+      <outline text="North Shore Rescue" title="North Shore Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCnNro8AA-ele7dJprhLbdYg" htmlUrl="https://www.youtube.com/channel/UCnNro8AA-ele7dJprhLbdYg"/>
+      <outline text="Boreal River" title="Boreal River" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCJTP-4YDc5nwE19LBO1noZA" htmlUrl="https://www.youtube.com/channel/UCJTP-4YDc5nwE19LBO1noZA"/>
       <outline text="teamBMC" title="teamBMC" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCeY1xqmnyd8kyAIL2G1qDLw" htmlUrl="https://www.youtube.com/channel/UCeY1xqmnyd8kyAIL2G1qDLw"/>
       <outline text="KENDAL MOUNTAIN" title="KENDAL MOUNTAIN" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCBmmAL4uU83fhCk0xjF-33g" htmlUrl="https://www.youtube.com/channel/UCBmmAL4uU83fhCk0xjF-33g"/>
       <outline text="Buxton Mountain Rescue" title="Buxton Mountain Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCibAiFa9xcVV-WHqmjuM35A" htmlUrl="https://www.youtube.com/channel/UCibAiFa9xcVV-WHqmjuM35A"/>
@@ -66,6 +86,7 @@
       <outline text="Mountain Rescue England &amp; Wales" title="Mountain Rescue England &amp; Wales" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCp3cgqdzWnmQ8ZPp6PkbMrw" htmlUrl="https://www.youtube.com/channel/UCp3cgqdzWnmQ8ZPp6PkbMrw"/>
     </outline>
     <outline text="Remote Medicine" title="Remote Medicine">
+      <outline text="Boreal River Rescue - Medical" title="Boreal River Rescue - Medical" type="rss" xmlUrl="https://rescue.borealriver.com/blogs/medical.atom" htmlUrl="https://rescue.borealriver.com/blogs/medical"/>
       <outline text="WILDERNESS EXPEDITION DENTISTRY" title="WILDERNESS EXPEDITION DENTISTRY" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC4Lt7sJ_66mbIf0L_ni7xvw" htmlUrl="https://www.youtube.com/channel/UC4Lt7sJ_66mbIf0L_ni7xvw"/>
       <outline text="Wiley: Transactions of the Institute of British Geographers: Table of Contents" title="Wiley: Transactions of the Institute of British Geographers: Table of Contents" type="rss" xmlUrl="https://rgs-ibg.onlinelibrary.wiley.com/action/showFeed?jc=14755661&amp;type=etoc&amp;feed=rss" htmlUrl="https://onlinelibrary.wiley.com/loi/14755661?af=R"/>
       <outline text="RGSIBG" title="RGSIBG" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCGdL1D-WfrXFdlcmnC7EfEg" htmlUrl="https://www.youtube.com/channel/UCGdL1D-WfrXFdlcmnC7EfEg"/>
