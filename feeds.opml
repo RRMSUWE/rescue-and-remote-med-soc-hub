@@ -4,7 +4,24 @@
     <title>Feeds of rescueandremotemedsoc from Inoreader [https://www.inoreader.com]</title>
   </head>
   <body>
+    <outline text="Cave Rescue" title="Cave Rescue">
+      <outline text="The Cave Rescue Organisation" title="The Cave Rescue Organisation" type="rss" xmlUrl="https://cro.org.uk/feed/" htmlUrl="cro.org.uk"/>
+    </outline>
+    <outline text="Fieldcraft" title="Fieldcraft">
+      <outline text="The Map Reading Company" title="The Map Reading Company" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCF6JMjE4LM3nuWhaiLjLuOQ" htmlUrl="https://www.youtube.com/channel/UCF6JMjE4LM3nuWhaiLjLuOQ"/>
+    </outline>
+    <outline text="Water Rescue" title="Water Rescue">
+      <outline text="DAN TV" title="DAN TV" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCubVAUy6ROwzk2B5TQ_XttQ" htmlUrl="https://www.youtube.com/channel/UCubVAUy6ROwzk2B5TQ_XttQ"/>
+      <outline text="RNLI" title="RNLI" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCtJyE1cNPjz35piKXXXKDEA" htmlUrl="http://www.youtube.com/channel/UCtJyE1cNPjz35piKXXXKDEA"/>
+      <outline text="Maritime and Coastguard Agency" title="Maritime and Coastguard Agency" type="rss" xmlUrl="https://rss.buzzsprout.com/1210271.rss" htmlUrl="https://www.buzzsprout.com/1210271"/>
+      <outline text="WE ARE LIFEGUARDS: Saving Lives on the Beach With the RNLI" title="WE ARE LIFEGUARDS: Saving Lives on the Beach With the RNLI" type="rss" xmlUrl="https://feed.podbean.com/wearelifeguards/feed.xml" htmlUrl="https://wearelifeguards.podbean.com/"/>
+      <outline text="officialCoastguard" title="officialCoastguard" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCkkLH0iFBTozmviH4jLkGOA" htmlUrl="http://www.youtube.com/channel/UCkkLH0iFBTozmviH4jLkGOA"/>
+      <outline text="HM Coastguard UK" title="HM Coastguard UK" type="rss" xmlUrl="https://hmcoastguard.uk/articles.rss" htmlUrl="https://hmcoastguard.uk/"/>
+    </outline>
     <outline text="Humanitarian" title="Humanitarian">
+      <outline text="News and Press RSS" title="News and Press RSS" type="rss" xmlUrl="http://www.lshtm.ac.uk/newsevents/news/rss/rss.xml" htmlUrl="http://www.lshtm.ac.uk/newsevents/news/rss/rss.xml"/>
+      <outline text="International Committee of the Red Cross" title="International Committee of the Red Cross" type="rss" xmlUrl="https://www.icrc.org/en/rss/general" htmlUrl="https://www.icrc.org/en"/>
+      <outline text="FloatingDoctors" title="FloatingDoctors" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC2YGG4m0muTM0C8wQkem2qg" htmlUrl="https://www.youtube.com/channel/UC2YGG4m0muTM0C8wQkem2qg"/>
       <outline text="David Nott Foundation" title="David Nott Foundation" type="rss" xmlUrl="https://davidnottfoundation.com/feed/" htmlUrl="https://davidnottfoundation.com/"/>
       <outline text="International Rescue and Relief" title="International Rescue and Relief" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCcMcaVAwWfdr2WDnSmsHWNg" htmlUrl="https://www.youtube.com/channel/UCcMcaVAwWfdr2WDnSmsHWNg"/>
       <outline text="British Red Cross" title="British Red Cross" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCZ57VW_m_r8mE977nI9g8Iw" htmlUrl="http://www.youtube.com/channel/UCZ57VW_m_r8mE977nI9g8Iw"/>
@@ -13,6 +30,7 @@
       <outline text="https://www.who.int/news" title="https://www.who.int/news" type="rss" xmlUrl="https://www.who.int/news" htmlUrl="https://www.who.int/news"/>
     </outline>
     <outline text="Tactical Medicine" title="Tactical Medicine">
+      <outline text="PrepMedic" title="PrepMedic" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCVhScPcuVSTlxwpsq1H_KKw" htmlUrl="https://www.youtube.com/channel/UCVhScPcuVSTlxwpsq1H_KKw"/>
       <outline text="Special Operations Medical Association" title="Special Operations Medical Association" type="rss" xmlUrl="https://rss.libsyn.com/shows/53382/destinations/193742.xml" htmlUrl="http://www.pfcare.org/"/>
       <outline text="PJ Medcast" title="PJ Medcast" type="rss" xmlUrl="https://rss.libsyn.com/shows/69023/destinations/285846.xml" htmlUrl="https://www.pjmed.com/"/>
       <outline text="Prolonged Field Care Podcast" title="Prolonged Field Care Podcast" type="rss" xmlUrl="https://anchor.fm/s/5b9ceba8/podcast/rss" htmlUrl="https://prolongedfieldcare.org/"/>
@@ -20,6 +38,8 @@
       <outline text="Prolonged Field Care Collective" title="Prolonged Field Care Collective" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC56ZxWp_y3mZCnSZ7_E3r8g" htmlUrl="https://www.youtube.com/channel/UC56ZxWp_y3mZCnSZ7_E3r8g"/>
     </outline>
     <outline text="Paramedicine" title="Paramedicine">
+      <outline text="PARAMEDICAST" title="PARAMEDICAST" type="rss" xmlUrl="https://anchor.fm/s/6c434560/podcast/rss" htmlUrl="https://podcasters.spotify.com/pod/show/paramedicast"/>
+      <outline text="LITFL" title="LITFL" type="rss" xmlUrl="https://litfl.com/feed/" htmlUrl="https://litfl.com/"/>
       <outline text="Paramedic Insight Podcast:" title="Paramedic Insight Podcast:" type="rss" xmlUrl="https://anchor.fm/s/1a4c3618/podcast/rss" htmlUrl="https://collegeofparamedics.co.uk/"/>
       <outline text="General BroadCAST" title="General BroadCAST" type="rss" xmlUrl="https://anchor.fm/s/1027ab1a8/podcast/rss" htmlUrl="http://www.generalbroadcast.org.uk/"/>
       <outline text="Pre-Hospital Care Podcast" title="Pre-Hospital Care Podcast" type="rss" xmlUrl="https://anchor.fm/s/791970c/podcast/rss" htmlUrl="https://podcasters.spotify.com/pod/show/phcp"/>
@@ -37,12 +57,22 @@
       <outline text="The Resus Room" title="The Resus Room" type="rss" xmlUrl="https://rss.libsyn.com/shows/78799/destinations/367790.xml" htmlUrl="http://www.theresusroom.co.uk/"/>
     </outline>
     <outline text="Mountain Rescue" title="Mountain Rescue">
+      <outline text="teamBMC" title="teamBMC" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCeY1xqmnyd8kyAIL2G1qDLw" htmlUrl="https://www.youtube.com/channel/UCeY1xqmnyd8kyAIL2G1qDLw"/>
+      <outline text="KENDAL MOUNTAIN" title="KENDAL MOUNTAIN" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCBmmAL4uU83fhCk0xjF-33g" htmlUrl="https://www.youtube.com/channel/UCBmmAL4uU83fhCk0xjF-33g"/>
+      <outline text="Buxton Mountain Rescue" title="Buxton Mountain Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCibAiFa9xcVV-WHqmjuM35A" htmlUrl="https://www.youtube.com/channel/UCibAiFa9xcVV-WHqmjuM35A"/>
       <outline text="Plas y Brenin" title="Plas y Brenin" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC-2x8VCRbDP4zUjDsoHgVew" htmlUrl="https://www.youtube.com/channel/UC-2x8VCRbDP4zUjDsoHgVew"/>
       <outline text="Scottish Mountain Rescue" title="Scottish Mountain Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCEwIkCuKS7qnIwVFjGD8b7w" htmlUrl="https://www.youtube.com/channel/UCEwIkCuKS7qnIwVFjGD8b7w"/>
       <outline text="News Archive - Mountain Rescue England and Wales" title="News Archive - Mountain Rescue England and Wales" type="rss" xmlUrl="https://www.mountain.rescue.org.uk/news/feed/" htmlUrl="https://www.mountain.rescue.org.uk/news/"/>
       <outline text="Mountain Rescue England &amp; Wales" title="Mountain Rescue England &amp; Wales" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCp3cgqdzWnmQ8ZPp6PkbMrw" htmlUrl="https://www.youtube.com/channel/UCp3cgqdzWnmQ8ZPp6PkbMrw"/>
     </outline>
     <outline text="Remote Medicine" title="Remote Medicine">
+      <outline text="WILDERNESS EXPEDITION DENTISTRY" title="WILDERNESS EXPEDITION DENTISTRY" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC4Lt7sJ_66mbIf0L_ni7xvw" htmlUrl="https://www.youtube.com/channel/UC4Lt7sJ_66mbIf0L_ni7xvw"/>
+      <outline text="Wiley: Transactions of the Institute of British Geographers: Table of Contents" title="Wiley: Transactions of the Institute of British Geographers: Table of Contents" type="rss" xmlUrl="https://rgs-ibg.onlinelibrary.wiley.com/action/showFeed?jc=14755661&amp;type=etoc&amp;feed=rss" htmlUrl="https://onlinelibrary.wiley.com/loi/14755661?af=R"/>
+      <outline text="RGSIBG" title="RGSIBG" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCGdL1D-WfrXFdlcmnC7EfEg" htmlUrl="https://www.youtube.com/channel/UCGdL1D-WfrXFdlcmnC7EfEg"/>
+      <outline text="Richard Ingebretsen" title="Richard Ingebretsen" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC-ixDuevJf02qGqagDwpReA" htmlUrl="https://www.youtube.com/channel/UC-ixDuevJf02qGqagDwpReA"/>
+      <outline text="SAGE Publications: Wilderness &amp; Environmental Medicine: Table of Contents" title="SAGE Publications: Wilderness &amp; Environmental Medicine: Table of Contents" type="rss" xmlUrl="https://journals.sagepub.com/action/showFeed?type=etoc&amp;feed=rss&amp;jc=wemc" htmlUrl="https://journals.sagepub.com/loi/wemc?af=R"/>
+      <outline text="Wilderness Medical Society" title="Wilderness Medical Society" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCe5_RrY-KCxgF9eHsGG_Jbw" htmlUrl="https://www.youtube.com/channel/UCe5_RrY-KCxgF9eHsGG_Jbw"/>
+      <outline text="Wilderness Medical Training" title="Wilderness Medical Training" type="rss" xmlUrl="https://wildernessmedicaltraining.co.uk/feed/" htmlUrl="https://wildernessmedicaltraining.co.uk/"/>
       <outline text="MedWild - Wilderness Medicine, Survival, Rescue" title="MedWild - Wilderness Medicine, Survival, Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCTPDKMelGC1JTfrmUTQLi7g" htmlUrl="https://www.youtube.com/channel/UCTPDKMelGC1JTfrmUTQLi7g"/>
       <outline text="RED MED (Rescue Expedition &amp; Disaster Medicine)" title="RED MED (Rescue Expedition &amp; Disaster Medicine)" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCUdKmtq0S1GSrWAAEWZoGdg" htmlUrl="https://www.youtube.com/channel/UCUdKmtq0S1GSrWAAEWZoGdg"/>
       <outline text="RED MED Podcast" title="RED MED Podcast" type="rss" xmlUrl="https://www.spreaker.com/show/2947342/episodes/feed" htmlUrl="https://www.spreaker.com/podcast/red-med-podcast--2947342"/>
