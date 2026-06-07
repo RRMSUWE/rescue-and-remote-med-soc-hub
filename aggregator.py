@@ -9,9 +9,6 @@ import re
 ARCHIVE_FILE = 'public/archive.json'
 existing_archive = []
 
-# 🛑 CONFIGURATION: Paste your public Google Calendar ID here!
-GOOGLE_CALENDAR_ID = "rescueandremotemedsoc@gmail.com"
-
 tag_map = {
     "Tactical & Fieldcraft": ["raid", "patrol", "fieldcraft", "tactical", "tccc", "tecc", "ballistic", "blast", "austere", "weapon"],
     "Airway & Breathing": ["airway", "intubation", "ventilator", "oxygen", "breathing", "thoracic", "cric", "rsa", "ventilation"],
@@ -21,39 +18,38 @@ tag_map = {
     "Clinical Medicine": ["cardiac", "sepsis", "pharmacology", "ultrasound", "pocus", "diagnosis", "toxicology", "infection", "antibiotic"]
 }
 
-# --- CALENDAR FETCHING LOGIC ---
+# --- NEW CALENDAR FETCHING LOGIC (iCal Version) ---
 calendar_events = []
-if GOOGLE_CALENDAR_ID and GOOGLE_CALENDAR_ID != "rescueandremotemedsoc@gmail.com":
+# Use the .ics link you just copied
+ICAL_URL = "https://calendar.google.com/calendar/ical/rescueandremotemedsoc%40gmail.com/public/basic.ics" 
+
+if "PASTE_YOUR" not in ICAL_URL:
     try:
-        # Fetching the public XML feed from Google Calendar
-        cal_url = f"https://calendar.google.com/calendar/feeds/{urllib.parse.quote(GOOGLE_CALENDAR_ID)}/public/basic?orderby=starttime&sortorder=ascending&futureevents=true"
-        req = urllib.request.Request(cal_url, headers={'User-Agent': 'Mozilla/5.0'})
+        req = urllib.request.Request(ICAL_URL, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=10) as response:
-            cal_xml = response.read()
-            cal_root = ET.fromstring(cal_xml)
+            ical_data = response.read().decode('utf-8')
             
-            # Atom Namespace handling
-            ns = {'atom': 'http://www.w3.org/2005/Atom'}
-            
-            for entry in cal_root.findall('atom:entry', ns):
-                title = entry.findtext('atom:title', '', ns)
-                summary = entry.findtext('atom:summary', '', ns)
+            # Simple manual parse for VEVENT blocks
+            events = ical_data.split("BEGIN:VEVENT")
+            for e in events[1:]:  # Skip the header
+                title = re.search(r"SUMMARY:(.*)", e)
+                start = re.search(r"DTSTART(?:;VALUE=DATE)?:(\d+T?\d*Z?)", e)
+                loc = re.search(r"LOCATION:(.*)", e)
                 
-                # Google embeds the location, date, and times inside the <summary> block text.
-                # Example: "When: Thu Oct 24, 2026 6pm to 8pm&nbsp;BST<br>Where: Room 2X30, UWE Campus"
-                when_match = re.search(r"When:\s*([^<]+)", summary)
-                where_match = re.search(r"Where:\s*([^<]+)", summary)
-                
-                event_when = when_match.group(1).strip() if when_match else "Date/Time TBD"
-                event_where = where_match.group(1).strip().replace("&nbsp;", " ") if where_match else "Location TBD"
-                
-                calendar_events.append({
-                    "title": title,
-                    "when": event_when,
-                    "where": event_where
-                })
+                if title and start:
+                    # Basic date formatting (YYYYMMDD to readable)
+                    raw_date = start.group(1)
+                    formatted_date = f"{raw_date[6:8]}/{raw_date[4:6]}/{raw_date[0:4]}"
+                    
+                    calendar_events.append({
+                        "title": title.group(1).strip(),
+                        "when": formatted_date,
+                        "where": loc.group(1).strip() if loc else "Location TBD"
+                    })
+            # Sort by date (optional)
+            calendar_events.sort(key=lambda x: x['when'])
     except Exception as e:
-        print(f"Calendar parsing skipped or offline: {e}")
+        print(f"Calendar error: {e}")
 
 # --- RSS FEEDS LOGIC ---
 if os.path.exists(ARCHIVE_FILE):
