@@ -18,7 +18,7 @@ tag_map = {
     "Clinical Medicine": ["cardiac", "sepsis", "pharmacology", "ultrasound", "pocus", "diagnosis", "toxicology", "infection", "antibiotic"]
 }
 
-# --- EXPERT CALENDAR FETCHING LOGIC (With End Time Support) ---
+# --- EXPERT CALENDAR FETCHING LOGIC (With Multi-Time & Past Filter) ---
 calendar_events = []
 ICAL_URL = "https://calendar.google.com/calendar/ical/rescueandremotemedsoc%40gmail.com/public/basic.ics" 
 
@@ -48,8 +48,15 @@ if "PASTE_YOUR" not in ICAL_URL:
                 desc_match = re.search(r"DESCRIPTION:(.*)", e)
                 
                 if title_match and start_match:
-                    # 1. Process Start Date and Time
                     raw_start = start_match.group(1)
+                    
+                    # 🛑 AUTOMATIC PAST EVENT FILTER
+                    # Check if the event date string (YYYYMMDD) is older than today
+                    today_str = datetime.now().strftime("%Y%m%d")
+                    if raw_start[:8] < today_str:
+                        continue  # Skip old events completely and proceed to the next one
+                    
+                    # 1. Process Start Date and Time
                     date_str = f"{raw_start[6:8]}/{raw_start[4:6]}/{raw_start[0:4]}"
                     
                     time_start_str = ""
@@ -63,7 +70,6 @@ if "PASTE_YOUR" not in ICAL_URL:
                         end_date_str = f"{raw_end[6:8]}/{raw_end[4:6]}/{raw_end[0:4]}"
                         
                         if 'T' in raw_end:
-                            # If it ends on the same day, just show the time. If multi-day, show the date too
                             if date_str == end_date_str:
                                 time_end_str = f" - {raw_end[9:11]}:{raw_end[11:13]}"
                             else:
@@ -83,7 +89,7 @@ if "PASTE_YOUR" not in ICAL_URL:
                         "when": f"{date_str}{time_start_str}{time_end_str}",
                         "where": loc_match.group(1).strip().replace('\\,', ',').replace('\\', '') if loc_match else "Location TBD",
                         "desc": clean_desc,
-                        "sort_key": raw_start # Keeps items ordered sequentially by timeline sequence
+                        "sort_key": raw_start
                     })
             
             calendar_events.sort(key=lambda x: x['sort_key'])
