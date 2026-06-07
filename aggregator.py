@@ -18,9 +18,8 @@ tag_map = {
     "Clinical Medicine": ["cardiac", "sepsis", "pharmacology", "ultrasound", "pocus", "diagnosis", "toxicology", "infection", "antibiotic"]
 }
 
-# --- NEW CALENDAR FETCHING LOGIC (iCal Version) ---
+# --- EXPERT CALENDAR FETCHING LOGIC (With Description Support) ---
 calendar_events = []
-# Use the .ics link you just copied
 ICAL_URL = "https://calendar.google.com/calendar/ical/rescueandremotemedsoc%40gmail.com/public/basic.ics" 
 
 if "PASTE_YOUR" not in ICAL_URL:
@@ -29,24 +28,44 @@ if "PASTE_YOUR" not in ICAL_URL:
         with urllib.request.urlopen(req, timeout=10) as response:
             ical_data = response.read().decode('utf-8')
             
-            # Simple manual parse for VEVENT blocks
+            # Normalize line unfoldings common in iCal formats
+            ical_data = ical_data.replace("\r\n ", "").replace("\n ", "")
+            
             events = ical_data.split("BEGIN:VEVENT")
-            for e in events[1:]:  # Skip the header
-                title = re.search(r"SUMMARY:(.*)", e)
-                start = re.search(r"DTSTART(?:;VALUE=DATE)?:(\d+T?\d*Z?)", e)
-                loc = re.search(r"LOCATION:(.*)", e)
+            for e in events[1:]:
+                title_match = re.search(r"SUMMARY:(.*)", e)
+                start_match = re.search(r"DTSTART(?:;VALUE=DATE)?:(\d+T\d+Z?)", e)
+                if not start_match:
+                    start_match = re.search(r"DTSTART;VALUE=DATE:(\d+)", e)
                 
-                if title and start:
-                    # Basic date formatting (YYYYMMDD to readable)
-                    raw_date = start.group(1)
-                    formatted_date = f"{raw_date[6:8]}/{raw_date[4:6]}/{raw_date[0:4]}"
+                loc_match = re.search(r"LOCATION:(.*)", e)
+                desc_match = re.search(r"DESCRIPTION:(.*)", e) # New Description Regex
+                
+                if title_match and start_match:
+                    raw_dt = start_match.group(1)
+                    date_str = f"{raw_dt[6:8]}/{raw_dt[4:6]}/{raw_dt[0:4]}"
                     
+                    time_str = ""
+                    if 'T' in raw_dt:
+                        hour = raw_dt[9:11]
+                        minute = raw_dt[11:13]
+                        time_str = f" @ {hour}:{minute}"
+                    
+                    # Clean up descriptions (Google escapes commas and adds \n for linebreaks)
+                    raw_desc = desc_match.group(1).strip() if desc_match else ""
+                    clean_desc = raw_desc.replace('\\n', ' ').replace('\\,', ',').replace('\\', '')
+                    
+                    # Cut description off if it is an essay so it keeps the card neat
+                    if len(clean_desc) > 120:
+                        clean_desc = clean_desc[:117] + "..."
+
                     calendar_events.append({
-                        "title": title.group(1).strip(),
-                        "when": formatted_date,
-                        "where": loc.group(1).strip() if loc else "Location TBD"
+                        "title": title_match.group(1).strip().replace('\\,', ',').replace('\\', ''),
+                        "when": f"{date_str}{time_str}",
+                        "where": loc_match.group(1).strip().replace('\\,', ',').replace('\\', '') if loc_match else "Location TBD",
+                        "desc": clean_desc
                     })
-            # Sort by date (optional)
+            
             calendar_events.sort(key=lambda x: x['when'])
     except Exception as e:
         print(f"Calendar error: {e}")
@@ -186,6 +205,22 @@ html_content = f"""
                 📅 Upcoming Society Events &amp; Training
             </div>
             <div class="event-grid">
+"""
+
+if not calendar_events:
+    html_content += '                <div class="no-events">No upcoming scheduled events found. Check back soon!</div>\n'
+else:
+    for ev in calendar_events[:6]: 
+        desc_html = f'<div class="event-desc" style="margin-top: 8px; font-size: 12px; color: #64748b; font-style: italic; border-top: 1px solid #e2e8f0; padding-top: 4px;">📝 {ev["desc"]}</div>' if ev["desc"] else ''
+        html_content += f"""                <div class="event-card">
+                    <h4>{ev['title']}</h4>
+                    <div class="event-meta">🕒 {ev['when']}</div>
+                    <div class="event-meta">📍 {ev['where']}</div>
+                    {desc_html}
+                </div>\n"""
+
+html_content += """            </div>
+        </div>
 """
 
 if not calendar_events:
