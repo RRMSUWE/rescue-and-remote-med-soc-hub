@@ -18,7 +18,7 @@ tag_map = {
     "Clinical Medicine": ["cardiac", "sepsis", "pharmacology", "ultrasound", "pocus", "diagnosis", "toxicology", "infection", "antibiotic"]
 }
 
-# --- EXPERT CALENDAR FETCHING LOGIC (With Description Support) ---
+# --- EXPERT CALENDAR FETCHING LOGIC (With End Time Support) ---
 calendar_events = []
 ICAL_URL = "https://calendar.google.com/calendar/ical/rescueandremotemedsoc%40gmail.com/public/basic.ics" 
 
@@ -34,39 +34,59 @@ if "PASTE_YOUR" not in ICAL_URL:
             events = ical_data.split("BEGIN:VEVENT")
             for e in events[1:]:
                 title_match = re.search(r"SUMMARY:(.*)", e)
+                
+                # Extract Start and End properties
                 start_match = re.search(r"DTSTART(?:;VALUE=DATE)?:(\d+T\d+Z?)", e)
                 if not start_match:
                     start_match = re.search(r"DTSTART;VALUE=DATE:(\d+)", e)
                 
+                end_match = re.search(r"DTEND(?:;VALUE=DATE)?:(\d+T\d+Z?)", e)
+                if not end_match:
+                    end_match = re.search(r"DTEND;VALUE=DATE:(\d+)", e)
+                
                 loc_match = re.search(r"LOCATION:(.*)", e)
-                desc_match = re.search(r"DESCRIPTION:(.*)", e) # New Description Regex
+                desc_match = re.search(r"DESCRIPTION:(.*)", e)
                 
                 if title_match and start_match:
-                    raw_dt = start_match.group(1)
-                    date_str = f"{raw_dt[6:8]}/{raw_dt[4:6]}/{raw_dt[0:4]}"
+                    # 1. Process Start Date and Time
+                    raw_start = start_match.group(1)
+                    date_str = f"{raw_start[6:8]}/{raw_start[4:6]}/{raw_start[0:4]}"
                     
-                    time_str = ""
-                    if 'T' in raw_dt:
-                        hour = raw_dt[9:11]
-                        minute = raw_dt[11:13]
-                        time_str = f" @ {hour}:{minute}"
+                    time_start_str = ""
+                    if 'T' in raw_start:
+                        time_start_str = f" {raw_start[9:11]}:{raw_start[11:13]}"
                     
-                    # Clean up descriptions (Google escapes commas and adds \n for linebreaks)
+                    # 2. Process End Date and Time (Checking if it crosses midnight)
+                    time_end_str = ""
+                    if end_match:
+                        raw_end = end_match.group(1)
+                        end_date_str = f"{raw_end[6:8]}/{raw_end[4:6]}/{raw_end[0:4]}"
+                        
+                        if 'T' in raw_end:
+                            # If it ends on the same day, just show the time. If multi-day, show the date too
+                            if date_str == end_date_str:
+                                time_end_str = f" - {raw_end[9:11]}:{raw_end[11:13]}"
+                            else:
+                                time_end_str = f" - {raw_end[9:11]}:{raw_end[11:13]} ({end_date_str})"
+                        else:
+                            if date_str != end_date_str:
+                                time_end_str = f" until {end_date_str}"
+
+                    # Clean description field safely
                     raw_desc = desc_match.group(1).strip() if desc_match else ""
                     clean_desc = raw_desc.replace('\\n', ' ').replace('\\,', ',').replace('\\', '')
-                    
-                    # Cut description off if it is an essay so it keeps the card neat
                     if len(clean_desc) > 120:
                         clean_desc = clean_desc[:117] + "..."
 
                     calendar_events.append({
                         "title": title_match.group(1).strip().replace('\\,', ',').replace('\\', ''),
-                        "when": f"{date_str}{time_str}",
+                        "when": f"{date_str}{time_start_str}{time_end_str}",
                         "where": loc_match.group(1).strip().replace('\\,', ',').replace('\\', '') if loc_match else "Location TBD",
-                        "desc": clean_desc
+                        "desc": clean_desc,
+                        "sort_key": raw_start # Keeps items ordered sequentially by timeline sequence
                     })
             
-            calendar_events.sort(key=lambda x: x['when'])
+            calendar_events.sort(key=lambda x: x['sort_key'])
     except Exception as e:
         print(f"Calendar error: {e}")
 
@@ -217,20 +237,6 @@ else:
                     <div class="event-meta">🕒 {ev['when']}</div>
                     <div class="event-meta">📍 {ev['where']}</div>
                     {desc_html}
-                </div>\n"""
-
-html_content += """            </div>
-        </div>
-"""
-
-if not calendar_events:
-    html_content += '                <div class="no-events">No upcoming scheduled events found. Check back soon!</div>\n'
-else:
-    for ev in calendar_events[:6]: # Display up to 6 next events
-        html_content += f"""                <div class="event-card">
-                    <h4>{ev['title']}</h4>
-                    <div class="event-meta">🕒 {ev['when']}</div>
-                    <div class="event-meta">📍 {ev['where']}</div>
                 </div>\n"""
 
 html_content += """            </div>
