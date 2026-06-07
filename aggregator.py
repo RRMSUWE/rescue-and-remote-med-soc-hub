@@ -10,7 +10,7 @@ ARCHIVE_FILE = 'public/archive.json'
 existing_archive = []
 
 # 🛑 CONFIGURATION: Paste your public Google Calendar ID here!
-GOOGLE_CALENDAR_ID = "YOUR_CALENDAR_ID_HERE"
+GOOGLE_CALENDAR_ID = "rescueandremotemedsoc@gmail.com"
 
 tag_map = {
     "Tactical & Fieldcraft": ["raid", "patrol", "fieldcraft", "tactical", "tccc", "tecc", "ballistic", "blast", "austere", "weapon"],
