@@ -9,6 +9,9 @@ import re
 ARCHIVE_FILE = 'public/archive.json'
 existing_archive = []
 
+# 🛑 CONFIGURATION: Paste your public Google Calendar ID here!
+GOOGLE_CALENDAR_ID = "YOUR_CALENDAR_ID_HERE"
+
 tag_map = {
     "Tactical & Fieldcraft": ["raid", "patrol", "fieldcraft", "tactical", "tccc", "tecc", "ballistic", "blast", "austere", "weapon"],
     "Airway & Breathing": ["airway", "intubation", "ventilator", "oxygen", "breathing", "thoracic", "cric", "rsa", "ventilation"],
@@ -18,6 +21,41 @@ tag_map = {
     "Clinical Medicine": ["cardiac", "sepsis", "pharmacology", "ultrasound", "pocus", "diagnosis", "toxicology", "infection", "antibiotic"]
 }
 
+# --- CALENDAR FETCHING LOGIC ---
+calendar_events = []
+if GOOGLE_CALENDAR_ID and GOOGLE_CALENDAR_ID != "rescueandremotemedsoc@gmail.com":
+    try:
+        # Fetching the public XML feed from Google Calendar
+        cal_url = f"https://calendar.google.com/calendar/feeds/{urllib.parse.quote(GOOGLE_CALENDAR_ID)}/public/basic?orderby=starttime&sortorder=ascending&futureevents=true"
+        req = urllib.request.Request(cal_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=10) as response:
+            cal_xml = response.read()
+            cal_root = ET.fromstring(cal_xml)
+            
+            # Atom Namespace handling
+            ns = {'atom': 'http://www.w3.org/2005/Atom'}
+            
+            for entry in cal_root.findall('atom:entry', ns):
+                title = entry.findtext('atom:title', '', ns)
+                summary = entry.findtext('atom:summary', '', ns)
+                
+                # Google embeds the location, date, and times inside the <summary> block text.
+                # Example: "When: Thu Oct 24, 2026 6pm to 8pm&nbsp;BST<br>Where: Room 2X30, UWE Campus"
+                when_match = re.search(r"When:\s*([^<]+)", summary)
+                where_match = re.search(r"Where:\s*([^<]+)", summary)
+                
+                event_when = when_match.group(1).strip() if when_match else "Date/Time TBD"
+                event_where = where_match.group(1).strip().replace("&nbsp;", " ") if where_match else "Location TBD"
+                
+                calendar_events.append({
+                    "title": title,
+                    "when": event_when,
+                    "where": event_where
+                })
+    except Exception as e:
+        print(f"Calendar parsing skipped or offline: {e}")
+
+# --- RSS FEEDS LOGIC ---
 if os.path.exists(ARCHIVE_FILE):
     try:
         with open(ARCHIVE_FILE, 'r', encoding='utf-8') as f:
@@ -42,7 +80,6 @@ def robust_parse_date(date_str):
     except:
         return datetime.now().timestamp(), "Recent"
 
-# INCREASED LIMITS: 300 feeds and 100 items deep to recover your 2000+ pool
 for url in feed_urls[:300]:
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -83,7 +120,7 @@ os.makedirs('public', exist_ok=True)
 with open(ARCHIVE_FILE, 'w', encoding='utf-8') as f:
     json.dump(existing_archive, f, ensure_ascii=False, indent=2)
 
-# --- HTML GENERATION (Same as before but with the correct name) ---
+# --- HTML GENERATION BUILDER ---
 html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -101,6 +138,15 @@ html_content = f"""
         header h1 {{ margin: 0; font-size: 28px; letter-spacing: -0.5px; line-height: 1.2; }}
         header p {{ color: #cbd5e1; margin: 6px 0 0 0; font-size: 15px; font-weight: 500; }}
         @media(max-width: 600px) {{ header {{ flex-direction: column; text-align: center; }} .header-text {{ text-align: center; }} }}
+        
+        /* Calendar Styles */
+        .event-box {{ background: #fff; border: 1px solid #cbd5e1; border-top: 5px solid var(--brand-navy); border-radius: 12px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }}
+        .event-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-top: 15px; }}
+        .event-card {{ background: var(--brand-bg); border-left: 4px solid var(--brand-crimson); padding: 12px 15px; border-radius: 0 8px 8px 0; font-size: 14px; }}
+        .event-card h4 {{ margin: 0 0 6px 0; font-size: 16px; color: var(--brand-navy); font-weight: 700; }}
+        .event-meta {{ color: var(--brand-slate); margin: 3px 0; font-size: 12px; display: flex; align-items: center; gap: 6px; }}
+        .no-events {{ color: var(--brand-slate); font-style: italic; padding: 10px 0; }}
+
         .subheading {{ font-size: 20px; font-weight: bold; color: var(--brand-navy); margin: 35px 0 15px 0; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }}
         .tags-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; max-height: 185px; overflow-y: auto; padding: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; }}
         .tag-pill {{ background: #f1f5f9; color: #475569; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; border: 1px solid #cbd5e1; transition: all 0.15s; user-select: none; }}
@@ -111,7 +157,7 @@ html_content = f"""
         .slots-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }}
         @media(max-width: 768px) {{ .slots-grid {{ grid-template-columns: 1fr; }} }}
         .slot-column {{ background: var(--brand-bg); border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }}
-        .slot-item {{ background: #fff; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #334155; font-weight: 600; }}
+        .slot-item {{ background: #fff; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #334155; font-weight: 600; line-height: 1.4; }}
         .card {{ background: white; padding: 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; gap: 18px; align-items: center; text-decoration: none; color: inherit; border-left: 6px solid var(--brand-slate); }}
         .card.video {{ border-left-color: var(--brand-crimson); }}
         .card.podcast {{ border-left-color: #3b82f6; }}
@@ -138,6 +184,26 @@ html_content = f"""
                 <p>University of the West of England Student Union Branch • Active Pool: {len(existing_archive)} Resources</p>
             </div>
         </header>
+
+        <div class="event-box">
+            <div style="font-weight: 800; font-size: 20px; color: var(--brand-navy); display: flex; align-items: center; gap: 8px;">
+                📅 Upcoming Society Events &amp; Training
+            </div>
+            <div class="event-grid">
+"""
+
+if not calendar_events:
+    html_content += '                <div class="no-events">No upcoming scheduled events found. Check back soon!</div>\n'
+else:
+    for ev in calendar_events[:6]: # Display up to 6 next events
+        html_content += f"""                <div class="event-card">
+                    <h4>{ev['title']}</h4>
+                    <div class="event-meta">🕒 {ev['when']}</div>
+                    <div class="event-meta">📍 {ev['where']}</div>
+                </div>\n"""
+
+html_content += """            </div>
+        </div>
 
         <div class="fruit-machine-box">
             <div class="machine-header">
