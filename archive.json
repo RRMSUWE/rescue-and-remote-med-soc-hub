@@ -1,5 +1,29 @@
 [
   {
+    "title": "Face to face with a tiger | Dr Krithi Karanth",
+    "link": "https://www.youtube.com/shorts/Cce3lhk2SWk",
+    "date_str": "Recent",
+    "timestamp": 1780919515.139535,
+    "type": "video",
+    "tags": []
+  },
+  {
+    "title": "Sudan: ICRC RED aircraft makes first Port Sudan–Khartoum flight since war began",
+    "link": "https://www.icrc.org/en/news-release/sudan-icrc-red-aircraft-makes-first-port-sudan-khartoum-flight",
+    "date_str": "Recent",
+    "timestamp": 1780919469.882795,
+    "type": "blog",
+    "tags": []
+  },
+  {
+    "title": "Podcast 1009: Prevention for Recurrent UTI",
+    "link": "https://emergencymedicalminute.libsyn.com/podcast-1009-prevention-for-recurrent-uti",
+    "date_str": "08 Jun 2026",
+    "timestamp": 1780909200.0,
+    "type": "podcast",
+    "tags": []
+  },
+  {
     "title": "PFC Podcast 282: Blast Lung - Expert Tactics for Blast Lung Injury in Prolonged Field Care",
     "link": "https://www.youtube.com/watch?v=VcU0_Ucubbk",
     "date_str": "Recent",
@@ -24,6 +48,26 @@
     "timestamp": 1780901435.0,
     "type": "blog",
     "tags": []
+  },
+  {
+    "title": "From Frazzle to Flow: Mental Focus, Rehearsal, and Peak Performance in Pre-Hospital Care with Dr Stephen Hearns",
+    "link": "https://podcasters.spotify.com/pod/show/phcp/episodes/From-Frazzle-to-Flow-Mental-Focus--Rehearsal--and-Peak-Performance-in-Pre-Hospital-Care-with-Dr-Stephen-Hearns-e3iddq7",
+    "date_str": "08 Jun 2026",
+    "timestamp": 1780897248.0,
+    "type": "podcast",
+    "tags": [
+      "Airway & Breathing"
+    ]
+  },
+  {
+    "title": "PFC Podcast 282: Blast Lung - Expert Tactics for Blast Lung Injury in Prolonged Field Care",
+    "link": "https://podcasters.spotify.com/pod/show/dennis3211/episodes/PFC-Podcast-282-Blast-Lung---Expert-Tactics-for-Blast-Lung-Injury-in-Prolonged-Field-Care-e3ke4g1",
+    "date_str": "08 Jun 2026",
+    "timestamp": 1780891260.0,
+    "type": "podcast",
+    "tags": [
+      "Tactical & Fieldcraft"
+    ]
   },
   {
     "title": "AI Scribes for Clinical Practice",
