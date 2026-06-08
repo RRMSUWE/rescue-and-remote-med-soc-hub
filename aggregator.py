@@ -28,14 +28,12 @@ if "PASTE_YOUR" not in ICAL_URL:
         with urllib.request.urlopen(req, timeout=10) as response:
             ical_data = response.read().decode('utf-8')
             
-            # Normalize line unfoldings common in iCal formats
             ical_data = ical_data.replace("\r\n ", "").replace("\n ", "")
             
             events = ical_data.split("BEGIN:VEVENT")
             for e in events[1:]:
                 title_match = re.search(r"SUMMARY:(.*)", e)
                 
-                # Extract Start and End properties
                 start_match = re.search(r"DTSTART(?:;VALUE=DATE)?:(\d+T\d+Z?)", e)
                 if not start_match:
                     start_match = re.search(r"DTSTART;VALUE=DATE:(\d+)", e)
@@ -50,20 +48,16 @@ if "PASTE_YOUR" not in ICAL_URL:
                 if title_match and start_match:
                     raw_start = start_match.group(1)
                     
-                    # 🛑 AUTOMATIC PAST EVENT FILTER
-                    # Check if the event date string (YYYYMMDD) is older than today
                     today_str = datetime.now().strftime("%Y%m%d")
                     if raw_start[:8] < today_str:
-                        continue  # Skip old events completely and proceed to the next one
+                        continue
                     
-                    # 1. Process Start Date and Time
                     date_str = f"{raw_start[6:8]}/{raw_start[4:6]}/{raw_start[0:4]}"
                     
                     time_start_str = ""
                     if 'T' in raw_start:
                         time_start_str = f" {raw_start[9:11]}:{raw_start[11:13]}"
                     
-                    # 2. Process End Date and Time (Checking if it crosses midnight)
                     time_end_str = ""
                     if end_match:
                         raw_end = end_match.group(1)
@@ -78,7 +72,6 @@ if "PASTE_YOUR" not in ICAL_URL:
                             if date_str != end_date_str:
                                 time_end_str = f" until {end_date_str}"
 
-                    # Clean description field safely
                     raw_desc = desc_match.group(1).strip() if desc_match else ""
                     clean_desc = raw_desc.replace('\\n', ' ').replace('\\,', ',').replace('\\', '')
                     if len(clean_desc) > 120:
@@ -192,13 +185,21 @@ html_content = f"""
         .tags-container {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; max-height: 185px; overflow-y: auto; padding: 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; }}
         .tag-pill {{ background: #f1f5f9; color: #475569; padding: 6px 14px; font-size: 13px; font-weight: 600; border-radius: 20px; cursor: pointer; border: 1px solid #cbd5e1; transition: all 0.15s; user-select: none; }}
         .tag-pill.active {{ background: var(--brand-navy); color: white; border-color: var(--brand-navy); }}
-        .fruit-machine-box {{ background: #fff; border: 3px dashed var(--brand-crimson); border-radius: 12px; padding: 25px; margin-bottom: 30px; }}
+        
+        .fruit-machine-box {{ background: #fff; border: 3px dashed var(--brand-crimson); border-radius: 12px; padding: 25px; margin-bottom: 25px; }}
         .machine-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }}
         .spin-btn {{ background: var(--brand-crimson); color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; }}
         .slots-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }}
         @media(max-width: 768px) {{ .slots-grid {{ grid-template-columns: 1fr; }} }}
         .slot-column {{ background: var(--brand-bg); border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }}
         .slot-item {{ background: #fff; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1px solid #e2e8f0; font-size: 13px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #334155; font-weight: 600; line-height: 1.4; }}
+        
+        /* Merch Box Styles */
+        .merch-box {{ background: #fff; border: 1px solid #cbd5e1; border-top: 5px solid var(--brand-crimson); border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }}
+        .merch-banner-link {{ display: block; width: 100%; border-radius: 8px; overflow: hidden; margin-top: 15px; border: 1px solid #e2e8f0; transition: transform 0.2s, box-shadow 0.2s; }}
+        .merch-banner-link:hover {{ transform: scale(1.008); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }}
+        .merch-banner-img {{ width: 100%; height: auto; display: block; }}
+
         .card {{ background: white; padding: 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; gap: 18px; align-items: center; text-decoration: none; color: inherit; border-left: 6px solid var(--brand-slate); }}
         .card.video {{ border-left-color: var(--brand-crimson); }}
         .card.podcast {{ border-left-color: #3b82f6; }}
@@ -258,6 +259,15 @@ html_content += """            </div>
                 <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">🎙️ 3x Podcasts</div><div id="podcast-slots"></div></div>
                 <div class="slot-column"><div style="font-weight:bold; font-size:12px; margin-bottom:12px; color:var(--brand-slate);">📰 3x Articles</div><div id="blog-slots"></div></div>
             </div>
+        </div>
+
+        <div class="merch-box">
+            <div style="font-weight: 800; font-size: 20px; color: var(--brand-navy); display: flex; align-items: center; gap: 8px;">
+                👕 Official Society Kit &amp; Merchandise
+            </div>
+            <a href="https://rescue-and-remote-medicine-society-shop.fourthwall.com/en-gbp" target="_blank" class="merch-banner-link" title="Click to open the RRMS Merch Store">
+                <img src="merch_store.png" class="merch-banner-img" alt="Rescue &amp; Remote Medicine Society Storefront Kit Preview">
+            </a>
         </div>
 
         <div class="subheading">Search Archive</div>
