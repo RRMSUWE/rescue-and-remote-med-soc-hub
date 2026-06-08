@@ -121,7 +121,7 @@ def robust_parse_date(date_str):
     except:
         return datetime.now().timestamp(), "Recent"
 
-for url in feed_urls[:300]:
+for url in feed_urls[:500]:
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=15) as response:
