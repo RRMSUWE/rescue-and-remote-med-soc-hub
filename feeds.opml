@@ -52,6 +52,7 @@
       <outline text="https://www.who.int/news" title="https://www.who.int/news" type="rss" xmlUrl="https://www.who.int/news" htmlUrl="https://www.who.int/news"/>
     </outline>
     <outline text="Tactical Medicine" title="Tactical Medicine">
+      <outline text="Iqarus" title="Iqarus" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCWxTMQ2JmSNklxytohfdwhA" htmlUrl="https://www.youtube.com/channel/UCWxTMQ2JmSNklxytohfdwhA"/>
       <outline text="Crisis Medicine" title="Crisis Medicine" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCKDh6xqsHjnYmWV056jVlNw" htmlUrl="https://www.youtube.com/channel/UCKDh6xqsHjnYmWV056jVlNw"/>
       <outline text="PrepMedic" title="PrepMedic" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCVhScPcuVSTlxwpsq1H_KKw" htmlUrl="https://www.youtube.com/channel/UCVhScPcuVSTlxwpsq1H_KKw"/>
       <outline text="Special Operations Medical Association" title="Special Operations Medical Association" type="rss" xmlUrl="https://rss.libsyn.com/shows/53382/destinations/193742.xml" htmlUrl="http://www.pfcare.org/"/>
@@ -61,6 +62,7 @@
       <outline text="Prolonged Field Care Collective" title="Prolonged Field Care Collective" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC56ZxWp_y3mZCnSZ7_E3r8g" htmlUrl="https://www.youtube.com/channel/UC56ZxWp_y3mZCnSZ7_E3r8g"/>
     </outline>
     <outline text="Paramedicine" title="Paramedicine">
+      <outline text="CPDme Portfolio Building Made Easy" title="CPDme Portfolio Building Made Easy" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCcOsRYCk3CU79alYkxhs2Sg" htmlUrl="https://www.youtube.com/channel/UCcOsRYCk3CU79alYkxhs2Sg"/>
       <outline text="PARAMEDICAST" title="PARAMEDICAST" type="rss" xmlUrl="https://anchor.fm/s/6c434560/podcast/rss" htmlUrl="https://podcasters.spotify.com/pod/show/paramedicast"/>
       <outline text="LITFL" title="LITFL" type="rss" xmlUrl="https://litfl.com/feed/" htmlUrl="https://litfl.com/"/>
       <outline text="Paramedic Insight Podcast:" title="Paramedic Insight Podcast:" type="rss" xmlUrl="https://anchor.fm/s/1a4c3618/podcast/rss" htmlUrl="https://collegeofparamedics.co.uk/"/>
@@ -71,6 +73,7 @@
       <outline text="EMS 20/20" title="EMS 20/20" type="rss" xmlUrl="https://feeds.simplecast.com/U094k604" htmlUrl="https://ems-20-20.simplecast.com/"/>
     </outline>
     <outline text="Medicine" title="Medicine">
+      <outline text="TBS Zermatt" title="TBS Zermatt" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCfkvK1O6LZgvEkCsLZQahtw" htmlUrl="https://www.youtube.com/channel/UCfkvK1O6LZgvEkCsLZQahtw"/>
       <outline text="Dr. Matt and Dr. Mike's Medical Podcast" title="Dr. Matt and Dr. Mike's Medical Podcast" type="rss" xmlUrl="https://feeds.acast.com/public/shows/6346406af597f100112fd185" htmlUrl="https://drmattdrmike.com.au/podcast/"/>
       <outline text="Critical Care Scenarios" title="Critical Care Scenarios" type="rss" xmlUrl="https://icuscenarios.com/feed/podcast/" htmlUrl="https://icuscenarios.com/"/>
       <outline text="Ninja Nerd" title="Ninja Nerd" type="rss" xmlUrl="https://rss.buzzsprout.com/1945655.rss" htmlUrl="https://www.ninjanerd.org/"/>
