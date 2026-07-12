@@ -1,5 +1,55 @@
 [
   {
+    "title": "The biggest assumption challenged on my journeys | Bruce Parry",
+    "link": "https://www.youtube.com/shorts/HhSRNgwEOFU",
+    "date_str": "Recent",
+    "timestamp": 1783827151.403481,
+    "type": "video",
+    "tags": []
+  },
+  {
+    "title": "Job Applications as CPD - CPDme Top Tips",
+    "link": "https://www.youtube.com/watch?v=fhTw9eJZCuY",
+    "date_str": "Recent",
+    "timestamp": 1783827137.003363,
+    "type": "video",
+    "tags": []
+  },
+  {
+    "title": "✅ One Day to Elevate Your CPD Portfolio",
+    "link": "https://www.youtube.com/shorts/ru8iUTtj6HU",
+    "date_str": "Recent",
+    "timestamp": 1783827137.003329,
+    "type": "video",
+    "tags": []
+  },
+  {
+    "title": "Silva TYP 1933 Compass - Features - Instructions - Review",
+    "link": "https://www.youtube.com/watch?v=6_8MlV2kVzU",
+    "date_str": "Recent",
+    "timestamp": 1783827127.956637,
+    "type": "video",
+    "tags": []
+  },
+  {
+    "title": "Cholinergic Toxidrome",
+    "link": "https://podcasters.spotify.com/pod/show/josh-barker01/episodes/Cholinergic-Toxidrome-e3lv1s7",
+    "date_str": "11 Jul 2026",
+    "timestamp": 1783799576.0,
+    "type": "podcast",
+    "tags": []
+  },
+  {
+    "title": "EMDR Therapy: An Evidence-Based Approach to Trauma with Dr Abigail Pamich",
+    "link": "https://podcasters.spotify.com/pod/show/phcp/episodes/EMDR-Therapy-An-Evidence-Based-Approach-to-Trauma-with-Dr-Abigail-Pamich-e3lulbt",
+    "date_str": "11 Jul 2026",
+    "timestamp": 1783768316.0,
+    "type": "podcast",
+    "tags": [
+      "Trauma & Bleeding"
+    ]
+  },
+  {
     "title": "WEM26: Where the World's Most Adventurous Medical Minds Meet",
     "link": "https://www.youtube.com/watch?v=9c7PRntjRaY",
     "date_str": "Recent",
@@ -364,6 +414,16 @@
     ]
   },
   {
+    "title": "203-Austere Primary Care Webinar",
+    "link": "https://podcasters.spotify.com/pod/show/corom-foundation/episodes/203-Austere-Primary-Care-Webinar-e3lcp1h",
+    "date_str": "10 Jul 2026",
+    "timestamp": 1783674000.0,
+    "type": "podcast",
+    "tags": [
+      "Tactical & Fieldcraft"
+    ]
+  },
+  {
     "title": "Anatomy for bronchoscopy",
     "link": "https://litfl.com/bronchoscopic-anatomy/",
     "date_str": "10 Jul 2026",
@@ -382,6 +442,20 @@
       "Lymph Nodes",
       "Respiratory",
       "Larynx"
+    ]
+  },
+  {
+    "title": "De Quervain disease",
+    "link": "https://litfl.com/de-quervain-disease/",
+    "date_str": "10 Jul 2026",
+    "timestamp": 1783659300.0,
+    "type": "blog",
+    "tags": [
+      "Orthopaedics",
+      "Eponymictionary",
+      "De Quervain Disease",
+      "Fritz De Quervain",
+      "Tenosynovitis"
     ]
   },
   {
@@ -506,6 +580,22 @@
     "timestamp": 1783481135.928471,
     "type": "blog",
     "tags": []
+  },
+  {
+    "title": "Finkelstein Test",
+    "link": "https://litfl.com/finkelstein-test/",
+    "date_str": "08 Jul 2026",
+    "timestamp": 1783470900.0,
+    "type": "blog",
+    "tags": [
+      "Orthopaedics",
+      "Eponymictionary",
+      "Eichhoff Test",
+      "Harry Finkelstein",
+      "De Quervain Disease",
+      "Finkelstein Test",
+      "Fritz De Quervain"
+    ]
   },
   {
     "title": "Haemoptysis",
