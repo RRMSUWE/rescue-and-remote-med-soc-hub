@@ -4,6 +4,8 @@
     <title>Feeds of rescueandremotemedsoc from Inoreader [https://www.inoreader.com]</title>
   </head>
   <body>
+    <outline text="KeyLIME" title="KeyLIME" type="rss" xmlUrl="https://keylimepodcast.libsyn.com/rss" htmlUrl="https://keylimepodcast.com/"/>
+    <outline text="Tactical Alpinism" title="Tactical Alpinism" type="rss" xmlUrl="https://anchor.fm/s/f9f07bbc/podcast/rss" htmlUrl="https://www.tacticalalpinism.com/"/>
     <outline text="Technical Rescue" title="Technical Rescue">
       <outline text="Urban Search &amp; Rescue" title="Urban Search &amp; Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLkSF-_PP0nXUcp05NlfTCbdudrDYNVH25" htmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLkSF-_PP0nXUcp05NlfTCbdudrDYNVH25"/>
       <outline text="Rescue 3 International" title="Rescue 3 International" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC0_SL9hyWmhDnh5upqnuxVg" htmlUrl="https://www.youtube.com/channel/UC0_SL9hyWmhDnh5upqnuxVg"/>
