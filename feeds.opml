@@ -4,8 +4,6 @@
     <title>Feeds of rescueandremotemedsoc from Inoreader [https://www.inoreader.com]</title>
   </head>
   <body>
-    <outline text="KeyLIME" title="KeyLIME" type="rss" xmlUrl="https://keylimepodcast.libsyn.com/rss" htmlUrl="https://keylimepodcast.com/"/>
-    <outline text="Tactical Alpinism" title="Tactical Alpinism" type="rss" xmlUrl="https://anchor.fm/s/f9f07bbc/podcast/rss" htmlUrl="https://www.tacticalalpinism.com/"/>
     <outline text="Technical Rescue" title="Technical Rescue">
       <outline text="Urban Search &amp; Rescue" title="Urban Search &amp; Rescue" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLkSF-_PP0nXUcp05NlfTCbdudrDYNVH25" htmlUrl="https://www.youtube.com/feeds/videos.xml?playlist_id=PLkSF-_PP0nXUcp05NlfTCbdudrDYNVH25"/>
       <outline text="Rescue 3 International" title="Rescue 3 International" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC0_SL9hyWmhDnh5upqnuxVg" htmlUrl="https://www.youtube.com/channel/UC0_SL9hyWmhDnh5upqnuxVg"/>
@@ -55,6 +53,7 @@
       <outline text="https://www.who.int/news" title="https://www.who.int/news" type="rss" xmlUrl="https://www.who.int/news" htmlUrl="https://www.who.int/news"/>
     </outline>
     <outline text="Tactical Medicine" title="Tactical Medicine">
+      <outline text="Tactical Alpinism" title="Tactical Alpinism" type="rss" xmlUrl="https://anchor.fm/s/f9f07bbc/podcast/rss" htmlUrl="https://www.tacticalalpinism.com/"/>
       <outline text="Iqarus" title="Iqarus" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCWxTMQ2JmSNklxytohfdwhA" htmlUrl="https://www.youtube.com/channel/UCWxTMQ2JmSNklxytohfdwhA"/>
       <outline text="Crisis Medicine" title="Crisis Medicine" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCKDh6xqsHjnYmWV056jVlNw" htmlUrl="https://www.youtube.com/channel/UCKDh6xqsHjnYmWV056jVlNw"/>
       <outline text="PrepMedic" title="PrepMedic" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCVhScPcuVSTlxwpsq1H_KKw" htmlUrl="https://www.youtube.com/channel/UCVhScPcuVSTlxwpsq1H_KKw"/>
@@ -65,6 +64,15 @@
       <outline text="Prolonged Field Care Collective" title="Prolonged Field Care Collective" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC56ZxWp_y3mZCnSZ7_E3r8g" htmlUrl="https://www.youtube.com/channel/UC56ZxWp_y3mZCnSZ7_E3r8g"/>
     </outline>
     <outline text="Paramedicine" title="Paramedicine">
+      <outline text="Medic Mindset" title="Medic Mindset" type="rss" xmlUrl="https://medicmindsetpodcast.libsyn.com/rss" htmlUrl="http://www.medicmindset.com/"/>
+      <outline text="Medic Materials Podcast" title="Medic Materials Podcast" type="rss" xmlUrl="https://feeds.simplecast.com/WIwJcksZ" htmlUrl="https://medic-materials-podcast.simplecast.com/"/>
+      <outline text="Nine One One Nonsense" title="Nine One One Nonsense" type="rss" xmlUrl="https://anchor.fm/s/d937b5d4/podcast/rss" htmlUrl="https://samspursuit.my.canva.site/"/>
+      <outline text="Alert Medic 1" title="Alert Medic 1" type="rss" xmlUrl="https://anchor.fm/s/eb475e78/podcast/rss" htmlUrl="http://alertmedic1.com/"/>
+      <outline text="Coffee Break HEMS Podcast" title="Coffee Break HEMS Podcast" type="rss" xmlUrl="https://anchor.fm/s/122e4d90/podcast/rss" htmlUrl="https://www.kisercpr.com/"/>
+      <outline text="Heavy Lies the Helmet" title="Heavy Lies the Helmet" type="rss" xmlUrl="https://heavyliesthehelmet.libsyn.com/rss" htmlUrl="http://heavyliesthehelmet.com/"/>
+      <outline text="The EMS Lighthouse Project" title="The EMS Lighthouse Project" type="rss" xmlUrl="https://feeds.transistor.fm/the-ems-lighthouse-project" htmlUrl="http://www.flightbridgeed.com/"/>
+      <outline text="EMCrit FOAM Feed" title="EMCrit FOAM Feed" type="rss" xmlUrl="https://feeds.captivate.fm/emcritfoam/" htmlUrl="http://emcrit.org/"/>
+      <outline text="PCHD EMS Podcast" title="PCHD EMS Podcast" type="rss" xmlUrl="https://media.rss.com/pchdemspodcast/feed.xml" htmlUrl="https://rss.com/podcasts/pchdemspodcast"/>
       <outline text="Prehospital Paradigm" title="Prehospital Paradigm" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCcsOP43HVnXT_DbmjktMgHQ" htmlUrl="https://www.youtube.com/channel/UCcsOP43HVnXT_DbmjktMgHQ"/>
       <outline text="CPDme Portfolio Building Made Easy" title="CPDme Portfolio Building Made Easy" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCcOsRYCk3CU79alYkxhs2Sg" htmlUrl="https://www.youtube.com/channel/UCcOsRYCk3CU79alYkxhs2Sg"/>
       <outline text="PARAMEDICAST" title="PARAMEDICAST" type="rss" xmlUrl="https://anchor.fm/s/6c434560/podcast/rss" htmlUrl="https://podcasters.spotify.com/pod/show/paramedicast"/>
@@ -77,6 +85,8 @@
       <outline text="EMS 20/20" title="EMS 20/20" type="rss" xmlUrl="https://feeds.simplecast.com/U094k604" htmlUrl="https://ems-20-20.simplecast.com/"/>
     </outline>
     <outline text="Medicine" title="Medicine">
+      <outline text="Geeky Medics" title="Geeky Medics" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCkjnrEHQ8bQQmlfNdAQC_5w" htmlUrl="https://www.youtube.com/channel/UCkjnrEHQ8bQQmlfNdAQC_5w/videos"/>
+      <outline text="KeyLIME" title="KeyLIME" type="rss" xmlUrl="https://keylimepodcast.libsyn.com/rss" htmlUrl="https://keylimepodcast.com/"/>
       <outline text="ABCs of Anaesthesia" title="ABCs of Anaesthesia" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCs1fy2n5Ey0c9VZRBL7UCsg" htmlUrl="https://www.youtube.com/channel/UCs1fy2n5Ey0c9VZRBL7UCsg"/>
       <outline text="TBS Zermatt" title="TBS Zermatt" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCfkvK1O6LZgvEkCsLZQahtw" htmlUrl="https://www.youtube.com/channel/UCfkvK1O6LZgvEkCsLZQahtw"/>
       <outline text="Dr. Matt and Dr. Mike's Medical Podcast" title="Dr. Matt and Dr. Mike's Medical Podcast" type="rss" xmlUrl="https://feeds.acast.com/public/shows/6346406af597f100112fd185" htmlUrl="https://drmattdrmike.com.au/podcast/"/>
