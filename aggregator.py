@@ -166,7 +166,9 @@ html_content = f"""
         :root {{ --brand-navy: #0f223d; --brand-crimson: #cf2027; --brand-crimson-hover: #b0181e; --brand-bg: #f5f7fa; --brand-slate: #475569; }}
         body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--brand-bg); color: #222; margin: 0; padding: 20px; }}
         .container {{ max-width: 950px; margin: 0 auto; }}
-        header {{ display: flex; align-items: center; justify-content: center; gap: 25px; margin-bottom: 30px; background: var(--brand-navy); color: white; padding: 35px 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(15, 34, 61, 0.15); }}
+        header {{ display: flex; align-items: center; justify-content: center; gap: 25px; margin-bottom: 30px; background: var(--brand-navy); color: white; padding: 35px 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(15, 34, 61, 0.15); position: relative; }}
+        .linktree-link {{ position: absolute; top: 12px; right: 16px; color: #cbd5e1; font-size: 12px; text-decoration: none; font-weight: 600; letter-spacing: 0.3px; opacity: 0.8; transition: opacity 0.2s; }}
+        .linktree-link:hover {{ opacity: 1; color: white; }}
         .header-logo {{ width: 110px; height: 110px; border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,255,255,0.1); flex-shrink: 0; }}
         .header-text {{ text-align: left; }}
         header h1 {{ margin: 0; font-size: 28px; letter-spacing: -0.5px; line-height: 1.2; }}
@@ -219,7 +221,8 @@ html_content = f"""
 </head>
 <body>
     <div class="container">
-        <header>
+                <header>
+            <a href="https://linktr.ee/rescueandremotemedsoc" target="_blank" class="linktree-link">← Back to Linktree</a>
             <img class="header-logo" src="logo.png" alt="RRMS UWE Logo">
             <div class="header-text">
                 <h1>Rescue &amp; Remote Medicine Society Resource Hub</h1>
