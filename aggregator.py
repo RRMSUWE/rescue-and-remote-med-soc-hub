@@ -226,7 +226,7 @@ html_content = f"""
             <img class="header-logo" src="logo.png" alt="RRMS UWE Logo">
             <div class="header-text">
                 <h1>Rescue &amp; Remote Medicine Society Resource Hub</h1>
-                <p>University of the West of England Student Union Branch • Active Pool: {len(existing_archive)} Resources</p>
+                <p>University of the West of England Student Union • Active Pool: {len(existing_archive)} Resources</p>
             </div>
         </header>
 
