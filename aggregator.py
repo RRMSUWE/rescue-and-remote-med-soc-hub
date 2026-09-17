@@ -232,7 +232,7 @@ html_content = f"""
 
         <div class="event-box">
             <div style="font-weight: 800; font-size: 20px; color: var(--brand-navy); display: flex; align-items: center; gap: 8px;">
-                📅 Upcoming Society Events &amp; Training
+                📅 Upcoming Society Events &amp; Training - See Students' Union for Tickets
             </div>
             <div class="event-grid">
 """
