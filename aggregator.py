@@ -266,7 +266,7 @@ html_content += """            </div>
 
         <div class="merch-box">
             <div style="font-weight: 800; font-size: 20px; color: var(--brand-navy); display: flex; align-items: center; gap: 8px;">
-                👕 Official Society Kit &amp; Merchandise coming soon
+                👕 Official Society Kit &amp; Merchandise ... coming soon
             </div>
             <a href="https://www.thestudentsunion.co.uk/organisation/rrms/" target="_blank" class="merch-banner-link" title="Click to Order RRMS Merch">
                 <img src="merch_store.png" class="merch-banner-img" alt="Rescue &amp; Remote Medicine Society Storefront Kit Preview">
